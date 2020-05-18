@@ -5,7 +5,8 @@
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
-		"start": "next start -p 80"
+		"start": "next start -p 80",
+		"server-start": "npx pm2 start npm --name \"next\" -- start"
 	},
 	"dependencies": {
 		"classnames": "^2.2.6",
