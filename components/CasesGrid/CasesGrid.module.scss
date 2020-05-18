@@ -1,0 +1,98 @@
+.CasesGrid {
+	width: 70vw;
+
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+
+	.case-item {
+		width: 32vw;
+		height: 19vw;
+		background: #d9dada;
+
+		margin-bottom: 3vw;
+
+		position: relative;
+
+		.head {
+			height: 4vw;
+			line-height: 4vw;
+
+			text-align: left;
+
+			background: linear-gradient(180deg, #001c70 0%, #0c0047 100%);
+
+			position: relative;
+
+			.tm {
+				position: absolute;
+
+				width: 4vw;
+				right: -0.2vw;
+				top: -0.5vw;
+			}
+
+			.label {
+				color: #fff;
+
+				margin-left: 1vw;
+				font-size: 1.3vw;
+
+				font-weight: bold;
+			}
+		}
+
+		.price {
+			padding: 0.4vw 0.8vw;
+
+			font-size: 1.5vw;
+
+			border-radius: 0.5vw;
+
+			position: absolute;
+			bottom: 0.6vw;
+			right: 1vw;
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.CasesGrid {
+		width: 840px;
+
+		.case-item {
+			width: 384px;
+			height: 228px;
+
+			margin-bottom: 36px;
+
+			.head {
+				height: 48px;
+				line-height: 48px;
+
+				.tm {
+					width: 48px;
+					right: -2.4px;
+					top: -6px;
+				}
+
+				.label {
+					margin-left: 12px;
+					font-size: 15.6px;
+				}
+			}
+
+			.price {
+				padding: 4.8px 9.6px;
+
+				font-size: 18px;
+
+				border-radius: 6px;
+
+				bottom: 7.2px;
+				right: 12px;
+			}
+		}
+	}
+}

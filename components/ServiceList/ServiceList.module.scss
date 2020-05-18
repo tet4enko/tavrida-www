@@ -1,0 +1,106 @@
+.ServiceList {
+	color: var(--main-header-color);
+
+	.caption {
+		font-size: 55px;
+
+		margin: 80px 0;
+	}
+
+	.btn {
+		padding: 8px 17px;
+
+		font-size: 31px;
+
+		border-radius: 10px;
+
+		&.order {
+			margin-left: 25px;
+
+			background-color: #fbca0e;
+		}
+
+		&.get_price {
+			color: #fff;
+
+			background-color: #001c70;
+		}
+	}
+
+	.service {
+		display: flex;
+
+		margin-bottom: 5vw;
+
+		.left,
+		.right {
+			width: 50%;
+			flex: 1;
+		}
+
+		.left {
+			display: flex;
+			align-items: center;
+
+			.wrapper {
+				background: var(--main-background);
+
+				z-index: 2;
+
+				padding: 30px 0;
+			}
+		}
+
+		.name {
+			font-size: 4.2vw;
+			font-family: GlebastaFontBig;
+			margin-bottom: 1vw;
+		}
+
+		.text {
+			width: 80%;
+
+			display: inline-block;
+
+			font-size: 1.3vw;
+		}
+
+		.pic-wrapper {
+			height: 18vw;
+			min-height: 216px;
+
+			margin-bottom: 1vw;
+
+			position: relative;
+
+			.pic {
+				max-width: 75%;
+				max-height: 100%;
+
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.ServiceList .service {
+		.name {
+			font-size: 50.4px;
+			margin-bottom: 12px;
+		}
+
+		.text {
+			font-size: 15.6px;
+		}
+
+		.pic-wrapper {
+			margin-bottom: 12px;
+		}
+	}
+}

@@ -1,0 +1,47 @@
+.Zamer {
+	color: var(--main-header-color);
+
+	.top {
+		display: inline-flex;
+	}
+
+	.ogovorka {
+		display: block;
+
+		font-size: 19px;
+		margin-top: 20px;
+	}
+
+	.caption1 {
+		font-size: 47px;
+		margin-top: 60px;
+		margin-bottom: 15px;
+
+		font-family: GlebastaExtraBold;
+	}
+
+	.caption2 {
+		width: 250px;
+		display: inline-block;
+		font-size: 23px;
+	}
+
+	.call-pic {
+		margin-left: 60px;
+	}
+
+	.call {
+		margin-top: 30px;
+
+		padding: 10px 27px;
+
+		font-size: 42px;
+		font-family: GlebastaFontBig;
+
+		border-radius: 17px;
+
+		color: var(--main-header-color);
+
+		background-color: #fbca0e;
+	}
+}

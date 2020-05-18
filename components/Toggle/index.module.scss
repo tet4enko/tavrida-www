@@ -1,0 +1,22 @@
+.toggle {
+	width: 40px;
+	height: 40px;
+
+	border: none;
+
+	border-radius: 100%;
+
+	background-repeat: no-repeat;
+	background-size: contain;
+
+	cursor: pointer;
+
+	&.tg-left {
+		margin-right: 20px;
+		background-image: url("./pics/Кнопка1.png");
+	}
+
+	&.tg-right {
+		background-image: url("./pics/Кнопка2.png");
+	}
+}

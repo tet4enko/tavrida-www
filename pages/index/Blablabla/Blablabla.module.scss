@@ -1,0 +1,58 @@
+.Blablabla {
+	.text {
+		color: var(--main-header-color);
+
+		width: 55vw;
+		min-width: 800px;
+
+		display: inline-block;
+
+		font-size: 1.7vw;
+
+		position: relative;
+
+		&:before {
+			content: " ";
+
+			position: absolute;
+
+			width: 15vw;
+			height: 30vw;
+
+			min-width: 180px;
+			min-height: 360px;
+
+			background-image: url("./left.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+
+			bottom: 0;
+			right: 100%;
+		}
+
+		&:after {
+			content: " ";
+
+			position: absolute;
+
+			width: 15vw;
+			height: 30vw;
+
+			min-width: 180px;
+			min-height: 360px;
+
+			background-image: url("./right.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+
+			top: -100px;
+			left: 100%;
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.Blablabla .text {
+		font-size: 24px;
+	}
+}

@@ -1,0 +1,168 @@
+@keyframes shake {
+	0% {
+		transform: translate(0px, 1px);
+	}
+	10% {
+		transform: translate(0px, -2px);
+	}
+	20% {
+		transform: translate(0px, 0px);
+	}
+	30% {
+		transform: translate(0px, 2px);
+	}
+	40% {
+		transform: translate(0px, -1px);
+	}
+	50% {
+		transform: translate(0px, 2px);
+	}
+	60% {
+		transform: translate(0px, 1px);
+	}
+	70% {
+		transform: translate(0px, 1px);
+	}
+	80% {
+		transform: translate(0px, -1px);
+	}
+	90% {
+		transform: translate(0px, 2px);
+	}
+	100% {
+		transform: translate(0px, 1px);
+	}
+}
+
+.Web {
+	.main-header {
+		margin: 3vw 0 2vw 0;
+
+		font-size: 2vw;
+		font-weight: bold;
+
+		color: var(--main-header-color);
+	}
+
+	.lol-text {
+		display: inline-block;
+
+		width: 70vw;
+
+		&.left {
+			text-align: left;
+		}
+
+		&.right {
+			text-align: right;
+		}
+	}
+
+	.banner {
+		width: 50vw;
+
+		margin-top: 2vw;
+
+		&.last {
+			margin-bottom: 2vw;
+		}
+	}
+
+	.simple-pic {
+		width: 70vw;
+	}
+
+	.roboeb:hover,
+	.roboeb:focus {
+		animation-name: shake;
+		animation-duration: 2s;
+		transform-origin: 50% 50%;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+
+	.stages {
+		width: 1200px;
+
+		left: 0;
+		right: 0;
+
+		margin: auto;
+
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+
+		position: relative;
+
+		.stage {
+			width: 40%;
+
+			list-style: none;
+
+			position: relative;
+
+			color: #fff;
+
+			margin-bottom: 20px;
+
+			.back {
+				width: 100%;
+			}
+
+			.label {
+				position: absolute;
+
+				top: 36%;
+				left: 0;
+				right: 0;
+
+				margin: auto;
+
+				font-family: GlebastaExtraBold;
+				font-size: 30px;
+			}
+
+			.text {
+				position: absolute;
+
+				top: 55%;
+				left: 0;
+				right: 0;
+
+				width: 70%;
+
+				margin: auto;
+
+				font-size: 17px;
+
+				line-height: 160%;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.Web {
+		.main-header {
+			margin: 36px 0 24px 0;
+
+			font-size: 24px;
+		}
+
+		.simple-pic,
+		.lol-text {
+			width: 840px;
+		}
+
+		.banner {
+			width: 600px;
+
+			margin-top: 24px;
+
+			&.last {
+				margin-bottom: 24px;
+			}
+		}
+	}
+}

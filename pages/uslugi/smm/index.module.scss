@@ -1,0 +1,264 @@
+.FuckingSmm {
+	position: relative;
+
+	.big {
+		width: 100vw;
+
+		min-width: var(--content-min-width);
+	}
+
+	.header {
+		position: absolute;
+
+		top: 12vw;
+		left: 13vw;
+
+		color: #0c0047;
+
+		.top,
+		.bottom {
+			font-family: GlebastaBetina;
+
+			display: block;
+		}
+
+		.top {
+			text-align: left;
+
+			font-size: 2.5vw;
+		}
+
+		.bottom {
+			text-align: right;
+
+			font-size: 2.2vw;
+		}
+
+		.middle {
+			background: #fbca0e;
+
+			margin: 0;
+
+			padding: 1vw 1.8vw;
+
+			border-radius: 0.7vw;
+
+			font-size: 2.8vw;
+			font-weight: bold;
+		}
+	}
+
+	.comps {
+		.comp {
+			display: none;
+
+			&.visible {
+				display: initial;
+			}
+		}
+	}
+
+	.case {
+		position: relative;
+		left: 15vw;
+
+		margin-top: 2vw;
+
+		padding: 1vw 1.5vw;
+
+		border-radius: 1vw;
+
+		font-size: 2.5vw;
+	}
+
+	.case-wrapper {
+		text-align: left;
+	}
+
+	.main-header {
+		margin: 3vw 0 2vw 0;
+
+		font-size: 2vw;
+		font-weight: bold;
+
+		color: var(--main-header-color);
+	}
+
+	.simple-pic {
+		width: 70vw;
+	}
+
+	.values {
+		background: linear-gradient(180deg, #001c70 0%, #0c0047 100%);
+
+		padding: 2vw 0;
+
+		margin-top: 3vw;
+
+		.label {
+			font-size: 1.7vw;
+			font-weight: bold;
+
+			margin: 0;
+
+			color: #fff;
+		}
+
+		.items {
+			width: 65vw;
+
+			position: relative;
+
+			margin-top: 1.5vw;
+
+			display: inline-flex;
+			justify-content: space-between;
+
+			color: #fff;
+
+			.item {
+				.pic {
+					width: 2vw;
+				}
+
+				.text {
+					vertical-align: bottom;
+
+					margin-left: 0.4vw;
+
+					font-size: 1.1vw;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+
+	.your-case {
+		font-size: 2.5vw;
+	}
+
+	.boy,
+	.girl {
+		position: absolute;
+	}
+
+	.boy {
+		bottom: 0;
+		left: 15vw;
+
+		height: 8vw;
+	}
+
+	.girl {
+		bottom: -5vw;
+		right: 15vw;
+
+		height: 16vw;
+
+		z-index: 1;
+	}
+
+	.GetSite {
+		margin-bottom: 11vw;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.FuckingSmm {
+		.big {
+			width: 1200px;
+		}
+
+		.GetSite {
+			margin-bottom: 132px;
+		}
+
+		.header {
+			top: 144px;
+			left: 156px;
+
+			.top {
+				font-size: 30px;
+			}
+
+			.bottom {
+				font-size: 26.4px;
+			}
+
+			.middle {
+				padding: 12px 21.6px;
+
+				border-radius: 8.4px;
+
+				font-size: 33.6px;
+			}
+		}
+
+		.case {
+			left: 180px;
+
+			margin-top: 24px;
+
+			padding: 12px 18px;
+
+			border-radius: 12px;
+
+			font-size: 30px;
+		}
+
+		.main-header {
+			margin: 36px 0 24px 0;
+
+			font-size: 24px;
+		}
+
+		.simple-pic {
+			width: 840px;
+		}
+
+		.values {
+			padding: 24px 0;
+
+			margin-top: 36px;
+
+			.label {
+				font-size: 20.4px;
+			}
+
+			.items {
+				width: 780px;
+
+				margin-top: 18px;
+
+				.item {
+					.pic {
+						width: 24px;
+					}
+
+					.text {
+						margin-left: 4.8px;
+
+						font-size: 13.2px;
+					}
+				}
+			}
+		}
+
+		.your-case {
+			font-size: 30px;
+		}
+
+		.boy {
+			left: 180px;
+
+			height: 96px;
+		}
+
+		.girl {
+			bottom: -60px;
+			right: 180px;
+
+			height: 192px;
+		}
+	}
+}

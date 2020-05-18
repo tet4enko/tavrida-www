@@ -1,0 +1,24 @@
+.ClientsGrid {
+	display: inline-block;
+
+	position: relative;
+
+	.grid {
+		position: relative;
+
+		display: flex;
+		flex-wrap: wrap;
+
+		opacity: 0;
+
+		transition: opacity 0.3s ease;
+
+		&.visible {
+			opacity: 1;
+		}
+
+		.client {
+			width: 33.3%;
+		}
+	}
+}

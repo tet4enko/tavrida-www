@@ -1,0 +1,155 @@
+.Header {
+	color: #fff;
+
+	background: rgb(0, 28, 112);
+
+	&.general,
+	&.general .header-content .right .contacts a {
+		color: var(--main-header-color);
+
+		background: none;
+	}
+
+	.header-content {
+		display: inline-flex;
+		justify-content: space-between;
+		align-items: center;
+
+		height: 96px;
+
+		padding: 25px 18px;
+
+		box-sizing: border-box;
+
+		.left {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			text-decoration: none;
+
+			color: inherit;
+
+			.label {
+				display: inline-block;
+
+				margin-left: 15px;
+
+				.top {
+					font-size: 32px;
+					font-family: GlebastaFontBig;
+				}
+
+				.bottom {
+					font-size: 14px;
+				}
+			}
+		}
+
+		.menu {
+			position: relative;
+
+			flex: 1;
+			display: flex;
+			justify-content: space-evenly;
+
+			font-size: 23px;
+
+			.item {
+				position: relative;
+				padding: 0 25px;
+
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+
+				&.opened {
+					background: var(--main-header-color);
+					color: #fff;
+
+					.popup {
+						display: inline-block;
+					}
+				}
+			}
+
+			.popup {
+				display: none;
+
+				position: absolute;
+
+				z-index: 2;
+
+				text-align: left;
+				background: var(--main-header-color);
+
+				padding: 10px 25px 10px 25px;
+				left: 0;
+				top: 28px;
+
+				border-bottom-left-radius: 5px;
+				border-bottom-right-radius: 5px;
+				border-top-right-radius: 5px;
+
+				.menu-item {
+					display: block;
+
+					color: #fff;
+					font-size: 20px;
+
+					white-space: nowrap;
+					text-decoration: none;
+					line-height: 26px;
+
+					.point {
+						width: 11px;
+						height: 11px;
+
+						display: inline-block;
+
+						border-radius: 100%;
+
+						margin-right: 10px;
+
+						&.orange {
+							background: var(--orange);
+						}
+
+						&.blue {
+							background: var(--blue);
+						}
+
+						&.yellow {
+							background: var(--yellow);
+						}
+					}
+				}
+			}
+		}
+
+		.right {
+			display: flex;
+			align-items: center;
+
+			.contacts {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+
+				margin-left: 25px;
+
+				a {
+					text-decoration: none;
+					color: #fff;
+				}
+
+				.phone {
+					font-size: 24px;
+				}
+
+				.email {
+					font-size: 16px;
+				}
+			}
+		}
+	}
+}

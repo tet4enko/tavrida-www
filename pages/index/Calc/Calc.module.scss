@@ -1,0 +1,93 @@
+.Calc {
+	display: inline-flex;
+	justify-content: center;
+
+	margin-top: 100px;
+
+	.right {
+		text-align: left;
+
+		.text-wrapper {
+			display: inline-block;
+			text-align: right;
+
+			width: 31vw;
+
+			position: relative;
+
+			.title {
+				font-size: 3vw;
+				margin-top: 1vw;
+				margin-bottom: 0.3vw;
+				font-family: GlebastaExtraBold;
+
+				color: var(--main-header-color);
+			}
+
+			.desc {
+				width: 80%;
+				position: relative;
+				color: var(--main-header-color);
+				font-size: 1.2vw;
+
+				margin-bottom: 3vw;
+
+				display: inline-block;
+			}
+
+			.button-wrapper {
+				text-align: center;
+
+				button {
+					font-size: 2.5vw;
+					padding: 0.7vw 2vw;
+					border-radius: 1.4vw;
+				}
+			}
+		}
+	}
+
+	.pic-wrapper {
+		text-align: right;
+
+		.pic {
+			height: 25vw;
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.Calc {
+		.right {
+			.text-wrapper {
+				width: 372px;
+
+				.title {
+					font-size: 36px;
+					margin-top: 12px;
+					margin-bottom: 3.6px;
+				}
+
+				.desc {
+					font-size: 14.4px;
+
+					margin-bottom: 36px;
+				}
+
+				.button-wrapper {
+					button {
+						font-size: 30px;
+						padding: 8.4px 24px;
+						border-radius: 16.8px;
+					}
+				}
+			}
+		}
+
+		.pic-wrapper {
+			.pic {
+				height: 300px;
+			}
+		}
+	}
+}

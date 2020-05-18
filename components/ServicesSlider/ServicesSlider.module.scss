@@ -1,0 +1,103 @@
+.ServicesSlider {
+	height: 400px;
+	padding: 0 50px;
+
+	display: flex;
+
+	.animate {
+		opacity: 1;
+
+		transition: opacity 0.2s ease;
+
+		&.invisible {
+			opacity: 0;
+		}
+	}
+
+	.left {
+		width: 46%;
+
+		border-radius: 40px;
+		background: linear-gradient(
+			90deg,
+			rgba(0, 28, 112, 1) 0%,
+			rgba(12, 0, 71, 1) 100%
+		);
+
+		color: #fff;
+
+		position: relative;
+
+		z-index: 2;
+
+		.name {
+			font-family: GlebastaFontBig;
+			font-size: 50px;
+			margin: 20px 0;
+		}
+
+		.text {
+			width: 80%;
+			display: inline-block;
+
+			font-size: 25px;
+		}
+
+		.buttons {
+			position: absolute;
+
+			bottom: 30px;
+			left: 0;
+			right: 0;
+			margin: auto;
+
+			.btn {
+				padding: 8px 17px;
+
+				font-size: 31px;
+
+				border-radius: 10px;
+
+				color: var(--main-header-color);
+
+				&.order {
+					margin-left: 25px;
+
+					background-color: #fbca0e;
+				}
+			}
+		}
+	}
+
+	.right {
+		flex: 1;
+
+		position: relative;
+
+		.img-wrapper {
+			height: calc(100% - 60px);
+
+			position: relative;
+
+			img {
+				max-width: 70%;
+				max-height: 300px;
+
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+
+				margin: auto;
+			}
+		}
+
+		.toggle_slide {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 15px;
+		}
+	}
+}

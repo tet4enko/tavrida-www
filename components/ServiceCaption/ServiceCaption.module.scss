@@ -1,0 +1,21 @@
+.ServiceCaption {
+	position: relative;
+	text-align: left;
+
+	margin-left: 15%;
+
+	margin-bottom: 60px;
+
+	.caption {
+		margin: 0;
+
+		font-weight: bold;
+		font-size: 46px;
+
+		color: var(--main-header-color);
+	}
+
+	.description {
+		width: 50%;
+	}
+}

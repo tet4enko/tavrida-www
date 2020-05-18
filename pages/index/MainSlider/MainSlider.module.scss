@@ -1,0 +1,96 @@
+.MainSlider {
+	height: 400px;
+
+	position: relative;
+
+	margin-top: 50px;
+
+	.img {
+		height: 350px;
+		min-height: 250px;
+
+		position: absolute;
+
+		right: 85%;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+
+		z-index: 1;
+
+		opacity: 0;
+
+		transition: opacity 0.3s ease;
+
+		&.visible {
+			opacity: 1;
+		}
+
+		&.img2 {
+			height: 300px;
+		}
+	}
+
+	.background {
+		background: rgb(0, 28, 112);
+		background: linear-gradient(
+			180deg,
+			rgba(0, 28, 112, 1) 0%,
+			rgba(12, 0, 71, 1) 60%
+		);
+
+		height: 100%;
+		float: right;
+		width: 68vw;
+		min-width: 850px;
+
+		position: relative;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.text {
+			width: 80%;
+
+			color: #fff;
+
+			position: absolute;
+
+			opacity: 0;
+
+			transition: opacity 0.3s ease;
+
+			&.visible {
+				opacity: 1;
+			}
+
+			.top {
+				margin-bottom: 2vw;
+
+				font-family: GlebastaFontBig;
+				font-size: 3.5vw;
+
+				color: #fbca0e;
+			}
+
+			.bottom {
+				font-size: 1.4vw;
+
+				.item {
+					line-height: 29px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.MainSlider .background .text .top {
+		font-size: 42px;
+	}
+
+	.MainSlider .background .text .bottom {
+		font-size: 16.8px;
+	}
+}

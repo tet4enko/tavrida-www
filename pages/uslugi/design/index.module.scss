@@ -1,0 +1,482 @@
+.Design {
+	position: relative;
+
+	.back {
+		width: 100%;
+
+		margin-bottom: -10px;
+	}
+
+	> .label {
+		position: absolute;
+
+		top: 4vw;
+		left: 19vw;
+
+		width: 43vw;
+
+		background: linear-gradient(180deg, #001c70, #0c0047);
+
+		.top,
+		.bottom {
+			display: block;
+
+			background: #f4f5ff;
+			mix-blend-mode: screen;
+		}
+
+		.top {
+			text-align: left;
+
+			font-family: GlebastaDays;
+			font-size: 7vw;
+		}
+
+		.bottom {
+			text-align: right;
+
+			font-family: GlebastaFontBig;
+			font-size: 2.2vw;
+
+			letter-spacing: 1.5px;
+		}
+	}
+
+	.what {
+		position: absolute;
+
+		z-index: 1;
+
+		top: 33vw;
+		left: 29vw;
+
+		font-family: GlebastaDays;
+
+		color: #fff;
+
+		font-size: 2.7vw;
+	}
+
+	.galactic {
+		position: absolute;
+
+		z-index: 1;
+
+		top: 41vw;
+		left: 11vw;
+
+		width: 58vw;
+
+		.kolca {
+			width: 100%;
+		}
+
+		.clck {
+			position: absolute;
+
+			top: -3vw;
+			left: 57.5vw;
+
+			width: 8vw;
+		}
+
+		.items {
+			.item {
+				position: absolute;
+
+				list-style: none;
+
+				.pic {
+					width: 100%;
+				}
+
+				.label {
+					position: absolute;
+
+					color: #fff;
+
+					transform: skew(-7deg, -12deg);
+
+					font-family: GlebastaFontBig;
+				}
+
+				&.sun {
+					width: 7vw;
+					top: 6vw;
+					left: 26vw;
+
+					.label {
+						left: 4vw;
+						bottom: calc(100% + 1vw);
+						font-size: 3vw;
+					}
+				}
+
+				&.style {
+					width: 10vw;
+					top: 13vw;
+					left: 3vw;
+
+					.label {
+						left: calc(100% - 1vw);
+						bottom: 2vw;
+
+						font-size: 2vw;
+
+						white-space: nowrap;
+					}
+				}
+
+				&.copyright {
+					width: 3.5vw;
+					top: 5vw;
+					left: 9vw;
+
+					.label {
+						left: calc(100% + 0.5vw);
+						bottom: 2vw;
+
+						font-size: 2.1vw;
+					}
+				}
+
+				&.slogans {
+					width: 2.5vw;
+					top: 8.5vw;
+					left: 22vw;
+
+					.label {
+						right: calc(100% + 0.5vw);
+						bottom: -0.5vw;
+
+						font-size: 2.1vw;
+					}
+				}
+
+				&.branding {
+					width: 3vw;
+					top: 13vw;
+					left: 31vw;
+
+					.label {
+						left: calc(100% + 0.5vw);
+						bottom: 0.5vw;
+						font-size: 2.3vw;
+					}
+				}
+
+				&.naming {
+					width: 6vw;
+					top: 7vw;
+					left: 36vw;
+
+					.label {
+						left: 100%;
+						bottom: 1.5vw;
+						font-size: 2.9vw;
+					}
+				}
+
+				&.upakovka {
+					width: 4.3vw;
+					top: 0vw;
+					left: 43vw;
+
+					.label {
+						left: calc(100% + 0.5vw);
+						bottom: 2.5vw;
+						font-size: 2.7vw;
+					}
+				}
+			}
+		}
+	}
+
+	.dela {
+		position: absolute;
+
+		z-index: 1;
+
+		top: 63vw;
+		left: 0;
+		right: 0;
+
+		width: 70vw;
+
+		margin: auto;
+
+		padding: 0;
+
+		display: flex;
+		justify-content: space-around;
+
+		.delo {
+			width: 32%;
+
+			color: #fff;
+
+			list-style: none;
+
+			.pic1,
+			.pic2 {
+				width: 100%;
+			}
+
+			.pic2 {
+				display: none;
+			}
+
+			&:hover {
+				.pic1 {
+					display: none;
+				}
+
+				.pic2 {
+					display: initial;
+				}
+			}
+
+			.name {
+				font-family: GlebastaDays;
+				font-size: 2.8vw;
+
+				margin-top: -3vw;
+			}
+
+			.text {
+				text-align: left;
+
+				width: 80%;
+
+				margin: 0.5vw 2vw 0 3.5vw;
+
+				font-size: 1.1vw;
+			}
+		}
+	}
+
+	.ClientsGrid {
+		position: absolute;
+
+		top: 97vw;
+		left: 0;
+		right: 0;
+
+		width: 42vw;
+		min-width: initial;
+
+		margin: auto;
+
+		z-index: 1;
+
+		.headerCls {
+			font-family: GlebastaDays;
+
+			color: #fff;
+
+			font-size: 3.5vw;
+		}
+	}
+
+	.your {
+		position: absolute;
+
+		top: 131vw;
+		left: 15vw;
+
+		color: #fff;
+
+		text-align: left;
+
+		.your-design {
+			font-family: GlebastaDays;
+			font-size: 2.5vw;
+		}
+
+		button {
+			margin-right: 1.5vw;
+
+			font-size: 1.3vw;
+
+			width: 16vw;
+			height: 2.7vw;
+
+			border-radius: 0.6vw;
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.Design {
+		> .label {
+			top: 48px;
+			left: 228px;
+
+			width: 516px;
+
+			.top {
+				font-size: 84px;
+			}
+
+			.bottom {
+				font-size: 26.4px;
+			}
+		}
+
+		.what {
+			top: 396px;
+			left: 348px;
+
+			font-size: 32.4px;
+		}
+
+		.galactic {
+			top: 492px;
+			left: 132px;
+
+			width: 696px;
+
+			.clck {
+				top: -36px;
+				left: 690px;
+
+				width: 96px;
+			}
+
+			.items {
+				.item {
+					&.sun {
+						width: 84px;
+						top: 72px;
+						left: 312px;
+
+						.label {
+							left: 48px;
+							bottom: calc(100% + 12px);
+							font-size: 36px;
+						}
+					}
+
+					&.style {
+						width: 120px;
+						top: 156px;
+						left: 36px;
+
+						.label {
+							left: calc(100% - 12px);
+							bottom: 24px;
+
+							font-size: 24px;
+						}
+					}
+
+					&.copyright {
+						width: 42px;
+						top: 60px;
+						left: 108px;
+
+						.label {
+							left: calc(100% + 6px);
+							bottom: 24px;
+
+							font-size: 25.2px;
+						}
+					}
+
+					&.slogans {
+						width: 30px;
+						top: 102px;
+						left: 264px;
+
+						.label {
+							right: calc(100% + 6px);
+							bottom: -6px;
+
+							font-size: 25.2px;
+						}
+					}
+
+					&.branding {
+						width: 36px;
+						top: 156px;
+						left: 372px;
+
+						.label {
+							left: calc(100% + 6px);
+							bottom: 6px;
+							font-size: 27.6px;
+						}
+					}
+
+					&.naming {
+						width: 72px;
+						top: 84px;
+						left: 432px;
+
+						.label {
+							left: 100%;
+							bottom: 18px;
+							font-size: 34.8px;
+						}
+					}
+
+					&.upakovka {
+						width: 51.6px;
+						left: 516px;
+
+						.label {
+							left: calc(100% + 6px);
+							bottom: 30px;
+							font-size: 32.4px;
+						}
+					}
+				}
+			}
+		}
+
+		.dela {
+			top: 756px;
+			width: 840px;
+
+			.delo {
+				.name {
+					font-size: 33.6px;
+
+					margin-top: -36px;
+				}
+
+				.text {
+					margin: 6px 24px 0 42px;
+
+					font-size: 13.2px;
+				}
+			}
+		}
+
+		.ClientsGrid {
+			top: 1164px;
+
+			width: 504px;
+		}
+
+		.your {
+			top: 1572px;
+			left: 180px;
+
+			.your-design {
+				font-size: 30px;
+			}
+
+			button {
+				margin-right: 18px;
+
+				font-size: 15.6px;
+
+				width: 192px;
+				height: 32.4px;
+
+				border-radius: 7.2px;
+			}
+		}
+	}
+}

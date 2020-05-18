@@ -1,0 +1,69 @@
+.GetSite {
+	width: 70vw;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-evenly;
+
+	margin: 3vw 0 2vw 0;
+
+	.left,
+	.right {
+		width: 40%;
+	}
+
+	.text {
+		text-align: left;
+
+		color: var(--main-header-color);
+		font-weight: bold;
+
+		.top {
+			font-size: 2vw;
+		}
+
+		.bottom {
+			font-size: 1.6vw;
+
+			margin: 0;
+		}
+	}
+
+	.get-site {
+		padding: 0.7vw 2.3vw;
+
+		font-size: 2.3vw;
+
+		border-radius: 0.6vw;
+
+		margin-top: 2vw;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.GetSite {
+		width: 840px;
+
+		margin: 36px 0 24px 0;
+
+		.text {
+			.top {
+				font-size: 24px;
+			}
+
+			.bottom {
+				font-size: 19.2px;
+			}
+		}
+
+		.get-site {
+			padding: 8.4px 27.6px;
+
+			font-size: 27.6px;
+
+			border-radius: 72px;
+
+			margin-top: 24px;
+		}
+	}
+}

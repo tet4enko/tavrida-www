@@ -1,0 +1,19 @@
+{
+	"name": "tavrida-www",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start -p 80"
+	},
+	"dependencies": {
+		"classnames": "^2.2.6",
+		"next": "9.4.1",
+		"next-images": "^1.4.0",
+		"react": "16.13.1",
+		"react-dom": "16.13.1",
+		"react-image-gallery": "^1.0.7",
+		"sass": "^1.26.5"
+	}
+}
