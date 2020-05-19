@@ -96,6 +96,7 @@ class MainSlider extends Component {
 							<div
 								className={cn({
 									[styles.text]: true,
+									[styles[`text${index + 1}`]]: true,
 									[styles.visible]:
 										this.state.slide === index + 1
 								})}
