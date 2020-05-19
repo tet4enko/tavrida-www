@@ -2,16 +2,25 @@ import React, { Component } from "react";
 import cn from "classnames";
 import styles from "./ServicesGrid.module.scss";
 
-const images = [];
-const hoveredImages = [];
+import i1 from "./img/1.png";
+import i2 from "./img/2.png";
+import i3 from "./img/3.png";
+import i4 from "./img/4.png";
+import i5 from "./img/5.png";
+import i6 from "./img/6.png";
+import i7 from "./img/7.png";
 
-// for (let i = 1; i <= 7; i++) {
-// 	images.push(require(`./img/${i}.png`));
-// }
+const images = [i1, i2, i3, i4, i5, i6, i7];
 
-// for (let i = 1; i <= 7; i++) {
-// 	hoveredImages.push(require(`./img/hover/${i}.png`));
-// }
+import h1 from "./img/hover/1.png";
+import h2 from "./img/hover/2.png";
+import h3 from "./img/hover/3.png";
+import h4 from "./img/hover/4.png";
+import h5 from "./img/hover/5.png";
+import h6 from "./img/hover/6.png";
+import h7 from "./img/hover/7.png";
+
+const hoveredImages = [h1, h2, h3, h4, h5, h6, h7];
 
 const line1 = [
 	{ label: "НАРУЖНАЯ РЕКЛАМА", color: "orange", img: 1 },
@@ -41,7 +50,7 @@ class ServicesGrid extends Component {
 		const gridItem = data => {
 			return (
 				<div
-					className="item"
+					className={cn({ [styles.item]: true })}
 					onMouseOver={() => _self.setState({ hovered: data.img })}
 					onMouseOut={() => _self.setState({ hovered: null })}
 				>
@@ -52,8 +61,8 @@ class ServicesGrid extends Component {
 								: images[data.img - 1]
 						}
 					></img>
-					<div className="label">
-						<span className={`point ${data.color}`}></span>
+					<div className={cn({ [styles.label]: true })}>
+						<span className={cn({ [styles.point]: true, [styles[data.color]]: true })}></span>
 						{data.label}
 					</div>
 				</div>
