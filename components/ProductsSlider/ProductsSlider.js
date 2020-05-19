@@ -152,11 +152,11 @@ class ProductsSlider extends Component {
 				</div>
 				<div className={cn({ [styles.toggles]: true })}>
 					<Toggle
-						side={cn({ [styles.left]: true })}
+						side="left"
 						onClick={() => this.goLeft()}
 					/>
 					<Toggle
-						side={cn({ [styles.right]: true })}
+						side="right"
 						onClick={() => this.goRight()}
 					/>
 				</div>
