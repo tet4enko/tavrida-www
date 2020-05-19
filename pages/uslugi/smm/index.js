@@ -89,6 +89,7 @@ export default () => {
 			<div className={cn({ [styles.comps]: true })}>
 				{comps.map((comp, index) => (
 					<img
+						key={index}
 						className={cn({
 							[styles.comp]: true,
 							[styles["simple-pic"]]: true,
@@ -103,9 +104,9 @@ export default () => {
 					ЦИФРЫ СКАЖУТ ВСЕ ЗА НАС
 				</h2>
 				<div className={cn({ [styles.items]: true })}>
-					{values.map(item => {
+					{values.map((item, i) => {
 						return (
-							<div className={cn({ [styles.item]: true })}>
+							<div className={cn({ [styles.item]: true })} key={i}>
 								<img
 									src={item.pic}
 									className={cn({ [styles.pic]: true })}

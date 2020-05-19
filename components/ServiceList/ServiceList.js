@@ -9,9 +9,9 @@ export default props => {
 				НЕМНОГО О ГЛАВНОМ
 			</h2>
 			<ol style={{ padding: 0, margin: 0 }}>
-				{props.services.map(service => {
+				{props.services.map((service, i) => {
 					return (
-						<li className={cn({ [styles.service]: true })}>
+						<li className={cn({ [styles.service]: true })} key={i}>
 							<div className={cn({ [styles.left]: true })}>
 								<div className={cn({ [styles.wrapper]: true })}>
 									<div

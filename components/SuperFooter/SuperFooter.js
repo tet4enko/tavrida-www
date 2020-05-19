@@ -90,9 +90,10 @@ class SuperFooter extends Component {
 						в Симферополе и другие городах Крыма
 					</div>
 
-					{rabotniki.map(item => {
+					{rabotniki.map((item, i) => {
 						return (
 							<div
+								key={i}
 								className={cn({
 									[styles.col]: true,
 									[styles.coltop]: true,

@@ -70,8 +70,8 @@ export default () => {
 				ЭТАПЫ РАБОТЫ
 			</h2>
 			<ol className={cn({ [styles.stages]: true })}>
-				{stages.map(stage => (
-					<li className={cn({ [styles.stage]: true })}>
+				{stages.map((stage, i) => (
+					<li className={cn({ [styles.stage]: true })} key={i}>
 						<img
 							className={cn({ [styles.back]: true })}
 							src={stage.pic}

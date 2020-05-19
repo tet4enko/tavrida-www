@@ -47,9 +47,10 @@ class ServicesGrid extends Component {
 	render() {
 		const _self = this;
 
-		const gridItem = data => {
+		const gridItem = (data, i) => {
 			return (
 				<div
+					key={i}
 					className={cn({ [styles.item]: true })}
 					onMouseOver={() => _self.setState({ hovered: data.img })}
 					onMouseOut={() => _self.setState({ hovered: null })}

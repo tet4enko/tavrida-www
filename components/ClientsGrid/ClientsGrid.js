@@ -69,8 +69,9 @@ class ClientsGrid extends Component {
 						[styles.visible]: this.state.visible
 					})}
 				>
-					{this.state.positions.slice(0, 9).map(client => (
+					{this.state.positions.slice(0, 9).map((client, i) => (
 						<img
+							key={i}
 							className={cn({
 								[styles.client]: true
 							})}

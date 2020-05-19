@@ -152,9 +152,9 @@ export default () => {
 				</div>
 
 				<ol className={cn({ [styles.list]: true })}>
-					{list.map(item => {
+					{list.map((item, i) => {
 						return (
-							<li className={cn({ [styles.item]: true })}>
+							<li className={cn({ [styles.item]: true })} key={i}>
 								<div
 									className={cn({
 										[styles["pic-wrapper"]]: true
@@ -232,15 +232,16 @@ export default () => {
 					ЭТАПЫ КЛИНИНГА
 				</h1>
 				<div className={cn({ [styles["items-wrapper"]]: true })}>
-					{stages.map(stage => {
+					{stages.map((stage, i) => {
 						return (
 							<div
 								className={cn({
 									[styles.stage]: true,
 									[styles[stage.side]]: true
 								})}
+								key={i}
 							>
-								<p className={cn({ [styles.text]: true })}>
+								<div className={cn({ [styles.text]: true })}>
 									<h2 className={cn({ [styles.top]: true })}>
 										{stage.label}
 									</h2>
@@ -251,7 +252,7 @@ export default () => {
 									>
 										{stage.desc}
 									</span>
-								</p>
+								</div>
 								<div
 									className={cn({
 										[styles["pic-wrapper"]]: true

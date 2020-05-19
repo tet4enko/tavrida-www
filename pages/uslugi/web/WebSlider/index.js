@@ -97,8 +97,8 @@ class WebSlider extends Component {
 							ДИЗАЙН
 						</span>
 						<ol className={cn({ [styles.items]: true })}>
-							{design.map(item => (
-								<li className={cn({ [styles.item]: true })}>
+							{design.map((item, i) => (
+								<li className={cn({ [styles.item]: true })} key={i}>
 									<h6
 										className={cn({ [styles.label]: true })}
 									>
@@ -175,8 +175,8 @@ class WebSlider extends Component {
 							КОД
 						</span>
 						<ol className={cn({ [styles.items]: true })}>
-							{code.map(item => (
-								<li className={cn({ [styles.item]: true })}>
+							{code.map((item, i) => (
+								<li className={cn({ [styles.item]: true })} key={i}>
 									<h6
 										className={cn({ [styles.label]: true })}
 									>

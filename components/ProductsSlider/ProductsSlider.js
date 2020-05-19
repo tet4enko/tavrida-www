@@ -134,7 +134,7 @@ class ProductsSlider extends Component {
 						}
 
 						return (
-							<div className={cls}>
+							<div className={cls} key={index}>
 								<img src={service.pic}></img>
 								<span
 									className={cn({ [styles.name]: true })}

@@ -96,8 +96,9 @@ export default () => {
 			<div className={cn({ [styles.galactic]: true })}>
 				<img className={cn({ [styles.kolca]: true })} src={galactic} />
 				<ol className={cn({ [styles.items]: true })}>
-					{uslugi.map(item => (
+					{uslugi.map((item, i) => (
 						<li
+							key={i}
 							className={cn({
 								[styles.item]: true,
 								[styles[item.slug]]: true
@@ -116,8 +117,8 @@ export default () => {
 				<img className={cn({ [styles.clck]: true })} src={click} />
 			</div>
 			<ol className={cn({ [styles.dela]: true })}>
-				{dela.map(item => (
-					<li className={cn({ [styles.delo]: true })}>
+				{dela.map((item, i) => (
+					<li className={cn({ [styles.delo]: true })} key={i}>
 						<div className={cn({ ["pic-wrapper"]: true })}>
 							<img
 								className={cn({ [styles.pic1]: true })}

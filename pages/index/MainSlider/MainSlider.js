@@ -87,7 +87,8 @@ class MainSlider extends Component {
 										this.state.slide === index + 1
 								})}
 								src={pics[index]}
-							></img>
+								key={index}
+							/>
 						);
 					})}
 					{slides.map((slide, index) => {
@@ -95,28 +96,30 @@ class MainSlider extends Component {
 							<div
 								className={cn({
 									[styles.text]: true,
-									[styles[`text${index + 1}`]]: true,
 									[styles.visible]:
 										this.state.slide === index + 1
 								})}
+								key={index}
 							>
 								<div className={cn({ [styles.top]: true })}>
-									{slide.top.map(line => (
+									{slide.top.map((line, i) => (
 										<div
 											className={cn({
 												[styles.line]: true
 											})}
+											key={i}
 										>
 											{line}
 										</div>
 									))}
 								</div>
 								<div className={cn({ [styles.bottom]: true })}>
-									{slide.bottom.map(line => (
+									{slide.bottom.map((line, i) => (
 										<div
 											className={cn({
 												[styles.item]: true
 											})}
+											key={i}
 										>
 											{line}
 										</div>

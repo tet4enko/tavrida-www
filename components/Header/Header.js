@@ -70,12 +70,10 @@ class Header extends Component {
 	}
 
 	onServivesPopupMouseOver() {
-		console.log("popup hover");
 		this.setState({ servicesPopupHovered: true, servicesOpened: true });
 	}
 
 	onServivesPopupMouseOut() {
-		console.log("popup");
 		this.setState({
 			servicesPopupHovered: false,
 			servicesOpened: this.state.servicesHovered
@@ -123,6 +121,7 @@ class Header extends Component {
 						<span
 							className={cn({
 								[styles.item]: true,
+								[styles.uslugi]: true,
 								[styles.opened]: this.state.servicesOpened
 							})}
 						>
@@ -142,12 +141,13 @@ class Header extends Component {
 									this.onServivesPopupMouseOut()
 								}
 							>
-								{uslugi.map(item => (
-									<Link href={`/uslugi/${item.href}`}>
+								{uslugi.map((item, i) => (
+									<Link href={`/uslugi/${item.href}`} key={i}>
 										<a
 											className={cn({
 												[styles["menu-item"]]: true
 											})}
+											onClick={() => this.setState({ servicesOpened: false })}
 										>
 											<span
 												className={cn({

@@ -7,9 +7,9 @@ import picTM from "./pics/ТМ.png";
 export default props => {
 	return (
 		<div className={cn({ [styles.CasesGrid]: true })}>
-			{props.cases.map(item => {
+			{props.cases.map((item, i) => {
 				return (
-					<div className={cn({ [styles["case-item"]]: true })}>
+					<div className={cn({ [styles["case-item"]]: true })} key={i}>
 						<div className={cn({ [styles.head]: true })}>
 							<span className={cn({ [styles.label]: true })}>
 								{item.label && item.label.toUpperCase()}
