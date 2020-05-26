@@ -3,22 +3,53 @@
 
 	position: relative;
 
-	.grid {
+	width: 80vw;
+	min-width: 1000px;
+
+	.wrapper {
 		position: relative;
 
-		display: flex;
-		flex-wrap: wrap;
+		white-space: nowrap;
+		overflow: hidden;
 
-		opacity: 0;
-
-		transition: opacity 0.3s ease;
-
-		&.visible {
-			opacity: 1;
-		}
+		height: 11.7vw;
+		min-height: 146px;
 
 		.client {
-			width: 33.3%;
+			position: absolute;
+			display: none;
+			
+			top: 0;
+			left: 0;
+
+			width: 33.333%;
+
+			transition: left 10s linear;
+
+			&.left {
+				left: 0%;
+				display: initial;
+			}
+
+			&.center {
+				left: 33.33%;
+				display: initial;
+			}
+
+			&.right {
+				left: 66.66%;
+				display: initial;
+			}
+
+			&.superleft {
+				left: -33.33%;
+				display: initial;
+			}
+
+			&.superright {
+				left: 100%;
+				display: initial;
+			}
 		}
 	}
 }
