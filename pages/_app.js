@@ -7,6 +7,8 @@ import "./../node_modules/react-image-gallery/styles/scss/image-gallery.scss";
 
 import Header from "./../components/Header/Header";
 import SuperFooter from "./../components/SuperFooter/SuperFooter";
+import GoTop from "./../components/GoTop";
+import GoPhone from "./../components/GoPhone";
 
 export default class MyApp extends App {
 	render() {
@@ -16,6 +18,8 @@ export default class MyApp extends App {
 				<Header general={this.props.router.route === "/"} />
 				<Component {...pageProps} />
 				<SuperFooter />
+				<GoTop />
+				<GoPhone />
 			</React.Fragment>
 		);
 	}
