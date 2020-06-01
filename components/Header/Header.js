@@ -168,13 +168,15 @@ class Header extends Component {
 						>
 							Цены
 						</span>
-						<span
-							className={cn({
-								[styles.item]: true
-							})}
-						>
-							Проекты
-						</span>
+						<Link href='/projects'>
+							<a
+								className={cn({
+									[styles.item]: true
+								})}
+							>
+								Проекты
+							</a>
+						</Link>
 						<span
 							className={cn({
 								[styles.item]: true
