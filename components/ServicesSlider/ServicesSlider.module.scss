@@ -1,5 +1,5 @@
 .ServicesSlider {
-	height: 400px;
+	height: 420px;
 	padding: 0 50px;
 
 	display: flex;
@@ -41,6 +41,10 @@
 			display: inline-block;
 
 			font-size: 25px;
+
+			&.fat {
+				width: 90%;
+			}
 		}
 
 		.buttons {

@@ -1,116 +1,148 @@
-import React from "react";
+import React from 'react';
 
-import ServiceCaption from "./../../../components/ServiceCaption/ServiceCaption.js";
-import ServicesSlider from "./../../../components/ServicesSlider/ServicesSlider.js";
-import ServiceList from "./../../../components/ServiceList/ServiceList.js";
-import Zamer from "./../../../components/Zamer/Zamer.js";
+import cn from 'classnames';
+import ServiceCaption from '../../../components/ServiceCaption/ServiceCaption.js';
+import ServicesSlider from '../../../components/ServicesSlider/ServicesSlider.js';
+import ServiceList from '../../../components/ServiceList/ServiceList.js';
+import Zamer from '../../../components/Zamer/Zamer.js';
 
-import styles from "./index.module.scss";
-import cn from "classnames";
+import styles from './index.module.scss';
 
-import lightbox from "./pics/1.png";
-import liters from "./pics/2.png";
-import banner from "./pics/3.png";
-import plenka from "./pics/4.png";
-import auto from "./pics/5.png";
-import wall from "./pics/6.png";
-import shtender from "./pics/7.png";
+import lightbox from './pics/1.png';
+import liters from './pics/2.png';
+import banner from './pics/3.png';
+import plenka from './pics/4.png';
+import auto from './pics/5.png';
+import wall from './pics/6.png';
+import shtender from './pics/7.png';
 
-const loremIpsum =
-	"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.";
+const loremIpsum =	'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.';
 
 const services = [
-	{
-		name: "Лайтбокс",
-		shortText: loremIpsum,
-		longText:
-			"longText longText longText longText longText longText longText longText longText longText longText longText longText longText ",
-		pic: lightbox
-	},
-	{
-		name: "Световые буквы",
-		shortText: loremIpsum,
-		longText:
-			"longText longText longText longText longText longText longText longText longText longText longText longText longText longText ",
-		pic: liters
-	},
-	{
-		name: "Баннер",
-		shortText: loremIpsum,
-		longText:
-			"longText longText longText longText longText longText longText longText longText longText longText longText longText longText ",
-		pic: banner
-	},
-	{
-		name: "Пленка",
-		shortText: loremIpsum,
-		longText:
-			"longText longText longText longText longText longText longText longText longText longText longText longText longText longText ",
-		pic: plenka
-	},
-	{
-		name: "Брендирование авто",
-		shortText: loremIpsum,
-		longText:
-			"longText longText longText longText longText longText longText longText longText longText longText longText longText longText ",
-		pic: auto
-	},
-	{
-		name: "Бренд-волл",
-		shortText: loremIpsum,
-		longText:
-			"longText longText longText longText longText longText longText longText longText longText longText longText longText longText ",
-		pic: wall
-	},
-	{
-		name: "Штендер",
-		shortText: loremIpsum,
-		longText:
-			"longText longText longText longText longText longText longText longText longText longText longText longText longText longText ",
-		pic: shtender
-	}
+    {
+        name: 'Лайтбокс',
+        shortText: 'Данная рекламная конструкция внешне имеет вид короба, который подсвечивается Его лицевую сторону может украшать ваш логотип либо любое другое изображение.',
+        longText:
+			`Лайтбокс или световой короб представляет собой монолитную 
+			полую конструкцию, которая может быть оснащена одной или 
+			двумя светопропускающими панелями. На них  размещается 
+			рекламное изображение или текст. Между задней и лицевой 
+			панелями помещается подсветка. Данную рекламную конструкцию  отлично будет видно издалека даже в темное время суток`,
+        pic: lightbox,
+    },
+    {
+        name: 'Световые буквы',
+        shortText: 'Объемные буквы делятся на световые и обычные (без подсветки) и представляют собой объемный короб объемные буквы являются очень эффективным инструментом рекламы и помогу вам привлечь к себе толпы клиентов.',
+        longText:
+			`Объемные буквы можно разделить на два типа :  световые и обычные (без подсветки) 
+			Буквы, представляют собой объемный короб различных видов и  форм. Световые 
+			объемные буквы имеют большую эффективность и привлекают внимание 
+			благодаря тому, что хорошо заметны как на свету, так и в темноте.
+			Являются очень действенным  рекламным и информационным носителем. 
+			Отлично подходят как для наружной рекламы, так и для оформления  
+			интерьера. 
+			Мы предлагаем выгодные цены, быстро выполняем заказы, 
+			гарантируем качество.`,
+        pic: liters,
+        fat: true,
+    },
+    {
+        name: 'Баннер',
+        shortText: 'Баннер является удобным носителем информации, так как может размещаться на большой площади, занимая стены многоэтажных зданий, магазинов, также можно использовать его в качестве основы для размещения над проезжей частью улиц.',
+        longText:
+			`Изготовление баннеров давно и прочно занимает 
+			лидирующие позиции в рекламном бизнесе. Ткань баннеров 
+			производится из винилового полотна полиэстера, имеет высокую плотность и отличается долгим сроком службы.
+			Он является удобным носителем информации, так как может 
+			размещаться на большой площади, занимая стены многоэтажных 
+			зданий, магазинов. Можно использовать его в качестве основы для 
+			размещения над проезжей частью улиц	.`,
+        pic: banner,
+        fat: true,
+    },
+    {
+        name: 'Пленка',
+        shortText: loremIpsum,
+        longText:
+			`Брендирование   легкового,   грузового, а также общественного  транспорта увеличит продажи и создаст положительный имидж вашей организации.
+			Автомобиль с логотипом бренда - это динамичный рекламный инструмент, подталкивающий к действию вашего будущего клиента.
+			 Мы выполним Рекламу на авто  , несколькими инновационными способами на ваш выбор, использую оклейку пленкой, изготовленной с помощью плоттерной резки, интерьерной
+			 печати с ламинированием или комбинацией из двух вышеперечисленных вариантов`,
+        pic: plenka,
+    },
+    {
+        name: 'Брендирование авто',
+        shortText: 'Яркий способ привлечь внимание окружающих в огромном потоке автомобилей! И смело заявить о себе и своей компании.',
+        longText:
+		`Брендирование   легкового,   грузового, а также общественного  транспорта увеличит продажи и создаст положительный имидж вашей организации.
+		Автомобиль с логотипом бренда - это динамичный рекламный инструмент, подталкивающий к действию вашего будущего клиента.
+		 Мы выполним Рекламу на авто  , несколькими инновационными способами на ваш выбор, использую оклейку пленкой, изготовленной с помощью плоттерной резки, интерьерной
+		 печати с ламинированием или комбинацией из двух вышеперечисленных вариантов`,
+        pic: auto,
+    },
+    {
+        name: 'Бренд-волл',
+        shortText: 'Это мобильные стенды, которые отлично украсят любое ваше мероприятие и будут являться прекрасной фотозоной для вас и ваших товарищей',
+        longText: `Эффективность и растущая популярность конструкций, называемых 
+		бренд волл, убедительно демонстрирует огромное значение 
+	   визуальной составляющей в продвижении любого бизнес-проекта. Это 
+	   мобильные стенды, оригинальным образом популяризирующие 
+	   определенную торговую марку, компанию или организацию.
+		Также могут служить прекрасным украшением вашего праздника в роли фотозоны`,
+        pic: wall,
+    },
+    {
+        name: 'Штендер',
+        shortText: 'Уличный штендер – броская  реклама для локального бизнеса! По статистике его наличие  увеличивает  клиентопоток  на 25-35%!',
+        longText:
+			`Уличный штендер – броская  реклама для локального бизнеса! По статистике его наличие  увеличивает  клиентопоток  на 25-35%! 
+			Если ваш магазин или офис открылся совсем недавно , если вход и вывеска не видны плохо видны прохожим , если расположение объекта не такое  удачное и клиентам довольно трудно его отыскать,   рекламный штендер -  будет отличным выбором для вас `,
+        pic: shtender,
+    },
 ];
 
-const component = () => {
-	return (
-		<div
-			className={cn({
-				[styles.Outdoor]: true,
-				"page-wrapper": true,
-				"page-content": true,
-				"service-page-type-1": true
-			})}
-		>
-			<ServiceCaption
-				caption="наружная реклама"
-				description={
-					<React.Fragment>
-						Важно помнить, что <b>наружная реклама</b> является
-						одним из наиболее эффективных методов привлечения
-						клиентов.
-					</React.Fragment>
-				}
-			/>
-			<ServicesSlider services={services} />
-			<Zamer />
-			<ServiceList services={services} />
-			<div
-				className={cn({
-					[styles.baloon]: true,
-					baloon: true,
-					top: true
-				})}
-			></div>
-			<div
-				className={cn({
-					[styles.baloon]: true,
-					baloon: true,
-					bottom: true
-				})}
-			></div>
-		</div>
-	);
-};
+const component = () => (
+    <div
+        className={cn({
+            [styles.Outdoor]: true,
+            'page-wrapper': true,
+            'page-content': true,
+            'service-page-type-1': true,
+        })}
+    >
+        <ServiceCaption
+            caption="наружная реклама"
+            description={(
+                <>
+                    Важно помнить, что
+                    {' '}
+                    <b>наружная реклама</b>
+                    {' '}
+                    является
+                    одним из наиболее эффективных методов привлечения
+                    клиентов.
+                </>
+            )}
+        />
+        <ServicesSlider services={services} />
+        <Zamer />
+        <ServiceList services={services} />
+        <div
+            className={cn({
+                [styles.baloon]: true,
+                baloon: true,
+                top: true,
+            })}
+        />
+        <div
+            className={cn({
+                [styles.baloon]: true,
+                baloon: true,
+                bottom: true,
+            })}
+        />
+    </div>
+);
 
 export default component;
 export { component, services };
