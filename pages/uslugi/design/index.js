@@ -84,7 +84,7 @@ const dela = [
 
 export default () => (
     <div className={cn({ [styles.Design]: true })}>
-        <img className={cn({ [styles.back]: true })} src={back} />
+        <img className={cn({ [styles.back]: true })} src={back} alt="" />
         <h1 className={cn({ [styles.label]: true })}>
             <span className={cn({ [styles.top]: true })}>ДИЗАЙН</span>
             <span className={cn({ [styles.bottom]: true })}>
@@ -93,7 +93,7 @@ export default () => (
         </h1>
         <h2 className={cn({ [styles.what]: true })}>Что мы можем?</h2>
         <div className={cn({ [styles.galactic]: true })}>
-            <img className={cn({ [styles.kolca]: true })} src={galactic} />
+            <img className={cn({ [styles.kolca]: true })} src={galactic} alt="" />
             <ol className={cn({ [styles.items]: true })}>
                 {uslugi.map((item, i) => (
                     <li
@@ -106,6 +106,7 @@ export default () => (
                         <img
                             className={cn({ [styles.pic]: true })}
                             src={item.pic}
+                            alt=""
                         />
                         <span className={cn({ [styles.label]: true })}>
                             {item.name.toUpperCase()}
@@ -153,12 +154,10 @@ export default () => (
                 А КАКИМ БУДЕТ ТВОЙ ДИЗАЙН?
             </h2>
             <div className={cn({ [styles.btns]: true })}>
-                <button className={cn({ [styles.idea]: true })}>
+                <button type="button" className={cn({ [styles.idea]: true })}>
                     ПОДЕЛИСЬ СВОЕЙ ИДЕЕЙ
                 </button>
-                <button
-                    className={cn({ [styles.price]: true, yellow: true })}
-                >
+                <button type="button" className={cn({ [styles.price]: true, yellow: true })}>
                     УЗНАЙ ЦЕНУ
                 </button>
             </div>

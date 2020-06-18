@@ -11,9 +11,9 @@ import { services as suvenirkaServices } from '../../pages/uslugi/suvenirka';
 const services = [];
 
 for (let i = 0; i < 6; i++) {
-    services.push(outdoorServices[i]);
-    services.push(polygraphyServices[i]);
-    services.push(suvenirkaServices[i]);
+    services.push({ clusterSlug: 'outdoor', ...outdoorServices[i] });
+    services.push({ clusterSlug: 'polygraphy', ...polygraphyServices[i] });
+    services.push({ clusterSlug: 'suvenirka', ...suvenirkaServices[i] });
 }
 
 class ProductsSlider extends Component {
@@ -133,20 +133,22 @@ class ProductsSlider extends Component {
                             );
                         }
 
+                        const href = `/uslugi/${service.clusterSlug}#${service.slug}`;
+
                         return (
-                            <div className={cls} key={index}>
+                            <a href={href} className={cls} key={index}>
                                 <img src={service.pic} />
                                 <span
                                     className={cn({ [styles.name]: true })}
                                     style={{
                                         color:
-											this.props.textColor
-											|| 'var(--main-header-color)',
+                                            this.props.textColor
+                                            || 'var(--main-header-color)',
                                     }}
                                 >
                                     {service.name.toUpperCase()}
                                 </span>
-                            </div>
+                            </a>
                         );
                     })}
                 </div>

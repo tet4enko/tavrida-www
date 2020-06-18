@@ -31,7 +31,15 @@
 		display: flex;
 		align-items: center;
 
-		margin-bottom: 5vw;
+        margin-bottom: 5vw;
+        
+        position: relative;
+
+        .anchor {
+            position: absolute;
+
+            top: 0;
+        }
 
 		.left,
 		.right {

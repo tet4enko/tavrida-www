@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import cn from 'classnames';
+import Link from 'next/link';
 import styles from './ServicesGrid.module.scss';
 
 import i1 from './img/1.png';
@@ -23,16 +24,51 @@ const images = [i1, i2, i3, i4, i5, i6, i7];
 const hoveredImages = [h1, h2, h3, h4, h5, h6, h7];
 
 const line1 = [
-    { label: 'НАРУЖНАЯ РЕКЛАМА', color: 'orange', img: 1 },
-    { label: 'ПОЛИГРАФИЯ', color: 'blue', img: 2 },
-    { label: 'СУВЕРИНРНАЯ ПРОДУКЦИЯ', color: 'yellow', img: 3 },
-    { label: 'КЛИНИНГ РЕКЛАМНЫХ КОНСТРУКЦИЙ', color: 'orange', img: 4 },
+    {
+        label: 'НАРУЖНАЯ РЕКЛАМА',
+        color: 'orange',
+        img: 1,
+        link: 'outdoor',
+    },
+    {
+        label: 'ПОЛИГРАФИЯ',
+        color: 'blue',
+        img: 2,
+        link: 'polygraphy',
+    },
+    {
+        label: 'СУВЕРИНРНАЯ ПРОДУКЦИЯ',
+        color: 'yellow',
+        img: 3,
+        link: 'suvenirka',
+    },
+    {
+        label: 'КЛИНИНГ РЕКЛАМНЫХ КОНСТРУКЦИЙ',
+        color: 'orange',
+        img: 4,
+        link: 'cleaning',
+    },
 ];
 
 const line2 = [
-    { label: 'SMM и МАРКЕТИНГ', color: 'blue', img: 5 },
-    { label: 'РАЗРАБОТКА САЙТОВ', color: 'yellow', img: 6 },
-    { label: 'ДИЗАЙН', color: 'orange', img: 7 },
+    {
+        label: 'SMM и МАРКЕТИНГ',
+        color: 'blue',
+        img: 5,
+        link: 'smm',
+    },
+    {
+        label: 'РАЗРАБОТКА САЙТОВ',
+        color: 'yellow',
+        img: 6,
+        link: 'web',
+    },
+    {
+        label: 'ДИЗАЙН',
+        color: 'orange',
+        img: 7,
+        link: 'design',
+    },
 ];
 
 class ServicesGrid extends Component {
@@ -47,26 +83,32 @@ class ServicesGrid extends Component {
     render() {
         const _self = this;
 
-        const gridItem = (data, i) => (
-            <div
-                key={i}
-                className={cn({ [styles.item]: true })}
-                onMouseOver={() => _self.setState({ hovered: data.img })}
-                onMouseOut={() => _self.setState({ hovered: null })}
-            >
-                <img
-                    src={
-                        _self.state.hovered === data.img
-                            ? hoveredImages[data.img - 1]
-                            : images[data.img - 1]
-                    }
-                />
-                <div className={cn({ [styles.label]: true })}>
-                    <span className={cn({ [styles.point]: true, [styles[data.color]]: true })} />
-                    {data.label}
-                </div>
-            </div>
-        );
+        const gridItem = (data, i) => {
+            const link = `/uslugi/${data.link}`;
+            return (
+                <Link href={link}>
+                    <a
+                        key={i}
+                        href={link}
+                        className={cn({ [styles.item]: true })}
+                        onMouseOver={() => _self.setState({ hovered: data.img })}
+                        onMouseOut={() => _self.setState({ hovered: null })}
+                    >
+                        <img
+                            src={
+                                _self.state.hovered === data.img
+                                    ? hoveredImages[data.img - 1]
+                                    : images[data.img - 1]
+                            }
+                        />
+                        <div className={cn({ [styles.label]: true })}>
+                            <span className={cn({ [styles.point]: true, [styles[data.color]]: true })} />
+                            {data.label}
+                        </div>
+                    </a>
+                </Link>
+            );
+        };
 
         return (
             <div

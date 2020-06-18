@@ -10,6 +10,7 @@
 	},
 	"dependencies": {
 		"@material-ui/core": "^4.10.1",
+		"@material-ui/icons": "^4.9.1",
 		"classnames": "^2.2.6",
 		"eslint-plugin-mocha-no-only": "^1.1.0",
 		"jquery": "^3.5.1",

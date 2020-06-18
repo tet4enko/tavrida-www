@@ -24,5 +24,6 @@ module.exports = {
     'react/jsx-indent': [2, 4, { checkAttributes: true }],
     "react/jsx-indent-props": [2, 4],
     'react/jsx-filename-extension': 0,
+    'jsx-a11y/alt-text': 0,
   },
 };
