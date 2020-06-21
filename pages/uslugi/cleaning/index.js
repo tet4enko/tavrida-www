@@ -10,6 +10,7 @@ import product from './pics/Продукт.png';
 import operativno from './pics/Оперативно.png';
 import vipolnenie from './pics/Выполнение.png';
 import moika from './pics/Мойка.png';
+import phone from './pics/Смартфон.png';
 
 import slide1 from './pics/1.jpg';
 import slide2 from './pics/2.jpg';
@@ -116,7 +117,7 @@ export default () => (
             {`
 				.image-gallery {
 					position: absolute;
-					width: 35vw;
+					width: 46vw;
 
 					left: 0;
 					right: 0;
@@ -127,29 +128,39 @@ export default () => (
 				.image-gallery-right-nav .image-gallery-svg {
 					height: 60px;
 					width: 30px;
-				}
+                }
+
+                @media screen and (max-width: 1200px) {
+                    .image-gallery {
+                        width: 552px;
+                    }
+                }
 			`}
         </style>
         <div className={cn({ [styles['top-content']]: true })}>
             <img className={cn({ [styles.dom]: true })} src={dom} />
 
             <h1 className={cn({ [styles.title]: true })}>
-                <span className={cn({ [styles.clean]: true })}>ЧИСТО</span>
                 <span className={cn({ [styles.betina]: true })}>
-                    значит
+                    снимем
                 </span>
+                <span className={cn({ [styles.clean]: true })}>ПОЧИНИМ</span>
                 <br />
                 <span className={cn({ [styles.success]: true })}>
-                    УСПЕШНО
+                    ОЧИСТИМ
+                </span>
+                <span className={cn({ [styles.betina]: true })}>
+                    наденем
                 </span>
             </h1>
 
             <div className={cn({ [styles.blablabla]: true })}>
-                Клининг рекламных поверхностей является неотъемлемой и
-                важной процедурой для каждого бизнеса , который заботится о
-                всех аспектах своей репутации. Пословица современного
-                маркетинга гласит, что: «встречают по вывеске», именно ее
-                чистота расплоложит клиента к большим контрактам.
+                Очень важно, чтобы Ваш бизнес всегда был на высоте,
+                мы прекрасно понимает это и поэтому предлагаем
+                услуги реставрации и клининга Ваших рекламных
+                поверхностей. Специалисты &quot;Таврида Медиа&quot; в
+                кратчайшие сроки обещают вернуть вашей вывеске
+                прежний, неотразимый вид.
             </div>
 
             <ol className={cn({ [styles.list]: true })}>
@@ -205,24 +216,22 @@ export default () => (
             </div>
         </div>
         <div className={cn({ [styles['slider-wrapper']]: true })}>
-            <img className={cn({ [styles.moika]: true })} src={moika} />
-            <div className={cn({ [styles['how-many']]: true })}>
-                <h1 className={cn({ [styles.top]: true })}>
-                    Как часто необходимо проводить клининг?
-                </h1>
-                <p className={cn({ [styles.bottom]: true })}>
-                    Мы советуем проводить клининг Вашей рекламной
-                    конструкции, будь то ситиборд, вывеска, и т.п., раз в
-                    4-7 месяцев. Заметим, что временные рамки будут иметь
-                    прямую зависимость от местоположения и времени года.
-                </p>
-            </div>
             <div className={cn({ [styles['gallery-wrapper']]: true })}>
                 <ImageGallery
                     items={images}
                     autoPlay
                     showPlayButton={false}
                     showThumbnails={false}
+                />
+            </div>
+
+            <div className={cn({ [styles.phone]: true })}>
+                <iframe
+                    className={cn({ [styles.video]: true })}
+                    src="https://www.youtube.com/embed/yAMQWtR3LGs?controls=0"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
                 />
             </div>
         </div>
@@ -245,7 +254,7 @@ export default () => (
                             </h2>
                             <span
                                 className={cn({
-                                    [styles.botttom]: true,
+                                    [styles.bottom]: true,
                                 })}
                             >
                                 {stage.desc}

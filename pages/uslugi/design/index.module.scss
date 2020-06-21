@@ -84,7 +84,9 @@
 			.item {
 				position: absolute;
 
-				list-style: none;
+                list-style: none;
+                
+                cursor: pointer;
 
 				.pic {
 					width: 100%;
@@ -301,6 +303,67 @@
 			border-radius: 0.6vw;
 		}
 	}
+}
+
+.design-item-dialog {
+    .design-item-dialog-paper {
+        width: 500px;
+        height: 250px;
+        
+        border-radius: 45px;
+
+        background: linear-gradient(180deg,#001c70,#0c0047);
+
+        overflow: visible;
+
+        .design-item-dialog-label-pic {
+            position: absolute;
+
+            width: 100px;
+
+            left: 0;
+            top: 0;
+
+            transform: translateX(-30%) translateY(-30%);
+        }
+
+        .design-item-dialog-label {
+            font-size: 50px;
+            font-family: GlebastaFontBig;
+
+            padding: 15px 0;
+
+            color: #fff;
+        }
+
+        .design-item-dialog-buttons {
+            position: absolute;
+            
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+            .design-item-dialog-button {
+                height: 39px;
+                width: 170px;
+
+                font-size: 25px;
+
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+.design-item-dialog-paper {
+    width: 500px;
+    height: 250px;
 }
 
 @media screen and (max-width: 1200px) {

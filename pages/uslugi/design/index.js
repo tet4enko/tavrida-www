@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
+import Dialog from '@material-ui/core/Dialog';
+
 import styles from './index.module.scss';
 
 import back from './pics/Фон.png';
@@ -82,85 +84,159 @@ const dela = [
     },
 ];
 
-export default () => (
-    <div className={cn({ [styles.Design]: true })}>
-        <img className={cn({ [styles.back]: true })} src={back} alt="" />
-        <h1 className={cn({ [styles.label]: true })}>
-            <span className={cn({ [styles.top]: true })}>ДИЗАЙН</span>
-            <span className={cn({ [styles.bottom]: true })}>
-                КОТОРЫЙ ЗАПОМНИТСЯ КЛИЕНТУ
-            </span>
-        </h1>
-        <h2 className={cn({ [styles.what]: true })}>Что мы можем?</h2>
-        <div className={cn({ [styles.galactic]: true })}>
-            <img className={cn({ [styles.kolca]: true })} src={galactic} alt="" />
-            <ol className={cn({ [styles.items]: true })}>
-                {uslugi.map((item, i) => (
-                    <li
-                        key={i}
-                        className={cn({
-                            [styles.item]: true,
-                            [styles[item.slug]]: true,
-                        })}
-                    >
-                        <img
-                            className={cn({ [styles.pic]: true })}
-                            src={item.pic}
-                            alt=""
-                        />
-                        <span className={cn({ [styles.label]: true })}>
+export default () => {
+    const [state, setState] = useState({
+        isOpened: false,
+        index: 0,
+    });
+
+    const close = () => {
+        setState({
+            isOpened: false,
+            index: state.index,
+        });
+    };
+
+    return (
+        <div className={cn({ [styles.Design]: true })}>
+            <img className={cn({ [styles.back]: true })} src={back} alt="" />
+            <h1 className={cn({ [styles.label]: true })}>
+                <span className={cn({ [styles.top]: true })}>ДИЗАЙН</span>
+                <span className={cn({ [styles.bottom]: true })}>
+                    КОТОРЫЙ ЗАПОМНИТСЯ КЛИЕНТУ
+                </span>
+            </h1>
+            <h2 className={cn({ [styles.what]: true })}>Что мы можем?</h2>
+            <div className={cn({ [styles.galactic]: true })}>
+                <img className={cn({ [styles.kolca]: true })} src={galactic} alt="" />
+                <ol className={cn({ [styles.items]: true })}>
+                    {uslugi.map((item, i) => (
+                        <li
+                            key={i}
+                            className={cn({
+                                [styles.item]: true,
+                                [styles[item.slug]]: true,
+                            })}
+                        >
+                            <img
+                                className={cn({ [styles.pic]: true })}
+                                src={item.pic}
+                                alt=""
+                                onClick={() => setState({ isOpened: true, index: i })}
+                            />
+                            <span
+                                className={cn({ [styles.label]: true })}
+                                onClick={() => setState({ isOpened: true, index: i })}
+                            >
+                                {item.name.toUpperCase()}
+                            </span>
+                        </li>
+                    ))}
+                </ol>
+                <img className={cn({ [styles.clck]: true })} src={click} />
+            </div>
+            <ol className={cn({ [styles.dela]: true })}>
+                {dela.map((item, i) => (
+                    <li className={cn({ [styles.delo]: true })} key={i}>
+                        <div className={cn({ 'pic-wrapper': true })}>
+                            <img
+                                className={cn({ [styles.pic1]: true })}
+                                src={item.pics[0]}
+                            />
+                            <img
+                                className={cn({ [styles.pic2]: true })}
+                                src={item.pics[1]}
+                            />
+                        </div>
+                        <div className={cn({ [styles.name]: true })}>
                             {item.name.toUpperCase()}
-                        </span>
+                        </div>
+                        <div className={cn({ [styles.text]: true })}>
+                            {item.text}
+                        </div>
                     </li>
                 ))}
             </ol>
-            <img className={cn({ [styles.clck]: true })} src={click} />
-        </div>
-        <ol className={cn({ [styles.dela]: true })}>
-            {dela.map((item, i) => (
-                <li className={cn({ [styles.delo]: true })} key={i}>
-                    <div className={cn({ 'pic-wrapper': true })}>
-                        <img
-                            className={cn({ [styles.pic1]: true })}
-                            src={item.pics[0]}
-                        />
-                        <img
-                            className={cn({ [styles.pic2]: true })}
-                            src={item.pics[1]}
-                        />
-                    </div>
-                    <div className={cn({ [styles.name]: true })}>
-                        {item.name.toUpperCase()}
-                    </div>
-                    <div className={cn({ [styles.text]: true })}>
-                        {item.text}
-                    </div>
-                </li>
-            ))}
-        </ol>
-        <ClientsGrid
-            className={cn({
-                [styles.ClientsGrid]: true,
-            })}
-            textColor="#fff"
-            headerCls={styles.headerCls}
-        />
-        <div className={cn({ [styles.your]: true })}>
-            <h2
+            <ClientsGrid
                 className={cn({
-                    [styles['your-design']]: true,
+                    [styles.ClientsGrid]: true,
                 })}
-            >
-                А КАКИМ БУДЕТ ТВОЙ ДИЗАЙН?
-            </h2>
-            <div className={cn({ [styles.btns]: true })}>
-                <button type="button" className={cn({ [styles.idea]: true })}>
-                    ПОДЕЛИСЬ СВОЕЙ ИДЕЕЙ
-                </button>
-                <button type="button" className={cn({ [styles.price]: true, yellow: true })}>
-                    УЗНАЙ ЦЕНУ
-                </button>
+                textColor="#fff"
+                headerCls={styles.headerCls}
+            />
+            <div className={cn({ [styles.your]: true })}>
+                <h2
+                    className={cn({
+                        [styles['your-design']]: true,
+                    })}
+                >
+                    А КАКИМ БУДЕТ ТВОЙ ДИЗАЙН?
+                </h2>
+                <div className={cn({ [styles.btns]: true })}>
+                    <button
+                        type="button"
+                        className={cn({ [styles.idea]: true })}
+                    >
+                        ПОДЕЛИСЬ СВОЕЙ ИДЕЕЙ
+                    </button>
+                    <button type="button" className={cn({ [styles.price]: true, yellow: true })}>
+                        УЗНАЙ ЦЕНУ
+                    </button>
+                </div>
             </div>
+            <Dialog
+                aria-labelledby="simple-dialog-title"
+                open={state.isOpened}
+                onEscapeKeyDown={close}
+                onBackdropClick={close}
+                maxWidth={false}
+                className={cn({
+                    [styles['design-item-dialog']]: true,
+                })}
+                classes={{
+                    paper: cn({
+                        [styles['design-item-dialog-paper']]: true,
+                    }),
+                }}
+            >
+                <div
+                    className={cn({
+                        [styles['design-item-dialog-label']]: true,
+                    })}
+                >
+                    {uslugi[state.index].name.toUpperCase()}
+                </div>
+                <div
+                    className={cn({
+                        [styles['design-item-dialog-buttons']]: true,
+                    })}
+                >
+                    <button
+                        type="button"
+                        className={cn({
+                            [styles['design-item-dialog-button']]: true,
+                        })}
+                        onClick={close}
+                    >
+                        ВЕРНУТЬСЯ
+                    </button>
+                    <button
+                        type="button"
+                        className={cn({
+                            yellow: true,
+                            [styles['design-item-dialog-button']]: true,
+                        })}
+                    >
+                        УЗНАТЬ ЦЕНУ
+                    </button>
+                </div>
+                <img
+                    src={uslugi[state.index].pic}
+                    className={cn({
+                        [styles['design-item-dialog-label-pic']]: true,
+                    })}
+                />
+            </Dialog>
         </div>
-    </div>
-);
+    );
+};

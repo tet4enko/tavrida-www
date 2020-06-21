@@ -166,8 +166,6 @@ export default () => {
         });
     };
 
-    console.log(state);
-
     return (
         <div className={cn({ [styles.Projects]: true })}>
             <div className={cn({ [styles.main]: true })}>
@@ -217,6 +215,19 @@ export default () => {
                     }),
                 }}
             >
+                <div
+                    className={cn({
+                        [styles['projects-opened-item-pic-wrapper']]: true,
+                    })}
+                >
+                    <img
+                        onLoad={() => { setState({ isImageLoading: false, openedIndex: state.openedIndex }); }}
+                        src={projects[state.openedIndex] && projects[state.openedIndex].full}
+                        className={cn({
+                            [styles['projects-opened-item-pic']]: true,
+                        })}
+                    />
+                </div>
                 <CloseRoundedIcon
                     onClick={close}
                     className={cn({
@@ -224,13 +235,6 @@ export default () => {
                         [styles[projects[state.openedIndex] && projects[state.openedIndex].closeColor]]: true,
                     })}
                     fontSize="large"
-                />
-                <img
-                    onLoad={() => { setState({ isImageLoading: false, openedIndex: state.openedIndex }); }}
-                    src={projects[state.openedIndex] && projects[state.openedIndex].full}
-                    className={cn({
-                        [styles['projects-opened-item-pic']]: true,
-                    })}
                 />
             </Dialog>
         </div>

@@ -18,7 +18,7 @@
 		color: var(--main-header-color);
 		position: absolute;
 		font-size: 7vw;
-		left: 5vw;
+		left: 10vw;
 		top: 4vw;
 		line-height: 6vw;
 
@@ -29,16 +29,18 @@
 
 		.betina {
 			font-family: GlebastaBetina;
-			margin-left: 1.5vw;
 			font-size: 5vw;
 
 			color: #000;
 		}
 
 		.success {
-			display: block;
-			margin-left: 27vw;
-		}
+			margin-right: 1.5vw;
+        }
+        
+        .clean {
+            margin-left: 1.5vw;
+        }
 	}
 
 	.blablabla {
@@ -48,7 +50,7 @@
 
 		text-align: left;
 
-		width: 64vw;
+		width: 60vw;
 
 		font-size: 1.6vw;
 	}
@@ -168,11 +170,38 @@
 		}
 
 		.gallery-wrapper {
-			position: absolute;
-			left: 36vw;
-			width: 58vw;
-			top: 16vw;
-		}
+            position: absolute;
+
+            left: 4vw;
+            top: 6vw;
+
+			width: 60vw;
+        }
+        
+        .phone {
+            position: absolute;
+
+            left: 68vw;
+            top: 1vw;
+
+            width: 20vw;
+            height: 41vw;
+            
+            background: red;
+
+            background: url('./pics/Смартфон.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            .video {
+                width: 18.3vw;
+                height: 20.5vw;
+
+                position: relative;
+
+                top: 13vw;
+            }
+        }
 	}
 
 	.stages {
@@ -254,25 +283,24 @@
 
 		.title {
 			font-size: 84px;
-			left: 60px;
+			left: 120px;
 			top: 48px;
 			line-height: 72px;
 
-			.betina {
-				margin-left: 18px;
-				font-size: 60px;
-			}
-
 			.success {
-				margin-left: 324px;
-			}
-		}
+				margin-right: 18px;
+            }
+            
+            .clean {
+                margin-left: 18px;
+            }
+        }
 
 		.blablabla {
 			left: 120px;
 			top: 336px;
 
-			width: 768px;
+			width: 720px;
 
 			font-size: 19.2px;
 		}
@@ -343,14 +371,25 @@
 			}
 
 			.gallery-wrapper {
-				left: 432px;
-				width: 696px;
-				top: 192px;
+                left: 48px;
+                width: 720px;
+                top: 72px;
+            }
 
-				.image-gallery {
-					width: 420px;
-				}
-			}
+            .phone {
+                left: 816px;
+                top: 12px;
+    
+                width: 240px;
+                height: 492px;
+    
+                .video {
+                    width: 219.6px;
+                    height: 246px;
+    
+                    top: 156px;
+                }
+            }
 		}
 
 		.stages {
