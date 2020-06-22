@@ -144,52 +144,6 @@
     }
 }
 
-.projects-opened-item-dialog {
-    .projects-opened-item-dialog-paper {
-        background-color: transparent;
-
-        opacity: 0;
-    
-        transition: opacity .3s ease-out;
-    
-        &.visible {
-            opacity: 1;
-        }
-
-        .projects-opened-item-pic-wrapper {
-            max-width: 100%;
-            max-height: 100%;
-
-            position: relative;
-
-            overflow: auto;
-        }
-
-        .projects-opened-item-pic {
-            width: 100%;
-        }
-        
-        .projects-opened-item-close {
-            position: absolute;
-        
-            top: 10px;
-            right: 10px;
-        
-            cursor: pointer;
-    
-            z-index: 1;
-        
-            &.white {
-                color: #fff;
-            }
-        
-            &.black {
-                color: #000;
-            }
-        }
-    }
-}
-
 @media screen and (max-width: 1200px) {
 	.Projects {
         .main {

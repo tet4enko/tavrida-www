@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
-
-import Dialog from '@material-ui/core/Dialog';
-import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
-
 import styles from './index.module.scss';
 
 import mainPic from './pics/Фото.png';
@@ -32,6 +28,8 @@ import fundukPicFull from './pics/ККМ/ККМ..png';
 
 import clientsPic from './pics/Клиенты.png';
 
+import ProjectDialog from '../../components/ProjectDialog/ProjectDialog';
+
 const projects = [
     {
         preview: ttPic,
@@ -42,6 +40,7 @@ const projects = [
             'Айдентика',
             'Дизайн вывески',
         ],
+        slug: 'testo',
     },
     {
         preview: htPic,
@@ -54,6 +53,7 @@ const projects = [
             'Фирменная форма',
             'SMM',
         ],
+        slug: 'ht',
     },
     {
         preview: m2Pic,
@@ -64,6 +64,7 @@ const projects = [
             'Создание логотипа',
             'Айдентика',
         ],
+        slug: 'gavno',
     },
     {
         preview: ffPic,
@@ -77,6 +78,7 @@ const projects = [
             'Дизайн упаковки',
             'Стикеры',
         ],
+        slug: 'fresh',
     },
     {
         preview: vanilPic,
@@ -87,6 +89,7 @@ const projects = [
             'Редизайн',
             'Дизайн этикетки',
         ],
+        slug: 'vanil',
     },
     {
         preview: zolotoPic,
@@ -99,6 +102,7 @@ const projects = [
             'Фирменный стиль',
             'Дизайн упаковки',
         ],
+        slug: 'zoloto',
     },
     {
         preview: scandalPic,
@@ -110,6 +114,7 @@ const projects = [
             'Фирменный стиль',
             'Стилизация социальных сетей',
         ],
+        slug: 'scandal',
     },
     {
         preview: ligaPic,
@@ -122,6 +127,7 @@ const projects = [
             'Стилизация социальных сетей',
             'Дизайн наградной атрибутики',
         ],
+        slug: 'liga',
     },
     {
         preview: kkmPic,
@@ -133,6 +139,7 @@ const projects = [
             'Фирменный стиль',
             'Дизайн этикетки',
         ],
+        slug: 'kkm',
     },
     {
         preview: fundukPic,
@@ -143,27 +150,15 @@ const projects = [
             'Редизайн',
             'Дизайн этикетки',
         ],
+        slug: 'funduk',
     },
 ];
 
-export default () => {
-    const [state, setState] = useState({
-        openedIndex: null,
-        isImageLoading: true,
-    });
+const component = () => {
+    const [openedIndex, setOpenedIndex] = useState(null);
 
     const close = () => {
-        setState({
-            isImageLoading: true,
-            openedIndex: null,
-        });
-    };
-
-    const onPreviewItemClick = (index) => {
-        setState({
-            isImageLoading: true,
-            openedIndex: index,
-        });
+        setOpenedIndex(null);
     };
 
     return (
@@ -180,7 +175,7 @@ export default () => {
                     <div
                         className={cn({ [styles.item]: true })}
                         key={index}
-                        onClick={() => onPreviewItemClick(index)}
+                        onClick={() => setOpenedIndex(index)}
                     >
                         <img
                             src={item.preview}
@@ -199,44 +194,14 @@ export default () => {
             </div>
             <div className={cn({ [styles['main-header']]: true })}>НАШИ КЛИЕНТЫ</div>
             <img className={cn({ [styles.clients]: true })} src={clientsPic} />
-            <Dialog
-                aria-labelledby="simple-dialog-title"
-                open={state.openedIndex !== null}
-                onEscapeKeyDown={close}
-                onBackdropClick={close}
-                maxWidth={false}
-                className={cn({
-                    [styles['projects-opened-item-dialog']]: true,
-                })}
-                classes={{
-                    paper: cn({
-                        [styles['projects-opened-item-dialog-paper']]: true,
-                        [styles.visible]: !state.isImageLoading,
-                    }),
-                }}
-            >
-                <div
-                    className={cn({
-                        [styles['projects-opened-item-pic-wrapper']]: true,
-                    })}
-                >
-                    <img
-                        onLoad={() => { setState({ isImageLoading: false, openedIndex: state.openedIndex }); }}
-                        src={projects[state.openedIndex] && projects[state.openedIndex].full}
-                        className={cn({
-                            [styles['projects-opened-item-pic']]: true,
-                        })}
-                    />
-                </div>
-                <CloseRoundedIcon
-                    onClick={close}
-                    className={cn({
-                        [styles['projects-opened-item-close']]: true,
-                        [styles[projects[state.openedIndex] && projects[state.openedIndex].closeColor]]: true,
-                    })}
-                    fontSize="large"
-                />
-            </Dialog>
+            <ProjectDialog
+                isOpened={openedIndex !== null}
+                onClose={close}
+                data={projects[openedIndex || 0]}
+            />
         </div>
     );
 };
+
+export default component;
+export { component, projects };

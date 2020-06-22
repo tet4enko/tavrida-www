@@ -308,7 +308,7 @@
 .design-item-dialog {
     .design-item-dialog-paper {
         width: 500px;
-        height: 250px;
+        height: initial;
         
         border-radius: 45px;
 
@@ -336,13 +336,15 @@
             color: #fff;
         }
 
-        .design-item-dialog-buttons {
-            position: absolute;
-            
-            bottom: 0;
-            left: 0;
-            right: 0;
+        .design-item-dialog-text {
+            font-size: 20px;
 
+            color: #fff;
+
+            padding: 0 15px;
+        }
+
+        .design-item-dialog-buttons {
             height: 80px;
 
             display: flex;

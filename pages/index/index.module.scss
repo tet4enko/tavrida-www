@@ -1,3 +1,42 @@
-.General .Zamer {
-	margin-top: 0;
+.General {
+    .main-gallery-wrapper {
+        width: 78vw;
+        left: 0;
+        right: 0;
+        margin: 3vw auto 0 auto;
+
+        .bullet {
+            border-radius: 0;
+
+            width: 3vw;
+
+            position: relative;
+
+            top: 10px;
+
+            box-shadow: none;
+        }
+
+        .bullet[aria-pressed="true"],
+        .bullet:hover {
+            background: yellow;
+        }
+
+        .bullet:focus {
+            background: var(--main-header-color);
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+	.General {
+        .main-gallery-wrapper {
+            width: 936px;
+            margin: 36px auto 0 auto;
+    
+            .bullet {
+                width: 36px;
+            }
+        }
+    }
 }
