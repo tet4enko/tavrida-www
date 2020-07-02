@@ -1,6 +1,6 @@
 .Socials {
     width: 64vw;
-    min-width: 768px;
+    min-width: 850px;
 
     margin-bottom: 100px;
 
@@ -60,4 +60,10 @@
         font-size: 1.7vw;
     }
 
+}
+
+@media screen and (max-width: 1200px) {
+	.Socials .text {
+        font-size: 20.4px;
+    }
 }
