@@ -10,7 +10,7 @@ import fb from './pics/фейс.png';
 import phone1 from './pics/1.png';
 import phone2 from './pics/2.png';
 import phone3 from './pics/3.png';
-import cheli from './pics/челы.png';
+import cheli from './pics/Челы.png';
 
 const icons = [
     {
