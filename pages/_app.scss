@@ -126,7 +126,15 @@ button {
 		color: #fbca0e;
 
 		background: linear-gradient(180deg, #001c70 0%, #0c0047 100%);
-	}
+    }
+    
+    &.progress {
+        opacity: .5;
+
+        cursor: progress;
+
+        pointer-events: none;
+    }
 }
 
 .general-header {
@@ -136,7 +144,72 @@ button {
 
 	padding: 20px 0 60px 0;
 
-	font-size: 53px;
+    font-size: 53px;
+    
+    text-align: center;
+}
+
+.MuiTextField-root {
+    .MuiFormLabel-root,
+    .MuiInputBase-root {
+        font-family: GlebastaFont;
+    }
+
+    &.white {
+        .MuiFormLabel-root,
+        .MuiInputBase-root {
+            color: #fff;
+        }
+    
+        .MuiInputBase-root:before {
+            border-bottom: 1px solid #fff;
+        }
+    
+        .MuiInputBase-root:after {
+            border-bottom: 2px solid var(--main-header-color);
+        }
+    
+        .MuiInputBase-root:hover:before {
+            border-bottom: 1px solid #fbca0e;
+        }
+    }
+}
+
+.MuiFormLabel-root.white,
+.MuiFormLabel-root.white.Mui-focused {
+    color: #fff;
+}
+
+.MuiSelect-root.white {
+    color: #fff;
+}
+
+.MuiInput-root.MuiInputBase-root {
+    &:before {
+        border-bottom: 1px solid #fff;
+    }
+
+    &:after {
+        border-bottom: 2px solid var(--main-header-color);
+    }
+
+    &:hover:not(.Mui-disabled):before {
+        border-bottom: 1px solid #fbca0e;
+    }
+
+    .MuiSelect-icon {
+        color: #fff;
+    }
+}
+
+.MuiButton-root .MuiButton-label {
+    display: block;
+
+    text-align: center;
+}
+
+.MuiCheckbox-colorSecondary.Mui-checked.yellow {
+    color: #fbca0e;
 }
 
 @font-face {

@@ -1,0 +1,63 @@
+.Socials {
+    width: 64vw;
+    min-width: 768px;
+
+    margin-bottom: 100px;
+
+    display: inline-block;
+
+    text-align: left;
+
+    position: relative;
+
+    .phone {
+        width: 17vw;
+
+        min-width: 204px;
+
+        margin-bottom: 25px;
+    }
+
+    .cheli {
+        position: absolute;
+
+        width: 74%;
+
+        bottom: 0;
+        right: 5%;
+    }
+
+    .icons {
+        position: absolute;
+
+        list-style: none;
+
+        right: 5%;
+        padding: 0;
+        margin: 0;
+
+        bottom: 6%;
+        height: 50%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        .icon {
+            width: 4vw;
+            min-width: 48px;
+        }
+    }
+
+    .text {
+        position: absolute;
+
+        top: 100px;
+        right: 0;
+
+        text-align: right;
+
+        font-size: 1.7vw;
+    }
+
+}

@@ -11,10 +11,13 @@
 	"dependencies": {
 		"@material-ui/core": "^4.10.1",
 		"@material-ui/icons": "^4.9.1",
+		"@webdeb/next-styles": "^1.1.0",
 		"classnames": "^2.2.6",
 		"eslint-plugin-mocha-no-only": "^1.1.0",
+		"gmail-send": "^1.8.10",
 		"jquery": "^3.5.1",
 		"lodash": "^4.17.15",
+		"multiparty": "^4.2.1",
 		"next": "9.4.1",
 		"next-images": "^1.4.0",
 		"react": "16.13.1",

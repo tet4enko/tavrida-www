@@ -3,11 +3,13 @@ import Link from 'next/link';
 import cn from 'classnames';
 import styles from './Header.module.scss';
 
-import logo from './Logo_Shapka.png';
-import phone from './Telofon_Shapka.png';
+import logo from './pics/Logo_Shapka.png';
+import phone from './pics/Тел.png';
+import mail from './pics/мыло.png';
 
-import logoWhite from './Logo_Shapka_white.png';
-import phoneWhite from './Telofon_Shapka_white.png';
+import logoWhite from './pics/Logo_Shapka_white.png';
+import phoneWhite from './pics/Тел2.png';
+import mailWhite from './pics/мыло2.png';
 
 const uslugi = [
     {
@@ -146,11 +148,11 @@ class Header extends Component {
                                             onClick={() => this.setState({ servicesOpened: false })}
                                         >
                                             <span
-                                        className={cn({
+                                                className={cn({
                                                     [styles.point]: true,
                                                     [styles[item.color]]: true,
                                                 })}
-                                    />
+                                            />
                                             {item.text}
                                         </a>
                                     </Link>
@@ -186,36 +188,29 @@ class Header extends Component {
                             [styles.right]: true,
                         })}
                     >
-                        <img
-                            src={this.props.general ? phone : phoneWhite}
-                            width="60px"
-                            height="60px"
-                        />
-                        <div
+                        <a
                             className={cn({
-                                [styles.contacts]: true,
+                                [styles.phone]: true,
                             })}
+                            itemProp="telephone"
+                            href="tel:+79780790979 "
                         >
-                            <a
-                                className={cn({
-                                    [styles.phone]: true,
-                                })}
-                                itemProp="telephone"
-                                href="tel:+79780790979 "
-                            >
-                                7 978 079 09 79
-                            </a>
-                            <a
-                                className={cn({
-                                    [styles.email]: true,
-                                })}
-                                itemProp="email"
-                                target="_blank"
-                                href="mailto:tavrida.media@mail.ru"
-                            >
-                                tavrida.media@mail.ru
-                            </a>
-                        </div>
+                            <img
+                                src={this.props.general ? phone : phoneWhite}
+                            />
+                        </a>
+                        <a
+                            className={cn({
+                                [styles.email]: true,
+                            })}
+                            itemProp="email"
+                            target="_blank"
+                            href="mailto:tavrida.media@mail.ru"
+                        >
+                            <img
+                                src={this.props.general ? mail : mailWhite}
+                            />
+                        </a>
                     </div>
                 </div>
             </div>

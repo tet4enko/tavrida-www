@@ -1,18 +1,122 @@
 .SuperFooter {
 	position: relative;
 
-	height: 340px;
+	height: 1100px;
 
 	background: linear-gradient(
 		180deg,
 		rgba(0, 28, 112, 1) 0%,
 		rgba(12, 0, 71, 1) 100%
-	);
+    );
+    
+    .top {
+        position: absolute;
+
+		bottom: 340px;
+		right: 0;
+		top: 0;
+		left: 0;
+		margin: auto;
+
+		resize: none;
+
+		width: 1100px;
+
+        display: inline-flex;
+
+        padding-top: 50px;
+
+        color: #fff;
+
+        .yellow {
+            color: #fbca0e;
+        }
+        
+        .left {
+            width: 50%;
+
+            .heading {
+                display: block;
+
+                font-size: 28px;
+                font-weight: bold;
+
+                margin-bottom: 30px;
+
+                letter-spacing: 1.5px;
+
+                text-align: left;
+            }
+
+            .text {
+                display: block;
+
+                font-size: 20px;
+
+                margin-bottom: 40px;
+
+                text-align: left;
+            }
+
+            .tarelka {
+                width: 300px;
+            }
+        }
+
+        .right {
+            width: 50%;
+
+            padding: 0 100px;
+
+            box-sizing: border-box;
+
+            text-align: left;
+
+            .heading {
+                font-size: 40px;
+                font-weight: bold;
+
+                margin-bottom: 30px;
+                display: inline-block;
+            }
+
+            .control {
+                margin-bottom: 20px;
+            }
+
+            .upload {
+                border: 1px solid #fff;
+                border-radius: 0;
+
+                color: #fff;
+
+                .desc {
+                    font-size: 10px;
+                }
+            }
+
+            .filename {
+                margin-top: 10px;
+
+                font-size: 12px;
+            }
+
+            .checkbox-label {
+                font-size: 13px;
+            }
+
+            .submit {
+                border-radius: 15px;
+                height: 50px;
+                font-size: 29px;
+            }
+        }
+    }
 
 	.main {
 		position: absolute;
 
-		top: 0;
+		top: 760px;
 		right: 0;
 		bottom: 0;
 		left: 0;
