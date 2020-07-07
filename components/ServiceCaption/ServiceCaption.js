@@ -2,13 +2,13 @@ import React from 'react';
 import cn from 'classnames';
 import styles from './ServiceCaption.module.scss';
 
-export default (props) => (
+export default ({ caption, description }) => (
     <div className={cn({ [styles.ServiceCaption]: true })}>
         <h1 className={cn({ [styles.caption]: true })}>
-            {props.caption.toUpperCase()}
+            {caption.toUpperCase()}
         </h1>
         <div className={cn({ [styles.description]: true })}>
-            {props.description}
+            {description}
         </div>
     </div>
 );

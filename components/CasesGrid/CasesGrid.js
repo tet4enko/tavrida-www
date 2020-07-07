@@ -4,9 +4,9 @@ import styles from './CasesGrid.module.scss';
 
 import picTM from './pics/ТМ.png';
 
-export default (props) => (
+export default ({ cases }) => (
     <div className={cn({ [styles.CasesGrid]: true })}>
-        {props.cases.map((item, i) => (
+        {cases.map((item, i) => (
             <div className={cn({ [styles['case-item']]: true })} key={i}>
                 <div className={cn({ [styles.head]: true })}>
                     <span className={cn({ [styles.label]: true })}>
@@ -18,6 +18,7 @@ export default (props) => (
                     />
                 </div>
                 <button
+                    type="button"
                     className={cn({
                         yellow: true,
                         [styles.price]: true,

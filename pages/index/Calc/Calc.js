@@ -25,7 +25,7 @@ export default () => (
                     лучшей агрегации своих возможностей
                 </div>
                 <div className={cn({ [styles['button-wrapper']]: true })}>
-                    <button className="yellow">ОТКРЫТЬ</button>
+                    <button type="button" className="yellow">ОТКРЫТЬ</button>
                 </div>
             </div>
         </div>

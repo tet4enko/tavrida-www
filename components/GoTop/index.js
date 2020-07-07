@@ -6,7 +6,7 @@ import { throttle } from 'lodash';
 import styles from './index.module.scss';
 
 import day from './pics/ВверхДень.png';
-import night from './pics/ВверхНочь.png';
+// import night from './pics/ВверхНочь.png';
 
 export default () => {
     const [isVisile, setVisibility] = useState(false);

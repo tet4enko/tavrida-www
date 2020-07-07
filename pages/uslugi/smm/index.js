@@ -11,7 +11,7 @@ import comp3 from './pics/С3.png';
 import opitPic from './pics/3+.png';
 import prjsPic from './pics/50.png';
 import nonstopPic from './pics/24на7.png';
-import balarsPic from './pics/12.png';
+// import balarsPic from './pics/12.png';
 
 import techs from './pics/Технологии.png';
 
@@ -85,7 +85,10 @@ export default () => {
 				   что дает нам полное право игнорировать ботов, офферов и искусственные накрутки.`}
             </p>
             <div className={cn({ [styles['case-wrapper']]: true })}>
-                <button className={cn({ [styles.case]: true, gradient: true })}>
+                <button
+                    type="button"
+                    className={cn({ [styles.case]: true, gradient: true })}
+                >
                     ВЫБРАТЬ СВОЙ КЕЙС
                 </button>
             </div>

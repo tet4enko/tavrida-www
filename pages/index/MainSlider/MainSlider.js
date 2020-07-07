@@ -44,9 +44,9 @@ class MainSlider extends Component {
 
         this.slideTimeout = 5000;
 
-        const getRandomInt = (min, max) => {
-            min = Math.ceil(min);
-            max = Math.floor(max);
+        const getRandomInt = (min_, max_) => {
+            const min = Math.ceil(min_);
+            const max = Math.floor(max_);
             return Math.floor(Math.random() * (max - min + 1)) + min;
         };
 
@@ -75,6 +75,8 @@ class MainSlider extends Component {
     }
 
     render() {
+        const { slide: stateSlide } = this.state;
+
         return (
             <div className={cn({ [styles.MainSlider]: true })}>
                 <div className={cn({ [styles.background]: true })}>
@@ -83,8 +85,7 @@ class MainSlider extends Component {
                             className={cn({
                                 [styles.img]: true,
                                 [styles[`img${index + 1}`]]: true,
-                                [styles.visible]:
-										this.state.slide === index + 1,
+                                [styles.visible]: stateSlide === index + 1,
                             })}
                             src={pics[index]}
                             key={index}
@@ -95,8 +96,7 @@ class MainSlider extends Component {
                             className={cn({
                                 [styles.text]: true,
                                 [styles[`text${index + 1}`]]: true,
-                                [styles.visible]:
-										this.state.slide === index + 1,
+                                [styles.visible]: stateSlide === index + 1,
                             })}
                             key={index}
                         >

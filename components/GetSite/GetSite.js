@@ -4,10 +4,10 @@ import styles from './GetSite.module.scss';
 
 import comp2 from './pics/Комп2.png';
 
-export default (props) => {
+export default ({ className }) => {
     const classes = { [styles.GetSite]: true };
-    if (props.className) {
-        classes[props.className] = true;
+    if (className) {
+        classes[className] = true;
     }
     return (
         <div className={cn(classes)}>
@@ -22,6 +22,7 @@ export default (props) => {
                     </p>
                 </div>
                 <button
+                    type="button"
                     className={cn({
                         blue: true,
                         [styles['get-site']]: true,

@@ -128,10 +128,13 @@ export default () => {
                             <img
                                 className={cn({ [styles.pic]: true })}
                                 src={item.pic}
+                                tabIndex={-1}
                                 alt=""
                                 onClick={() => setState({ isOpened: true, index: i })}
                             />
                             <span
+                                role="button"
+                                tabIndex={0}
                                 className={cn({ [styles.label]: true })}
                                 onClick={() => setState({ isOpened: true, index: i })}
                             >

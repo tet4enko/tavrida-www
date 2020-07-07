@@ -9,7 +9,7 @@ function Order() {
                 БЫСТРЫЙ СТАРТ С ТАВРИДА МЕДИА
             </div>
             <div className={cn({ [styles.content]: true })}>
-                <button className={cn({ gradient: true })}>
+                <button type="button" className={cn({ gradient: true })}>
                     ОФОРМИТЬ ЗАЯВКУ
                 </button>
             </div>

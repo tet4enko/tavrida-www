@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react';
 import cn from 'classnames';
 import styles from './ServiceList.module.scss';
@@ -38,6 +40,7 @@ export default ({ services }) => (
                         </div>
                         <div className={cn({ [styles.buttons]: true })}>
                             <button
+                                type="button"
                                 className={cn({
                                     [styles.get_price]: true,
                                     [styles.btn]: true,
@@ -46,6 +49,7 @@ export default ({ services }) => (
                                 УЗНАТЬ ЦЕНУ
                             </button>
                             <button
+                                type="button"
                                 className={cn({
                                     [styles.order]: true,
                                     [styles.btn]: true,

@@ -9,8 +9,8 @@ import dom from './pics/Дом.png';
 import product from './pics/Продукт.png';
 import operativno from './pics/Оперативно.png';
 import vipolnenie from './pics/Выполнение.png';
-import moika from './pics/Мойка.png';
-import phone from './pics/Смартфон.png';
+// import moika from './pics/Мойка.png';
+// import phone from './pics/Смартфон.png';
 
 import slide1 from './pics/1.jpg';
 import slide2 from './pics/2.jpg';
@@ -196,6 +196,7 @@ export default () => (
 
             <div className={cn({ [styles.buttons]: true })}>
                 <button
+                    type="button"
                     className={cn({
                         [styles.btn]: true,
                         [styles.order]: true,
@@ -205,6 +206,7 @@ export default () => (
                     ОСТАВИТЬ ЗАЯВКУ
                 </button>
                 <button
+                    type="button"
                     className={cn({
                         [styles.btn]: true,
                         [styles.price]: true,
@@ -227,6 +229,7 @@ export default () => (
 
             <div className={cn({ [styles.phone]: true })}>
                 <iframe
+                    title="видео с примерами работ"
                     className={cn({ [styles.video]: true })}
                     src="https://www.youtube.com/embed/yAMQWtR3LGs?controls=0"
                     frameBorder="0"

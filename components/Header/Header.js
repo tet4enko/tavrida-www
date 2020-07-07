@@ -65,10 +65,10 @@ class Header extends Component {
     }
 
     onServivesMouseOut() {
-        this.setState({
+        this.setState((prevState) => ({
             servicesHovered: false,
-            servicesOpened: this.state.servicesPopupHovered,
-        });
+            servicesOpened: prevState.servicesPopupHovered,
+        }));
     }
 
     onServivesPopupMouseOver() {
@@ -76,18 +76,21 @@ class Header extends Component {
     }
 
     onServivesPopupMouseOut() {
-        this.setState({
+        this.setState((prevState) => ({
             servicesPopupHovered: false,
-            servicesOpened: this.state.servicesHovered,
-        });
+            servicesOpened: prevState.servicesHovered,
+        }));
     }
 
     render() {
+        const { general } = this.props;
+        const { servicesOpened } = this.state;
+
         return (
             <div
                 className={cn({
                     [styles.Header]: true,
-                    [styles.general]: this.props.general,
+                    [styles.general]: general,
                 })}
                 itemScope
                 itemType="http://schema.org/LocalBusiness"
@@ -106,7 +109,7 @@ class Header extends Component {
                     >
                         <img
                             itemProp="logo"
-                            src={this.props.general ? logo : logoWhite}
+                            src={general ? logo : logoWhite}
                             width="60px"
                             height="60px"
                         />
@@ -124,13 +127,15 @@ class Header extends Component {
                             className={cn({
                                 [styles.item]: true,
                                 [styles.uslugi]: true,
-                                [styles.opened]: this.state.servicesOpened,
+                                [styles.opened]: servicesOpened,
                             })}
                         >
                             <span
                                 className={cn({ [styles.label]: true })}
                                 onMouseOver={() => this.onServivesMouseOver()}
                                 onMouseOut={() => this.onServivesMouseOut()}
+                                onFocus={() => this.onServivesMouseOver()}
+                                onBlur={() => this.onServivesMouseOut()}
                             >
                                 Услуги
                             </span>
@@ -138,25 +143,35 @@ class Header extends Component {
                                 className={cn({ [styles.popup]: true })}
                                 onMouseOver={() => this.onServivesPopupMouseOver()}
                                 onMouseOut={() => this.onServivesPopupMouseOut()}
+                                onFocus={() => this.onServivesPopupMouseOver()}
+                                onBlur={() => this.onServivesPopupMouseOut()}
                             >
-                                {uslugi.map((item, i) => (
-                                    <Link href={`/uslugi/${item.href}`} key={i}>
-                                        <a
-                                            className={cn({
-                                                [styles['menu-item']]: true,
-                                            })}
-                                            onClick={() => this.setState({ servicesOpened: false })}
+                                {uslugi.map((item, i) => {
+                                    const href = `/uslugi/${item.href}`;
+
+                                    return (
+                                        <Link
+                                            href={href}
+                                            key={i}
                                         >
-                                            <span
+                                            <a
                                                 className={cn({
-                                                    [styles.point]: true,
-                                                    [styles[item.color]]: true,
+                                                    [styles['menu-item']]: true,
                                                 })}
-                                            />
-                                            {item.text}
-                                        </a>
-                                    </Link>
-                                ))}
+                                                href={href}
+                                                onClick={() => this.setState({ servicesOpened: false })}
+                                            >
+                                                <span
+                                                    className={cn({
+                                                        [styles.point]: true,
+                                                        [styles[item.color]]: true,
+                                                    })}
+                                                />
+                                                {item.text}
+                                            </a>
+                                        </Link>
+                                    );
+                                })}
                             </div>
                         </span>
                         <span
@@ -168,6 +183,7 @@ class Header extends Component {
                         </span>
                         <Link href="/projects">
                             <a
+                                href="/projects"
                                 className={cn({
                                     [styles.item]: true,
                                 })}
@@ -196,7 +212,7 @@ class Header extends Component {
                             href="tel:+79780790979 "
                         >
                             <img
-                                src={this.props.general ? phone : phoneWhite}
+                                src={general ? phone : phoneWhite}
                             />
                         </a>
                         <a
@@ -205,10 +221,11 @@ class Header extends Component {
                             })}
                             itemProp="email"
                             target="_blank"
+                            rel="noreferrer"
                             href="mailto:tavrida.media@mail.ru"
                         >
                             <img
-                                src={this.props.general ? mail : mailWhite}
+                                src={general ? mail : mailWhite}
                             />
                         </a>
                     </div>

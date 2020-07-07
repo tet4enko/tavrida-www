@@ -48,7 +48,8 @@ class WebSlider extends Component {
     }
 
     render() {
-        const position = this.state.position.split(' ');
+        let { position } = this.state;
+        position = position.split(' ');
         const classes = {
             [styles.WebSlider]: true,
             [styles[position[0]]]: true,
@@ -71,12 +72,12 @@ class WebSlider extends Component {
                             ДИЗАЙН
                         </span>
                         <button
+                            type="button"
                             className={cn({
                                 [styles.btn]: true,
                                 [styles.more]: true,
                             })}
                             onClick={() => {
-                                debugger;
                                 this.setState({
                                     position: 'start start-right',
                                 });
@@ -112,6 +113,7 @@ class WebSlider extends Component {
                         </ol>
                         <div className={cn({ [styles.btns]: true })}>
                             <button
+                                type="button"
                                 className={cn({
                                     [styles.btn]: true,
                                     [styles.price]: true,
@@ -120,6 +122,7 @@ class WebSlider extends Component {
                                 УЗНАТЬ ЦЕНУ
                             </button>
                             <button
+                                type="button"
                                 className={cn({
                                     [styles.btn]: true,
                                     [styles.back]: true,
@@ -153,6 +156,7 @@ class WebSlider extends Component {
                             КОД
                         </span>
                         <button
+                            type="button"
                             className={cn({
                                 [styles.btn]: true,
                                 [styles.more]: true,
@@ -190,6 +194,7 @@ class WebSlider extends Component {
                         </ol>
                         <div className={cn({ [styles.btns]: true })}>
                             <button
+                                type="button"
                                 className={cn({
                                     [styles.btn]: true,
                                     [styles.back]: true,
@@ -209,6 +214,7 @@ class WebSlider extends Component {
                                 ВЕРНУТЬСЯ
                             </button>
                             <button
+                                type="button"
                                 className={cn({
                                     [styles.btn]: true,
                                     [styles.price]: true,

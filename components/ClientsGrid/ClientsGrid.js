@@ -111,36 +111,6 @@ class ClientsGrid extends Component {
         this.start();
     }
 
-    start() {
-        this.setState({
-            top: 5,
-            bottom: 6,
-        });
-
-        setTimeout(() => {
-            this.setState({ moving: true });
-
-            this.move();
-        }, 100);
-
-        this.moveInterval = setInterval(() => {
-            this.move();
-        }, 10000);
-    }
-
-    stop() {
-        this.setState({ moving: false });
-
-        clearInterval(this.moveInterval);
-    }
-
-    move() {
-        this.setState({
-            top: this.getIndex(this.state.top, 'right'),
-            bottom: this.getIndex(this.state.bottom, 'left'),
-        });
-    }
-
     getIndex(current, side = 'left', double = false) {
         const count = double ? 2 : 1;
         let result = side === 'left' ? current - count : current + count;
@@ -158,15 +128,49 @@ class ClientsGrid extends Component {
         case clients1.length + 1:
             result = 1;
             break;
+        default:
+            //
         }
 
         return result;
     }
 
+    move() {
+        const { top, bottom } = this.state;
+
+        this.setState({
+            top: this.getIndex(top, 'right'),
+            bottom: this.getIndex(bottom, 'left'),
+        });
+    }
+
+    stop() {
+        this.setState({ moving: false });
+
+        clearInterval(this.moveInterval);
+    }
+
+    start() {
+        this.setState({
+            top: 5,
+            bottom: 6,
+        });
+
+        setTimeout(() => {
+            this.setState({ moving: true });
+
+            this.move();
+        }, 100);
+
+        this.moveInterval = setInterval(() => {
+            this.move();
+        }, 10000);
+    }
+
     render() {
         const self = this;
-
-        const { openedIndex } = this.state;
+        const { openedIndex, moving } = this.state;
+        const { className, headerCls } = this.props;
 
         return (
             <PageVisibility onChange={this.handleVisibilityChange}>
@@ -175,14 +179,14 @@ class ClientsGrid extends Component {
                         className={cn({
                             [styles.ClientsGrid]: true,
                             section: true,
-                            [this.props.className]: true,
-                            [styles.moving]: this.state.moving,
+                            [className]: true,
+                            [styles.moving]: moving,
                         })}
                     >
                         <div
                             className={cn({
                                 'general-header': true,
-                                [this.props.headerCls]: true,
+                                [headerCls]: true,
                             })}
                         >
                             НАШИ ПРОЕКТЫ
@@ -200,6 +204,8 @@ class ClientsGrid extends Component {
                                         [styles.superright]: index === self.getIndex(self.state.top, 'right', true),
                                     })}
                                     onClick={() => this.setState({ openedIndex: index })}
+                                    role="button"
+                                    tabIndex="-1"
                                 >
                                     <img src={client.pic} className={cn({ [styles.pic]: true })} />
                                     <div
@@ -226,6 +232,8 @@ class ClientsGrid extends Component {
                                         [styles.superright]: index === self.getIndex(self.state.bottom, 'right', true),
                                     })}
                                     onClick={() => this.setState({ openedIndex: index })}
+                                    role="button"
+                                    tabIndex="-1"
                                 >
                                     <img src={client.pic} className={cn({ [styles.pic]: true })} />
                                     <div

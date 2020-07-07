@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import cn from 'classnames';
 import styles from './index.module.scss';
 
+// eslint-disable-next-line import/named
 import { useInterval } from '../../../helpers/react';
 
 import vk from './pics/вк.png';

@@ -8,6 +8,7 @@ export default (req, res) => {
         autoFiles: false,
     });
 
+    // eslint-disable-next-line consistent-return
     form.parse(req, (err, fields, files) => {
         if (err) {
             res.statusCode = 400;

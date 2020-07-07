@@ -1,9 +1,9 @@
 import React from 'react';
 
 import cn from 'classnames';
-import ServiceCaption from '../../../components/ServiceCaption/ServiceCaption.js';
-import ServicesSlider from '../../../components/ServicesSlider/ServicesSlider.js';
-import ServiceList from '../../../components/ServiceList/ServiceList.js';
+import ServiceCaption from '../../../components/ServiceCaption/ServiceCaption';
+import ServicesSlider from '../../../components/ServicesSlider/ServicesSlider';
+import ServiceList from '../../../components/ServiceList/ServiceList';
 
 import styles from './index.module.scss';
 
@@ -15,14 +15,14 @@ import rukzaki from './pics/5.png';
 import fleshki from './pics/6.png';
 import ruchki from './pics/7.png';
 
-const loremIpsum =	'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.';
-
 const services = [
     {
         name: 'Футболки и поло',
         shortText: 'Закажи футболку со своим принтом, надписью или логотипом в Симферополе. Выбери правильный способ выделиться!',
         longText:
-			`Принт на футболках актуален для многих компаний, предпринимателей, частных лиц, организаций. Заказывая футболки с логотипом  вашей компании вы получаете сразу несколько приемуществ:
+            `Принт на футболках актуален для многих компаний, предпринимателей,
+            частных лиц, организаций. Заказывая футболки с логотипом  вашей компании
+            вы получаете сразу несколько приемуществ:
 			Высокое качество нанесения;
 			Различные способы нанесения принта ( Флекс,  Шелкография, Прямая печать, Сублимационная печать)
 			Большой выбор различных моделей футболок под нанесение;
@@ -35,7 +35,10 @@ const services = [
         shortText: 'Именные чехлы для смартфонов стали хитом . Данные аксессуары становятся популярными среди молодых  и прогрессивных людей с отличным чувством вкуса.',
         longText:
 			`Дизайнерские чехлы для телефонов в последнее время пользуются очень  высокой популярностью
-			Чехлы с принтом для телефонов не только  подчеркнут твою индивидуальность, но и помогут сделать процесс обращения с электронным устройством более комфортным. В качестве исходного полотна для печати на чехлах нами используются пластиковые или силиконовые кейсы, на которые по желанию заказчика наносится любое, выбранное им изображение.
+            Чехлы с принтом для телефонов не только  подчеркнут твою индивидуальность, но и
+            помогут сделать процесс обращения с электронным устройством более комфортным.
+            В качестве исходного полотна для печати на чехлах нами используются пластиковые
+            или силиконовые кейсы, на которые по желанию заказчика наносится любое, выбранное им изображение.
 			В наличии есть чехлы для телефонов различных моделей.`,
         pic: chehli,
         slug: 'cases',
@@ -85,10 +88,10 @@ const services = [
 const component = () => (
     <div
         className={cn({
-			  [styles.Suvenirka]: true,
-			  'page-wrapper': true,
-			  'page-content': true,
-			  'service-page-type-1': true,
+            [styles.Suvenirka]: true,
+            'page-wrapper': true,
+            'page-content': true,
+            'service-page-type-1': true,
         })}
     >
         <ServiceCaption caption="сувенирная продукция" description="" />
@@ -96,16 +99,16 @@ const component = () => (
         <ServiceList services={services} />
         <div
             className={cn({
-				  [styles.baloon]: true,
-				  baloon: true,
-				  top: true,
+                [styles.baloon]: true,
+                baloon: true,
+                top: true,
             })}
         />
         <div
             className={cn({
-				  [styles.baloon]: true,
-				  baloon: true,
-				  bottom: true,
+                [styles.baloon]: true,
+                baloon: true,
+                bottom: true,
             })}
         />
     </div>

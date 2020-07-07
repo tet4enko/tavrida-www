@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable no-alert */
 import React, { Component } from 'react';
 import jQuery from 'jquery';
 import cn from 'classnames';
@@ -354,7 +356,11 @@ class SuperFooter extends Component {
                         })}
                     >
                         <img src={mail} height={iconSize} />
-                        <a target="_blank" href="mailto:tavrida.media@mail.ru">
+                        <a
+                            target="_blank"
+                            rel="noreferrer"
+                            href="mailto:tavrida.media@mail.ru"
+                        >
                             <span>tavrida.media@mail.ru</span>
                             <div className={cn({ [styles.txt]: true })}>
                                 Подписаться на рассылку
@@ -384,7 +390,10 @@ class SuperFooter extends Component {
                             [styles.callback]: true,
                         })}
                     >
-                        <button className={cn({ [styles.btn]: true })}>
+                        <button
+                            className={cn({ [styles.btn]: true })}
+                            type="button"
+                        >
                             ПЕРЕЗВОНИТЕ МНЕ
                         </button>
                     </div>

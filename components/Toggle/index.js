@@ -1,13 +1,15 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import cn from 'classnames';
 import styles from './index.module.scss';
 
-export default (props) => (
+export default ({ side, onClick }) => (
     <button
+        type="button"
         className={cn({
             [styles.toggle]: true,
-            [styles[`tg-${props.side}`]]: true,
+            [styles[`tg-${side}`]]: true,
         })}
-        onClick={props.onClick}
+        onClick={onClick}
     />
 );

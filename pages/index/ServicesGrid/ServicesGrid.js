@@ -76,12 +76,13 @@ class ServicesGrid extends Component {
         super(props);
 
         this.state = {
+            // eslint-disable-next-line react/no-unused-state
             hovered: null,
         };
     }
 
     render() {
-        const _self = this;
+        const self = this;
 
         const gridItem = (data, i) => {
             const link = `/uslugi/${data.link}`;
@@ -91,12 +92,14 @@ class ServicesGrid extends Component {
                         key={i}
                         href={link}
                         className={cn({ [styles.item]: true })}
-                        onMouseOver={() => _self.setState({ hovered: data.img })}
-                        onMouseOut={() => _self.setState({ hovered: null })}
+                        onMouseOver={() => self.setState({ hovered: data.img })}
+                        onMouseOut={() => self.setState({ hovered: null })}
+                        onFocus={() => self.setState({ hovered: data.img })}
+                        onBlur={() => self.setState({ hovered: null })}
                     >
                         <img
                             src={
-                                _self.state.hovered === data.img
+                                self.state.hovered === data.img
                                     ? hoveredImages[data.img - 1]
                                     : images[data.img - 1]
                             }

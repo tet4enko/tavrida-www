@@ -21,7 +21,7 @@ export default () => (
                     И другие актуальные вопросы, читайте в нашем блоге...
                 </div>
                 <div className={cn({ [styles['button-wrapper']]: true })}>
-                    <button className="yellow">ЧИТАТЬ</button>
+                    <button type="button" className="yellow">ЧИТАТЬ</button>
                 </div>
             </div>
         </div>

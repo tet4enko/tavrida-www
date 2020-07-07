@@ -3,13 +3,13 @@ import cn from 'classnames';
 import ImageGallery from 'react-image-gallery';
 
 // import MainSlider from './MainSlider/MainSlider.js';
-import ServicesGrid from './ServicesGrid/ServicesGrid.js';
-import Blablabla from './Blablabla/Blablabla.js';
-import Smm from './Smm/Smm.js';
-import Calc from './Calc/Calc.js';
+import ServicesGrid from './ServicesGrid/ServicesGrid';
+import Blablabla from './Blablabla/Blablabla';
+import Smm from './Smm/Smm';
+import Calc from './Calc/Calc';
 import Zamer from '../../components/Zamer/Zamer';
-import ProductsSlider from '../../components/ProductsSlider/ProductsSlider.js';
-import ClientsGrid from '../../components/ClientsGrid/ClientsGrid.js';
+import ProductsSlider from '../../components/ProductsSlider/ProductsSlider';
+import ClientsGrid from '../../components/ClientsGrid/ClientsGrid';
 import Socials from './Socials';
 
 import slide1 from './pics/1.png';

@@ -10,7 +10,7 @@ import { services as suvenirkaServices } from '../../pages/uslugi/suvenirka';
 
 const services = [];
 
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < 6; i += 1) {
     services.push({ clusterSlug: 'outdoor', ...outdoorServices[i] });
     services.push({ clusterSlug: 'polygraphy', ...polygraphyServices[i] });
     services.push({ clusterSlug: 'suvenirka', ...suvenirkaServices[i] });
@@ -27,18 +27,6 @@ class ProductsSlider extends Component {
 
     componentDidMount() {
         this.srartInterval();
-    }
-
-    srartInterval(side) {
-        if (this.interval) {
-            clearInterval(this.interval);
-        }
-
-        if (side === 'left') {
-            this.interval = setInterval(this.goLeft.bind(this), 2000);
-        } else {
-            this.interval = setInterval(this.goRight.bind(this), 2000);
-        }
     }
 
     getLeft(index, diff) {
@@ -61,29 +49,42 @@ class ProductsSlider extends Component {
         return result;
     }
 
+    srartInterval(side) {
+        if (this.interval) {
+            clearInterval(this.interval);
+        }
+
+        if (side === 'left') {
+            this.interval = setInterval(this.goLeft.bind(this), 2000);
+        } else {
+            this.interval = setInterval(this.goRight.bind(this), 2000);
+        }
+    }
+
     goLeft() {
-        this.setState({
-            index: this.getLeft(this.state.index, 1),
-        });
+        this.setState((prevState) => ({
+            index: this.getLeft(prevState.index, 1),
+        }));
 
         this.srartInterval('left');
     }
 
     goRight() {
-        this.setState({
-            index: this.getRight(this.state.index, 1),
-        });
+        this.setState((prevState) => ({
+            index: this.getRight(prevState.index, 1),
+        }));
 
         this.srartInterval('right');
     }
 
     render() {
-        const state = this.state.index;
+        const { index: state } = this.state;
+        const { label, textColor } = this.props;
         const self = this;
 
         return (
             <div className={`${cn({ [styles.ProductsSlider]: true })} section`}>
-                <div className="general-header">{this.props.label || ''}</div>
+                <div className="general-header">{label || ''}</div>
                 <div className={cn({ [styles.services]: true })}>
                     {services.map((service, index) => {
                         let cls = cn({ [styles.service]: true });
@@ -142,7 +143,7 @@ class ProductsSlider extends Component {
                                     className={cn({ [styles.name]: true })}
                                     style={{
                                         color:
-                                            this.props.textColor
+                                            textColor
                                             || 'var(--main-header-color)',
                                     }}
                                 >

@@ -23,7 +23,9 @@ import vanilPicFull from './pics/Ваниль/Ваниль..png';
 import zolotoPicFull from './pics/Золото/Крымское золото.png';
 import scandalPicFull from './pics/Сканд/Скандал.png';
 import ligaPicFull from './pics/Лига/Лига..png';
+// eslint-disable-next-line import/no-duplicates
 import kkmPicFull from './pics/ККМ/ККМ..png';
+// eslint-disable-next-line import/no-duplicates
 import fundukPicFull from './pics/ККМ/ККМ..png';
 
 import clientsPic from './pics/Клиенты.png';
@@ -167,7 +169,9 @@ const component = () => {
                 <img className={cn({ [styles.pic]: true })} src={mainPic} />
                 <p className={cn({ [styles.text]: true })}>
                     <h1 className={cn({ [styles.top]: true })}>ПРОЕКТЫ</h1>
-                    <span className={cn({ [styles.bottom]: true })}>Хорошо, когда хорошо и наши проекты тому подтверждение</span>
+                    <span className={cn({ [styles.bottom]: true })}>
+                        Хорошо, когда хорошо и наши проекты тому подтверждение
+                    </span>
                 </p>
             </div>
             <div className={cn({ [styles.grid]: true })}>
@@ -176,6 +180,8 @@ const component = () => {
                         className={cn({ [styles.item]: true })}
                         key={index}
                         onClick={() => setOpenedIndex(index)}
+                        role="button"
+                        tabIndex={0}
                     >
                         <img
                             src={item.preview}

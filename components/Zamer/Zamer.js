@@ -4,7 +4,7 @@ import styles from './Zamer.module.scss';
 
 import zamerPic from './Замер.png';
 
-export default (props) => (
+export default () => (
     <div className={`${cn({ [styles.Zamer]: true })} section`}>
         <div className={cn({ [styles.top]: true })}>
             <div className={cn({ [styles.left]: true })}>
@@ -19,7 +19,10 @@ export default (props) => (
                     вызов замерщика
                 </span>
                 <br />
-                <button className={cn({ [styles.call]: true })}>
+                <button
+                    type="button"
+                    className={cn({ [styles.call]: true })}
+                >
                     ВЫЗВАТЬ БЕСПЛАТНО
                 </button>
             </div>

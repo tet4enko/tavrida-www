@@ -4,15 +4,15 @@ import Dialog from '@material-ui/core/Dialog';
 import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
 import styles from './ProjectDialog.module.scss';
 
-export default (props) => {
+export default ({ isOpened, onClose, data }) => {
     const [isImageLoading, setIsImageLoading] = useState(true);
 
     return (
         <Dialog
             aria-labelledby="simple-dialog-title"
-            open={props.isOpened}
-            onEscapeKeyDown={props.onClose}
-            onBackdropClick={props.onClose}
+            open={isOpened}
+            onEscapeKeyDown={onClose}
+            onBackdropClick={onClose}
             maxWidth={false}
             className={cn({
                 [styles['projects-opened-item-dialog']]: true,
@@ -31,17 +31,17 @@ export default (props) => {
             >
                 <img
                     onLoad={() => { setIsImageLoading(false); }}
-                    src={props.data.full}
+                    src={data.full}
                     className={cn({
                         [styles['projects-opened-item-pic']]: true,
                     })}
                 />
             </div>
             <CloseRoundedIcon
-                onClick={props.onClose}
+                onClick={onClose}
                 className={cn({
                     [styles['projects-opened-item-close']]: true,
-                    [styles[props.data.closeColor]]: true,
+                    [styles[data.closeColor]]: true,
                 })}
                 fontSize="large"
             />
