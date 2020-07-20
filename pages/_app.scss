@@ -166,11 +166,17 @@ button {
         }
     
         .MuiInputBase-root:after {
-            border-bottom: 2px solid var(--main-header-color);
+            border-bottom: 2px solid #fff;
         }
     
         .MuiInputBase-root:hover:before {
             border-bottom: 1px solid #fbca0e;
+        }
+    }
+
+    &.main-dialog-input {
+        .MuiInputBase-root {
+            font-size: 23px;
         }
     }
 }

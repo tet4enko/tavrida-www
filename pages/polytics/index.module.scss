@@ -1,0 +1,84 @@
+.Polytics {
+    display: inline-block;
+
+    color: var(--main-header-color);
+
+    .top {
+        display: flex;
+
+        .left,
+        .right {
+            flex: 1;
+        }
+        
+        .right {
+            text-align: left;
+
+            position: relative;
+
+            .map {
+                width: 60%;
+
+                margin-left: 5%;
+            }
+        }
+
+        .left {
+            text-align: right;
+
+            .title {
+                display: inline-block;
+
+                text-align: center;
+
+                margin-right: 5%;
+
+                position: relative;
+
+                top: 35%;
+
+                font-size: 2vw;
+            }
+        }
+    }
+
+    .text-title {
+        margin: 50px 0;
+
+        font-size: 1.6vw;
+    }
+
+    .text {
+        width: 70vw;
+
+        display: inline-block;
+        font-size: 1.2vw;
+
+        margin: 0 0 20px 0;
+
+        text-align: left;
+
+        text-indent: 100px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+	.Polytics {
+        .top {
+            .left {
+                .title {
+                    font-size: 28px;
+                }
+            }
+        }
+    
+        .text-title {
+            font-size: 22.4px;
+        }
+    
+        .text {
+            width: 980px;
+            font-size: 16.8px;
+        }
+    }
+}

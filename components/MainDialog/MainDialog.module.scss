@@ -1,0 +1,38 @@
+.main-dialog .main-dialog-paper {
+    width: 700px;
+
+    padding: 20px 50px;
+
+    background-color: var(--main-header-color);
+
+    border-radius: 40px;
+
+    overflow: visible;
+
+    .title {
+        font-family: GlebastaExtraBold;
+        font-size: 30px;
+
+        color: #fff;
+
+        margin-bottom: 20px;
+    }
+
+    .close {
+        position: absolute;
+
+        cursor: pointer;
+
+        z-index: 1;
+
+        color: var(--main-header-color);
+
+        background: #fbca0e;
+        border-radius: 100%;
+
+        font-size: 50px;
+
+        top: -15px;
+        right: -15px;
+    }
+}
