@@ -6,7 +6,7 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start -p 80",
-		"server-start": "npx pm2 start npm --name \"next\" -- start"
+		"server-start": "pm2 start npm -- start"
 	},
 	"dependencies": {
 		"@material-ui/core": "^4.10.1",

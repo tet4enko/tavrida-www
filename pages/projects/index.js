@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Head from 'next/head';
 import cn from 'classnames';
 import styles from './index.module.scss';
 
@@ -205,6 +206,15 @@ const component = () => {
                 onClose={close}
                 data={projects[openedIndex || 0]}
             />
+            <Head>
+                <title>ПРОЕКТЫ</title>
+                <meta property="og:locale" content="ru_RU" />
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="Проекты" />
+                <meta property="og:description" content="Портфолио рекламного агенства Таврида Медиа, проекты и клиенты." />
+                <meta property="og:url" content="https://tavrida-media.ru/projects/" />
+                <meta property="og:site_name" content="Рекламное агентство Таврида Медиа" />
+            </Head>
         </div>
     );
 };

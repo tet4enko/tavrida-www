@@ -218,6 +218,10 @@ button {
     color: #fbca0e;
 }
 
+.MuiCheckbox-colorSecondary .MuiSvgIcon-root {
+    color: #fff;
+}
+
 @font-face {
 	font-family: "GlebastaFont";
 	src: url(./../public/fonts/century_gothic.ttf) format("truetype");

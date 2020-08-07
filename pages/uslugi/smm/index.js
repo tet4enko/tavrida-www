@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Head from 'next/head';
 import cn from 'classnames';
 import styles from './index.module.scss';
 
@@ -142,6 +142,15 @@ export default () => {
             <GetSite className={cn({ [styles.GetSite]: true })} />
             <img className={cn({ [styles.boy]: true })} src={boy} />
             <img className={cn({ [styles.girl]: true })} src={girl} />
+            <Head>
+                <title>SMM и ТАРГЕТИНГ</title>
+                <meta property="og:locale" content="ru_RU" />
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="Smm и Таргетинг" />
+                <meta property="og:description" content="Мы предлагаем обширный спектр услуг по продвижению бизнеса во всех социальных сетях." />
+                <meta property="og:url" content="https://tavrida-media.ru/uslugi/smm/" />
+                <meta property="og:site_name" content="Рекламное агентство Таврида Медиа" />
+            </Head>
         </div>
     );
 };

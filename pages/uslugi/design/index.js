@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Head from 'next/head';
 import cn from 'classnames';
 import Dialog from '@material-ui/core/Dialog';
 
@@ -254,6 +255,15 @@ export default () => {
                     })}
                 />
             </Dialog>
+            <Head>
+                <title>ДИЗАЙН</title>
+                <meta property="og:locale" content="ru_RU" />
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="Дизайн" />
+                <meta property="og:description" content="Мы делаем каждый бренд уникальным. Наша графика не оставит равнодушным. Главная цель наших проектов – запомнится потенциальному потребителю." />
+                <meta property="og:url" content="https://tavrida-media.ru/uslugi/design/" />
+                <meta property="og:site_name" content="Рекламное агентство Таврида Медиа" />
+            </Head>
         </div>
     );
 };

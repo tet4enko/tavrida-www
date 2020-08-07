@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import ImageGallery from 'react-image-gallery';
 
 import cn from 'classnames';
@@ -277,5 +278,14 @@ export default () => (
                 ))}
             </div>
         </div>
+        <Head>
+            <title>КЛИНИНГ</title>
+            <meta property="og:locale" content="ru_RU" />
+            <meta property="og:type" content="website" />
+            <meta property="og:title" content="Клининг" />
+            <meta property="og:description" content="Рекламное агенство предоставляет услуги реставрации и клининга рекламных конструкций." />
+            <meta property="og:url" content="https://tavrida-media.ru/uslugi/cleaning/" />
+            <meta property="og:site_name" content="Рекламное агентство Таврида Медиа" />
+        </Head>
     </div>
 );

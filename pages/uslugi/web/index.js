@@ -1,7 +1,7 @@
 import React from 'react';
+import Head from 'next/head';
 import cn from 'classnames';
 import styles from './index.module.scss';
-
 import WebSlider from './WebSlider';
 import CasesGrid from '../../../components/CasesGrid/CasesGrid';
 import GetSite from '../../../components/GetSite/GetSite';
@@ -134,5 +134,14 @@ export default () => (
             className={cn({ [styles.banner]: true, [styles.last]: true })}
         />
         <br />
+        <Head>
+            <title>РАЗРАБОТКА САЙТОВ</title>
+            <meta property="og:locale" content="ru_RU" />
+            <meta property="og:type" content="website" />
+            <meta property="og:title" content="Разработка сайтов" />
+            <meta property="og:description" content="Мы используем в разработке только самые передовые инструменты и фреймворки и постоянно совершенствуем свои навыки" />
+            <meta property="og:url" content="https://tavrida-media.ru/uslugi/web/" />
+            <meta property="og:site_name" content="Рекламное агентство Таврида Медиа" />
+        </Head>
     </div>
 );

@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import cn from 'classnames';
 import ImageGallery from 'react-image-gallery';
 
@@ -74,5 +75,14 @@ export default () => (
         <Blablabla />
         <ClientsGrid />
         <Socials />
+        <Head>
+            <title>ТАВРИДА МЕДИА – рекламное агенство полного цикла в Симферополе</title>
+            <meta property="og:locale" content="ru_RU" />
+            <meta property="og:type" content="website" />
+            <meta property="og:title" content="Рекламное агентство полного цикла Таврида Медиа в Симферополе. Звоните!" />
+            <meta property="og:description" content="Рекламное агентство полного цикла Таврида Медиа поможет Вам привлечь новых клиентов. Наружная реклама, сувенирная продукция, полиграфия и т.д." />
+            <meta property="og:url" content="https://tavrida-media.ru/" />
+            <meta property="og:site_name" content="Рекламное агентство Таврида Медиа" />
+        </Head>
     </div>
 );

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Head from 'next/head';
 import cn from 'classnames';
 import ServiceCaption from '../../../components/ServiceCaption/ServiceCaption';
 import ServicesSlider from '../../../components/ServicesSlider/ServicesSlider';
@@ -158,6 +158,15 @@ const component = () => (
                 bottom: true,
             })}
         />
+        <Head>
+            <title>НАРУЖНАЯ РЕКЛАМА</title>
+            <meta property="og:locale" content="ru_RU" />
+            <meta property="og:type" content="website" />
+            <meta property="og:title" content="Наружная реклама" />
+            <meta property="og:description" content="Мы предлагаем услуги по изготовлению лайтбоксов, световых букв, баннеров, штендеров, а также по брендированию автомобиля." />
+            <meta property="og:url" content="https://tavrida-media.ru/uslugi/outdoor/" />
+            <meta property="og:site_name" content="Рекламное агентство Таврида Медиа" />
+        </Head>
     </div>
 );
 
