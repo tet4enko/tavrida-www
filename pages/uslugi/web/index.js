@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react';
 import Head from 'next/head';
 import cn from 'classnames';
@@ -104,7 +106,10 @@ export default () => (
             })}
             src={roboeb}
         />
-        <h2 className={cn({ [styles['main-header']]: true })}>
+        <h2
+            className={cn({ [styles['main-header']]: true })}
+        >
+            <a name="cases" className={cn({ [styles['cases-anchor']]: true })} />
             ВЫБЕРИ СВОЙ КЕЙС
         </h2>
         <CasesGrid cases={cases} />

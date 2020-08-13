@@ -37,7 +37,7 @@ const line1 = [
         link: 'polygraphy',
     },
     {
-        label: 'СУВЕРИНРНАЯ ПРОДУКЦИЯ',
+        label: 'СУВЕНИРНАЯ ПРОДУКЦИЯ',
         color: 'yellow',
         img: 3,
         link: 'suvenirka',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import jQuery from 'jquery';
 import cn from 'classnames';
 
@@ -10,9 +10,9 @@ import styles from './index.module.scss';
 import day from './pics/ТелефонДень.png';
 // import night from './pics/ТелефонНочь.png';
 
-export default () => {
-    const [isOpened, setOpened] = useState(false);
-    const [isProgress, setProgress] = useState(false);
+export default ({
+    isOpened, isProgress, setOpened, setProgress, phone, name, setPhone, setName, onSuccessSubmit,
+}) => {
     const onClose = () => setOpened(false);
 
     const onSubmit = (e) => {
@@ -30,6 +30,7 @@ export default () => {
             type: 'POST',
             success: () => {
                 alert('Спасибо за заказ!\nМы свяжемся с Вами в ближайшее время.');
+                onSuccessSubmit();
             },
             error: () => {
                 const message = 'Ошибка при отправке запроса.\nПопробуйте еще раз, пожалуйста.';
@@ -68,6 +69,8 @@ export default () => {
                         }}
                         className={cn({ 'main-dialog-input': true })}
                         placeholder="Ваш номер телефона"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
                     />
                     <TextField
                         required
@@ -80,6 +83,8 @@ export default () => {
                         }}
                         className={cn({ 'main-dialog-input': true })}
                         placeholder="Как к Вам можно обращаться?"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                     />
                     <button
                         className={cn({

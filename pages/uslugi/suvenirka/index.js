@@ -11,9 +11,9 @@ import futbolki from './pics/1.png';
 import chehli from './pics/2.png';
 import krujki from './pics/3.png';
 import beisbolki from './pics/4.png';
-import rukzaki from './pics/5.png';
-import fleshki from './pics/6.png';
-import ruchki from './pics/7.png';
+import rukzaki from './pics/6.png';
+import fleshki from './pics/7.png';
+import ruchki from './pics/5.png';
 
 const services = [
     {

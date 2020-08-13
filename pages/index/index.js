@@ -5,7 +5,7 @@ import ImageGallery from 'react-image-gallery';
 
 // import MainSlider from './MainSlider/MainSlider.js';
 import ServicesGrid from './ServicesGrid/ServicesGrid';
-import Blablabla from './Blablabla/Blablabla';
+// import Blablabla from './Blablabla/Blablabla';
 // import Smm from './Smm/Smm';
 import Calc from './Calc/Calc';
 import Zamer from '../../components/Zamer/Zamer';
@@ -72,7 +72,6 @@ export default () => (
         <Zamer />
         <ProductsSlider label="УЗНАЙ О РЕКЛАМЕ БОЛЬШЕ" />
         <Calc />
-        <Blablabla />
         <ClientsGrid />
         <Socials />
         <Head>

@@ -137,6 +137,8 @@ class SuperFooter extends Component {
             type, agree, file, orderProgress,
         } = this.state;
 
+        const { onCallbackClick } = this.props;
+
         return (
             <div className={cn({ [styles.SuperFooter]: true })}>
                 <div className={cn({ [styles.top]: true })}>
@@ -304,6 +306,16 @@ class SuperFooter extends Component {
                                     label="Согласие на обработку персональных данных"
                                 />
                             </FormControl>
+                            <a
+                                className={cn({
+                                    [styles.control]: true,
+                                    [styles.polytics]: true,
+                                })}
+                                href="/polytics"
+                                target="_blank"
+                            >
+                                Политика конфиденциальности
+                            </a>
                             <FormControl fullWidth className={cn({ [styles.control]: true })}>
                                 <button
                                     type="submit"
@@ -393,6 +405,7 @@ class SuperFooter extends Component {
                         <button
                             className={cn({ [styles.btn]: true })}
                             type="button"
+                            onClick={onCallbackClick}
                         >
                             ПЕРЕЗВОНИТЕ МНЕ
                         </button>
@@ -410,6 +423,8 @@ class SuperFooter extends Component {
                                 className={cn({ [styles.icon]: true })}
                                 itemProp="sameAs"
                                 href="https://www.instagram.com/tavridamedia"
+                                target="_blank"
+                                rel="noreferrer"
                             >
                                 <img
                                     src={inst}
@@ -421,6 +436,8 @@ class SuperFooter extends Component {
                                 className={cn({ [styles.icon]: true })}
                                 itemProp="sameAs"
                                 href="https://vk.com/tavrida.media"
+                                target="_blank"
+                                rel="noreferrer"
                             >
                                 <img
                                     src={vk}
@@ -432,6 +449,8 @@ class SuperFooter extends Component {
                                 className={cn({ [styles.icon]: true })}
                                 itemProp="sameAs"
                                 href="https://vk.com/tavrida.media"
+                                target="_blank"
+                                rel="noreferrer"
                             >
                                 <img
                                     src={gl}

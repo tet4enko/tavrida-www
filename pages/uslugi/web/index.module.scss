@@ -56,7 +56,13 @@
 		&.right {
 			text-align: right;
 		}
-	}
+    }
+    
+    .cases-anchor {
+        position: relative;
+
+        top: -30px;
+    }
 
 	.banner {
 		width: 50vw;

@@ -21,15 +21,17 @@ export default ({ className }) => {
                         МАРКЕТИНГ
                     </p>
                 </div>
-                <button
-                    type="button"
-                    className={cn({
-                        blue: true,
-                        [styles['get-site']]: true,
-                    })}
-                >
-                    ЗАКАЗАТЬ
-                </button>
+                <a href="/uslugi/web#cases" target="_blank">
+                    <button
+                        type="button"
+                        className={cn({
+                            blue: true,
+                            [styles['get-site']]: true,
+                        })}
+                    >
+                        ЗАКАЗАТЬ
+                    </button>
+                </a>
             </div>
             <img className={cn({ [styles.right]: true })} src={comp2} />
         </div>

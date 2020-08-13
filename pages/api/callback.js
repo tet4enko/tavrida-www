@@ -17,7 +17,7 @@ export default (req, res) => {
 
         const email = {
             user: 'tavrida.sender@gmail.com',
-            pass: 'ntnxtyrj',
+            pass: 'odkzsxdyksvyjrvc',
             to: ['tavrida.media@mail.ru', 'trissenkov@gmail.com', 'tetchenko@gmail.com'],
         };
 
@@ -30,6 +30,7 @@ export default (req, res) => {
             `,
         }, (error) => {
             if (error) {
+                console.log(error);
                 res.statusCode = 500;
                 res.end();
             } else {
