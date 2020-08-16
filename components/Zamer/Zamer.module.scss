@@ -45,3 +45,35 @@
 		background-color: #fbca0e;
 	}
 }
+
+.dialog {
+    .input {
+        margin: 0 auto 20px auto;
+    
+        width: 95%;
+    }
+    
+    .button {
+        font-size: 35px;
+
+        display: inline-block;
+
+        padding: 9px 25px;
+        margin: 10px auto 0 auto;
+
+        border-radius: 10px;
+    }
+
+    .polytics {
+        width: 90%;
+
+        margin: 20px auto 0 auto;
+
+        color: #fff;
+
+        a {
+            color: #fbca0e;
+            text-decoration: none;
+        }
+    }
+}

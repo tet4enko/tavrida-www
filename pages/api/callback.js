@@ -2,7 +2,27 @@
 const multiparty = require('multiparty');
 const gmail = require('gmail-send');
 
+const types = {
+    callback: 'Заказан обратный звонок с tavridamedia.com',
+    zamer: 'Заказан замер с tavridamedia.com',
+    mail: 'Оформлена подписка на рассылку',
+};
+
+const email = {
+    user: 'tavrida.sender@gmail.com',
+    pass: 'odkzsxdyksvyjrvc',
+    to: ['tavrida.media@mail.ru', 'trissenkov@gmail.com', 'tetchenko@gmail.com'],
+};
+
 export default (req, res) => {
+    let type = 'callback';
+
+    if (req.query.zamer !== undefined) {
+        type = 'zamer';
+    } else if (req.query.mail !== undefined) {
+        type = 'mail';
+    }
+
     const form = new multiparty.Form({
         maxFilesSize: 20971520,
         autoFiles: false,
@@ -15,22 +35,24 @@ export default (req, res) => {
             return res.json(err);
         }
 
-        const email = {
-            user: 'tavrida.sender@gmail.com',
-            pass: 'odkzsxdyksvyjrvc',
-            to: ['tavrida.media@mail.ru', 'trissenkov@gmail.com', 'tetchenko@gmail.com'],
-        };
-
-        const send = gmail({ ...email, subject: 'Заказан обратный звонок с tavridamedia.com' });
-
-        send({
-            html: `
+        let html;
+        if (type !== 'mail') {
+            html = `
                 Имя: ${fields.name}<br/>
                 Телефон: ${fields.phone}<br/>
-            `,
+            `;
+
+            if (fields.comment) {
+                html += `Комментарий: ${fields.comment}`;
+            }
+        } else {
+            html = `Почта: ${fields.mail}`;
+        }
+
+        gmail({ ...email, subject: types[type] })({
+            html,
         }, (error) => {
             if (error) {
-                console.log(error);
                 res.statusCode = 500;
                 res.end();
             } else {

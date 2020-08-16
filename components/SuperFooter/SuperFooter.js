@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-alert */
 import React, { Component } from 'react';
@@ -8,6 +9,8 @@ import {
     FormControl, FormControlLabel, TextField, Select, InputLabel, Button, Checkbox,
 } from '@material-ui/core';
 import styles from './SuperFooter.module.scss';
+
+import MainDialog from '../MainDialog/MainDialog';
 
 import { callbackSetOpened as callbackSetOpenedAction } from '../../redux/actions/callback';
 import { serviceTypeSet as serviceTypeSetAction } from '../../redux/actions/serviceType';
@@ -71,52 +74,46 @@ const rabotniki = [
     },
 ];
 
+const rabotnik = (icon, position, tel1, tel2) => (
+    <div className={cn({ [styles.rabotnik]: true })}>
+        <img src={icon} height={iconSize} />
+        <div className={cn({ [styles.info]: true })}>
+            <div
+                className={cn({ [styles.position]: true })}
+            >
+                {`${position}:`}
+            </div>
+            <a
+                className={cn({ [styles.tel]: true })}
+                itemProp="telephone"
+                href={`tel:${tel2}`}
+            >
+                {tel1}
+            </a>
+        </div>
+    </div>
+);
+
 class SuperFooter extends Component {
     constructor(props) {
         super(props);
-
-        this.myRef = React.createRef();
-        this.name = React.createRef();
 
         this.state = {
             agree: false,
             file: null,
             orderProgress: false,
+
+            subscribeIsOpen: false,
+            subscribeIsProgress: false,
+            subscribeMail: '',
         };
 
-        this.onSubmit = (event) => {
-            event.preventDefault();
+        this.myRef = React.createRef();
+        this.name = React.createRef();
 
-            this.setState({ orderProgress: true });
-
-            const data = new FormData(event.target);
-
-            jQuery.ajax({
-                url: '/api/order',
-                data,
-                cache: false,
-                processData: false,
-                contentType: false,
-                type: 'POST',
-                success: () => {
-                    alert('Спасибо за заказ!\nМы свяжемся с Вами в ближайшее время.');
-                },
-                error: (error) => {
-                    let message = 'Ошибка при отправке запроса.\nПопробуйте еще раз, пожалуйста.';
-
-                    if (error.status === 400 && error.responseJSON) {
-                        if (error.responseJSON.code === 'ETOOBIG') {
-                            message = 'Слишком большой файл, разрешены файлы размером меньше 20мб.';
-                        }
-                    }
-
-                    alert(message);
-                },
-                complete: () => {
-                    this.setState({ orderProgress: false });
-                },
-            });
-        };
+        this.bindedSubmitOrder = this.submitOrder.bind(this);
+        this.bindedSubmitSubscribe = this.submitSubscribe.bind(this);
+        this.bindedCloseSubscribe = this.closeSubscribe.bind(this);
     }
 
     componentDidUpdate(prevProps) {
@@ -135,29 +132,79 @@ class SuperFooter extends Component {
         }
     }
 
-    render() {
-        const rabotnik = (icon, position, tel1, tel2) => (
-            <div className={cn({ [styles.rabotnik]: true })}>
-                <img src={icon} height={iconSize} />
-                <div className={cn({ [styles.info]: true })}>
-                    <div
-                        className={cn({ [styles.position]: true })}
-                    >
-                        {`${position}:`}
-                    </div>
-                    <a
-                        className={cn({ [styles.tel]: true })}
-                        itemProp="telephone"
-                        href={`tel:${tel2}`}
-                    >
-                        {tel1}
-                    </a>
-                </div>
-            </div>
-        );
+    closeSubscribe() {
+        this.setState({
+            subscribeIsOpen: false,
+            subscribeIsProgress: false,
+            subscribeMail: '',
+        });
+    }
 
+    submitSubscribe(e) {
+        e.preventDefault();
+
+        this.setState({ subscribeIsProgress: true });
+        const data = new FormData(e.target);
+
+        jQuery.ajax({
+            url: '/api/callback?mail',
+            data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: () => {
+                alert('Спасибо за подписку!\nЖдите новостей :)');
+                this.bindedCloseSubscribe();
+            },
+            error: () => {
+                const message = 'Ошибка при отправке запроса.\nПопробуйте еще раз, пожалуйста.';
+                alert(message);
+            },
+            complete: () => {
+                this.setState({ subscribeIsProgress: false });
+            },
+        });
+    }
+
+    submitOrder(e) {
+        e.preventDefault();
+
+        this.setState({ orderProgress: true });
+
+        const data = new FormData(e.target);
+
+        jQuery.ajax({
+            url: '/api/order',
+            data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: () => {
+                alert('Спасибо за заказ!\nМы свяжемся с Вами в ближайшее время.');
+            },
+            error: (error) => {
+                let message = 'Ошибка при отправке запроса.\nПопробуйте еще раз, пожалуйста.';
+
+                if (error.status === 400 && error.responseJSON) {
+                    if (error.responseJSON.code === 'ETOOBIG') {
+                        message = 'Слишком большой файл, разрешены файлы размером меньше 20мб.';
+                    }
+                }
+
+                alert(message);
+            },
+            complete: () => {
+                this.setState({ orderProgress: false });
+            },
+        });
+    }
+
+    render() {
         const {
             agree, file, orderProgress,
+            subscribeIsOpen, subscribeIsProgress, subscribeMail,
         } = this.state;
 
         const {
@@ -206,7 +253,7 @@ class SuperFooter extends Component {
                             {' '}
                             <span className={cn({ [styles.yellow]: true })}>услугу</span>
                         </span>
-                        <form autoComplete="on" onSubmit={this.onSubmit}>
+                        <form autoComplete="on" onSubmit={this.bindedSubmitOrder}>
                             <FormControl fullWidth className={cn({ [styles.control]: true })}>
                                 <TextField
                                     label="Ваше имя"
@@ -397,16 +444,22 @@ class SuperFooter extends Component {
                         })}
                     >
                         <img src={mail} height={iconSize} />
-                        <a
-                            target="_blank"
-                            rel="noreferrer"
-                            href="mailto:tavrida.media@mail.ru"
-                        >
-                            <span>tavrida.media@mail.ru</span>
-                            <div className={cn({ [styles.txt]: true })}>
+                        <div>
+                            <a
+                                target="_blank"
+                                rel="noreferrer"
+                                href="mailto:tavrida.media@mail.ru"
+                            >
+                                <span>tavrida.media@mail.ru</span>
+                            </a>
+                            <div
+                                className={cn({ [styles.subscription]: true })}
+                                onClick={() => this.setState({ subscribeIsOpen: true })}
+                                role="button"
+                            >
                                 Подписаться на рассылку
                             </div>
-                        </a>
+                        </div>
                     </div>
 
                     <div
@@ -490,6 +543,47 @@ class SuperFooter extends Component {
                         </div>
                     </div>
                 </div>
+                <MainDialog
+                    isOpened={subscribeIsOpen}
+                    onClose={this.bindedCloseSubscribe}
+                    title="Хотите подписаться на рассылку?"
+                    className={cn({ [styles.dialog]: true })}
+                >
+                    <form autoComplete="on" onSubmit={this.bindedSubmitSubscribe}>
+                        <TextField
+                            required
+                            inputProps={{ type: 'email' }}
+                            size="medium"
+                            name="mail"
+                            classes={{
+                                root: cn({
+                                    white: true,
+                                    [styles.input]: true,
+                                }),
+                            }}
+                            className={cn({ 'main-dialog-input': true })}
+                            placeholder="Ваш email"
+                            value={subscribeMail}
+                            onChange={(e) => this.setState({ subscribeMail: e.target.value })}
+                        />
+                        <button
+                            className={cn({
+                                yellow: true,
+                                [styles.button]: true,
+                                progress: subscribeIsProgress,
+                            })}
+                            type="submit"
+                        >
+                            Подписаться
+                        </button>
+                    </form>
+                    <span className={cn({ [styles.polytics]: true })}>
+                        Нажимая на кнопку, я даю согласие на обработку персональных данных и соглашаюсь с
+                        &nbsp;
+                        <a href="/polytics" target="_blank">политикой конфиденциальности</a>
+                        .
+                    </span>
+                </MainDialog>
             </div>
         );
     }
