@@ -111,6 +111,10 @@ class ClientsGrid extends Component {
         this.start();
     }
 
+    componentWillUnmount() {
+        clearInterval(this.moveInterval);
+    }
+
     getIndex(current, side = 'left', double = false) {
         const count = double ? 2 : 1;
         let result = side === 'left' ? current - count : current + count;

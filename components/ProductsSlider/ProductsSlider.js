@@ -29,6 +29,10 @@ class ProductsSlider extends Component {
         this.srartInterval();
     }
 
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
     getLeft(index, diff) {
         let result = index - diff;
 

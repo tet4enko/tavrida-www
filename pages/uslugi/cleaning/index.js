@@ -112,7 +112,7 @@ const list = [
     },
 ];
 
-export default () => (
+const component = () => (
     <div className={cn({ [styles.Cleaning]: true })}>
         <style jsx global>
             {`
@@ -289,3 +289,10 @@ export default () => (
         </Head>
     </div>
 );
+
+component.getInitialProps = async ({ store, pathname }) => {
+    store.dispatch({ type: 'SERVICE_TYPE_SET', payload: pathname.match(/\/uslugi\/(.+)/)[1] });
+    return {};
+};
+
+export default component;

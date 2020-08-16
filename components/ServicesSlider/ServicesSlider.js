@@ -1,12 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import cn from 'classnames';
 import styles from './ServicesSlider.module.scss';
 
 import Toggle from '../Toggle';
 
+import { pageSetIsOrderInViewport as pageSetIsOrderInViewportAction } from '../../redux/actions/page';
+
 let interval;
 
-export default ({ services }) => {
+const component = ({ services, pageSetIsOrderInViewport }) => {
     const [index, setIndex] = React.useState(2);
     const [isVisile, setVisibility] = React.useState(true);
 
@@ -74,6 +77,7 @@ export default ({ services }) => {
                                 [styles.order]: true,
                                 [styles.btn]: true,
                             })}
+                            onClick={() => { pageSetIsOrderInViewport(true); }}
                         >
                             ЗАКАЗАТЬ
                         </button>
@@ -98,3 +102,7 @@ export default ({ services }) => {
         </div>
     );
 };
+
+export default connect(null, {
+    pageSetIsOrderInViewport: pageSetIsOrderInViewportAction,
+})(component);

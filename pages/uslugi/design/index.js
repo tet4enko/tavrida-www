@@ -92,7 +92,7 @@ const dela = [
     },
 ];
 
-export default () => {
+const component = () => {
     const [state, setState] = useState({
         isOpened: false,
         index: 0,
@@ -267,3 +267,10 @@ export default () => {
         </div>
     );
 };
+
+component.getInitialProps = async ({ store, pathname }) => {
+    store.dispatch({ type: 'SERVICE_TYPE_SET', payload: pathname.match(/\/uslugi\/(.+)/)[1] });
+    return {};
+};
+
+export default component;

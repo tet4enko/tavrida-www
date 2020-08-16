@@ -64,7 +64,7 @@ const cases = [
     },
 ];
 
-export default () => (
+const component = () => (
     <div className={cn({ [styles.Web]: true })}>
         <WebSlider />
         <h2 className={cn({ [styles['main-header']]: true })}>
@@ -150,3 +150,10 @@ export default () => (
         </Head>
     </div>
 );
+
+component.getInitialProps = async ({ store, pathname }) => {
+    store.dispatch({ type: 'SERVICE_TYPE_SET', payload: pathname.match(/\/uslugi\/(.+)/)[1] });
+    return {};
+};
+
+export default component;

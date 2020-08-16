@@ -1,4 +1,5 @@
 import React from 'react';
+import jQuery from 'jquery';
 import Head from 'next/head';
 import cn from 'classnames';
 import styles from './index.module.scss';
@@ -40,7 +41,7 @@ const values = [
     },
 ];
 
-export default () => {
+const component = () => {
     const [compsIndex, setCompsIndex] = React.useState(0);
 
     const getNextIndex = (index_) => {
@@ -61,6 +62,8 @@ export default () => {
     React.useEffect(() => {
         setTimeout(toggle, 4000);
     }, [compsIndex]);
+
+    const casesRef = React.useRef(null);
 
     return (
         <div className={cn({ [styles.FuckingSmm]: true })}>
@@ -88,6 +91,9 @@ export default () => {
                 <button
                     type="button"
                     className={cn({ [styles.case]: true, gradient: true })}
+                    onClick={() => jQuery('html, body').animate({
+                        scrollTop: casesRef.current.offsetTop,
+                    }, 700)}
                 >
                     ВЫБРАТЬ СВОЙ КЕЙС
                 </button>
@@ -135,6 +141,7 @@ export default () => {
                     [styles['main-header']]: true,
                     [styles['your-case']]: true,
                 })}
+                ref={casesRef}
             >
                 ВЫБЕРИ СВОЙ КЕЙС
             </h2>
@@ -154,3 +161,10 @@ export default () => {
         </div>
     );
 };
+
+component.getInitialProps = async ({ store, pathname }) => {
+    store.dispatch({ type: 'SERVICE_TYPE_SET', payload: pathname.match(/\/uslugi\/(.+)/)[1] });
+    return {};
+};
+
+export default component;

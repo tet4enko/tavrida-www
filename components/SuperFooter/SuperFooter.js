@@ -10,6 +10,8 @@ import {
 import styles from './SuperFooter.module.scss';
 
 import { callbackSetOpened as callbackSetOpenedAction } from '../../redux/actions/callback';
+import { serviceTypeSet as serviceTypeSetAction } from '../../redux/actions/serviceType';
+import { pageSetIsOrderInViewport as pageSetIsOrderInViewportAction } from '../../redux/actions/page';
 
 import tel from './pics/Телефон.png';
 import car from './pics/Машина.png';
@@ -73,8 +75,10 @@ class SuperFooter extends Component {
     constructor(props) {
         super(props);
 
+        this.myRef = React.createRef();
+        this.name = React.createRef();
+
         this.state = {
-            type: 'naruzhka',
             agree: false,
             file: null,
             orderProgress: false,
@@ -115,6 +119,22 @@ class SuperFooter extends Component {
         };
     }
 
+    componentDidUpdate(prevProps) {
+        const { isOrderInViewport, pageSetIsOrderInViewport } = this.props;
+        if (isOrderInViewport && !prevProps.isOrderInViewport) {
+            jQuery('html, body').animate({
+                scrollTop: this.myRef.current.offsetTop,
+            }, 700);
+
+            setTimeout(() => {
+                jQuery(this.name.current).focus();
+                jQuery(document).one('scroll', () => {
+                    pageSetIsOrderInViewport(false);
+                });
+            }, 700);
+        }
+    }
+
     render() {
         const rabotnik = (icon, position, tel1, tel2) => (
             <div className={cn({ [styles.rabotnik]: true })}>
@@ -137,13 +157,18 @@ class SuperFooter extends Component {
         );
 
         const {
-            type, agree, file, orderProgress,
+            agree, file, orderProgress,
         } = this.state;
 
-        const { callbackSetOpened } = this.props;
+        const {
+            callbackSetOpened,
+
+            serviceTypeSet,
+            serviceType,
+        } = this.props;
 
         return (
-            <div className={cn({ [styles.SuperFooter]: true })}>
+            <div className={cn({ [styles.SuperFooter]: true })} ref={this.myRef}>
                 <div className={cn({ [styles.top]: true })}>
                     <div className={cn({ [styles.left]: true })}>
                         <span className={cn({ [styles.heading]: true })}>
@@ -193,6 +218,7 @@ class SuperFooter extends Component {
                                     }}
                                     fullWidth
                                     name="name"
+                                    inputRef={this.name}
                                 />
                             </FormControl>
                             <FormControl fullWidth className={cn({ [styles.control]: true })}>
@@ -234,8 +260,8 @@ class SuperFooter extends Component {
                                 </InputLabel>
                                 <Select
                                     native
-                                    value={type}
-                                    onChange={(e) => this.setState({ type: e.target.value })}
+                                    value={serviceType}
+                                    onChange={(e) => serviceTypeSet(e.target.value)}
                                     inputProps={{
                                         name: 'type',
                                     }}
@@ -246,7 +272,7 @@ class SuperFooter extends Component {
                                     }}
                                     name="type"
                                 >
-                                    <option value="naruzhka">Наружная реклама</option>
+                                    <option value="outdoor">Наружная реклама</option>
                                     <option value="polygraphy">Полиграфия</option>
                                     <option value="suvenirka">Сувенирная продукция</option>
                                     <option value="cleaning">Клининг</option>
@@ -469,6 +495,11 @@ class SuperFooter extends Component {
     }
 }
 
-export default connect(null, {
+export default connect((state) => ({
+    serviceType: state.serviceType,
+    isOrderInViewport: state.page.isOrderInViewport,
+}), {
     callbackSetOpened: callbackSetOpenedAction,
+    serviceTypeSet: serviceTypeSetAction,
+    pageSetIsOrderInViewport: pageSetIsOrderInViewportAction,
 })(SuperFooter);

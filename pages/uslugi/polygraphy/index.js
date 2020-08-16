@@ -114,5 +114,10 @@ const component = () => (
     </div>
 );
 
+component.getInitialProps = async ({ store, pathname }) => {
+    store.dispatch({ type: 'SERVICE_TYPE_SET', payload: pathname.match(/\/uslugi\/(.+)/)[1] });
+    return {};
+};
+
 export default component;
 export { component, services };

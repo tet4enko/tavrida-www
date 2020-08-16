@@ -1,10 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react';
+import { connect } from 'react-redux';
 import cn from 'classnames';
 import styles from './ServiceList.module.scss';
 
-export default ({ services }) => (
+import { pageSetIsOrderInViewport as pageSetIsOrderInViewportAction } from '../../redux/actions/page';
+
+const component = ({ services, pageSetIsOrderInViewport }) => (
     <div className={`${cn({ [styles.ServiceList]: true })} section`}>
         <h2 className={cn({ [styles.caption]: true })}>
             НЕМНОГО О ГЛАВНОМ
@@ -54,6 +57,7 @@ export default ({ services }) => (
                                     [styles.order]: true,
                                     [styles.btn]: true,
                                 })}
+                                onClick={() => { pageSetIsOrderInViewport(true); }}
                             >
                                 ЗАКАЗАТЬ
                             </button>
@@ -64,3 +68,7 @@ export default ({ services }) => (
         </ol>
     </div>
 );
+
+export default connect(null, {
+    pageSetIsOrderInViewport: pageSetIsOrderInViewportAction,
+})(component);
