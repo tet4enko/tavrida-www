@@ -1,8 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useState } from 'react';
+import React from 'react';
 // import App from 'next/app';
 
 import './_app.scss';
+
+import wrapper from '../redux/store';
 
 import '../node_modules/react-image-gallery/styles/scss/image-gallery.scss';
 
@@ -13,40 +15,24 @@ import GoPhone from '../components/GoPhone';
 
 // export default class MyApp extends App
 
-export default ({ Component, pageProps, router }) => {
-    const [isCallbackOpened, setCallbackOpened] = useState(false);
-    const [isCallbackProgress, setCallbackProgress] = useState(false);
-    const [callbackPhone, setCallbackPhone] = useState('');
-    const [callbackName, setCallbackName] = useState('');
+const MyApp = ({ Component, pageProps, router }) => (
+    <>
+        <Header general={router.route === '/'} />
+        <Component {...pageProps} />
+        <SuperFooter />
+        <GoTop />
+        <GoPhone />
+    </>
+);
 
-    const onSuccessCallbackSubmit = () => {
-        setCallbackOpened(false);
-        setCallbackPhone('');
-        setCallbackName('');
-    };
+// ctx.store.dispatch({ type: 'CALLBACK_SET_OPENED', payload: true });
 
-    return (
-        <>
-            <Header general={router.route === '/'} />
-            <Component {...pageProps} />
-            <SuperFooter onCallbackClick={() => {
-                setCallbackOpened(true);
-                setCallbackPhone('');
-                setCallbackName('');
-            }}
-            />
-            <GoTop />
-            <GoPhone
-                isOpened={isCallbackOpened}
-                isProgress={isCallbackProgress}
-                setOpened={setCallbackOpened}
-                setProgress={setCallbackProgress}
-                name={callbackName}
-                setName={setCallbackName}
-                phone={callbackPhone}
-                setPhone={setCallbackPhone}
-                onSuccessSubmit={onSuccessCallbackSubmit}
-            />
-        </>
-    );
-};
+MyApp.getInitialProps = async ({ Component, ctx }) => ({
+    pageProps: {
+        // Call page-level getInitialProps
+        ...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {}),
+        // Some custom thing for all pages
+        pathname: ctx.pathname,
+    },
+});
+export default wrapper.withRedux(MyApp);

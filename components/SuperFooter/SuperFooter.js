@@ -2,11 +2,14 @@
 /* eslint-disable no-alert */
 import React, { Component } from 'react';
 import jQuery from 'jquery';
+import { connect } from 'react-redux';
 import cn from 'classnames';
 import {
     FormControl, FormControlLabel, TextField, Select, InputLabel, Button, Checkbox,
 } from '@material-ui/core';
 import styles from './SuperFooter.module.scss';
+
+import { callbackSetOpened as callbackSetOpenedAction } from '../../redux/actions/callback';
 
 import tel from './pics/Телефон.png';
 import car from './pics/Машина.png';
@@ -137,7 +140,7 @@ class SuperFooter extends Component {
             type, agree, file, orderProgress,
         } = this.state;
 
-        const { onCallbackClick } = this.props;
+        const { callbackSetOpened } = this.props;
 
         return (
             <div className={cn({ [styles.SuperFooter]: true })}>
@@ -405,7 +408,7 @@ class SuperFooter extends Component {
                         <button
                             className={cn({ [styles.btn]: true })}
                             type="button"
-                            onClick={onCallbackClick}
+                            onClick={() => callbackSetOpened(true)}
                         >
                             ПЕРЕЗВОНИТЕ МНЕ
                         </button>
@@ -466,4 +469,6 @@ class SuperFooter extends Component {
     }
 }
 
-export default SuperFooter;
+export default connect(null, {
+    callbackSetOpened: callbackSetOpenedAction,
+})(SuperFooter);

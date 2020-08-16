@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import jQuery from 'jquery';
 import cn from 'classnames';
 
@@ -10,15 +11,28 @@ import styles from './index.module.scss';
 import day from './pics/ТелефонДень.png';
 // import night from './pics/ТелефонНочь.png';
 
-export default ({
-    isOpened, isProgress, setOpened, setProgress, phone, name, setPhone, setName, onSuccessSubmit,
+import {
+    callbackSetOpened as callbackSetOpenedAction,
+    callbackSetProgress as callbackSetProgressAction,
+    callbackSetName as callbackSetNameAction,
+    callbackSetPhone as callbackSetPhoneAction,
+    callbackReset as callbackResetAction,
+} from '../../redux/actions/callback';
+
+const GoPhone = ({
+    isOpened, isProgress, phone, name,
+    callbackSetOpened,
+    callbackSetProgress,
+    callbackSetName,
+    callbackSetPhone,
+    callbackReset,
 }) => {
-    const onClose = () => setOpened(false);
+    const onClose = () => callbackSetOpened(false);
 
     const onSubmit = (e) => {
         e.preventDefault();
 
-        setProgress(true);
+        callbackSetProgress(true);
         const data = new FormData(e.target);
 
         jQuery.ajax({
@@ -30,14 +44,14 @@ export default ({
             type: 'POST',
             success: () => {
                 alert('Спасибо за заказ!\nМы свяжемся с Вами в ближайшее время.');
-                onSuccessSubmit();
+                callbackReset();
             },
             error: () => {
                 const message = 'Ошибка при отправке запроса.\nПопробуйте еще раз, пожалуйста.';
                 alert(message);
             },
             complete: () => {
-                setProgress(false);
+                callbackSetProgress(false);
             },
         });
     };
@@ -46,7 +60,7 @@ export default ({
         <>
             <img
                 className={cn({ [styles.GoPhone]: true })}
-                onClick={() => setOpened(true)}
+                onClick={() => callbackSetOpened(true)}
                 src={day}
             />
             <MainDialog
@@ -70,7 +84,7 @@ export default ({
                         className={cn({ 'main-dialog-input': true })}
                         placeholder="Ваш номер телефона"
                         value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
+                        onChange={(e) => callbackSetPhone(e.target.value)}
                     />
                     <TextField
                         required
@@ -84,7 +98,7 @@ export default ({
                         className={cn({ 'main-dialog-input': true })}
                         placeholder="Как к Вам можно обращаться?"
                         value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={(e) => callbackSetName(e.target.value)}
                     />
                     <button
                         className={cn({
@@ -107,3 +121,11 @@ export default ({
         </>
     );
 };
+
+export default connect((state) => state.callback, {
+    callbackSetOpened: callbackSetOpenedAction,
+    callbackSetProgress: callbackSetProgressAction,
+    callbackSetName: callbackSetNameAction,
+    callbackSetPhone: callbackSetPhoneAction,
+    callbackReset: callbackResetAction,
+})(GoPhone);

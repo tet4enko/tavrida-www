@@ -55,7 +55,7 @@ const mainSliderImages = [
     },
 ];
 
-export default () => (
+const GeneralPage = () => (
     <div className={cn({ [styles.General]: true })}>
         <div className={cn({ [styles['main-gallery-wrapper']]: true })}>
             <ImageGallery
@@ -85,3 +85,5 @@ export default () => (
         </Head>
     </div>
 );
+
+export default GeneralPage;

@@ -20,10 +20,13 @@
 		"multiparty": "^4.2.1",
 		"next": "9.4.1",
 		"next-images": "^1.4.0",
+		"next-redux-wrapper": "^6.0.2",
 		"react": "16.13.1",
 		"react-dom": "16.13.1",
 		"react-image-gallery": "^1.0.7",
 		"react-page-visibility": "^6.2.0",
+		"react-redux": "^7.2.1",
+		"redux": "^4.0.5",
 		"sass": "^1.26.5"
 	},
 	"devDependencies": {
