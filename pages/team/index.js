@@ -81,7 +81,10 @@ const component = () => {
                 newIndex = 0;
             }
             setSlideIndex(newIndex);
-            setSlideIsVisible(true);
+
+            setTimeout(() => {
+                setSlideIsVisible(true);
+            }, 0);
         }, 300);
     }, 5000);
 
