@@ -1,0 +1,53 @@
+.Team {
+    margin-top: -96px;
+
+    .section {
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .first {
+        background-image: url('./pics/Фото1.png');
+    }
+
+    .second {
+        background-image: url('./pics/Фото2.png');
+    }
+
+    .third {
+        background-image: url('./pics/Фото3.png');
+    }
+
+    .examples {
+        margin-bottom: -5px;
+
+        position: relative;
+
+        .exampleImg {
+            width: 100%;
+
+            opacity: 0;
+
+            transition: opacity .3s ease-out;
+
+            &.visible {
+                opacity: 1;
+            }
+        }
+
+        .exampleTitle {
+            display: block;
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            right: 0;
+
+            font-size: 4vw;
+            font-family: GlebastaDays;
+
+            color: #fff;
+        }
+    }
+}

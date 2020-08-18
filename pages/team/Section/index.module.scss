@@ -1,0 +1,89 @@
+.Section {
+    padding: 2vw 0;
+
+    color: #fff;
+
+    height: 44vw;
+
+    .title {
+        font-size: 6vw;
+
+        font-family: GlebastaDays;
+
+        margin-bottom: 2vw;
+
+        margin-block-start: 0;
+    }
+
+    .content {
+        display: flex;
+
+        height: 100%;
+
+        .left,
+        .right {
+            flex: 1;
+        }
+
+        .left {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            .textWrapper {
+                text-align: left;
+
+                display: inline-block;
+
+                line-height: 1.8em;
+                font-size: 1.9vw;
+            }
+        }
+
+        .right {
+            position: relative;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            .img {
+                position: relative;
+
+                left: 10%;
+
+                height: 27vw;
+            }
+        }
+    }
+
+    &.isTop {
+        padding-top: 10vw;
+
+        .content {
+            height: 70%;
+        }
+    }
+
+    &.right {
+        .content {
+            flex-direction: row-reverse;
+
+            .left {
+                justify-content: flex-start;
+
+                .textWrapper {
+                    text-align: right;
+                }
+            }
+
+            .right {
+                justify-content: flex-end;
+
+                .img {
+                    left: initial;
+                    right: 10%;
+                }
+            }
+        }
+    }
+}
