@@ -87,3 +87,35 @@
         }
     }
 }
+
+@media screen and (max-width: 1200px) {
+	.Section {
+        padding: 24px 0;
+    
+        height: 528px;
+    
+        .title {
+            font-size: 72px;
+    
+            margin-bottom: 24px;
+        }
+    
+        .content {
+            .left {
+                .textWrapper {
+                    font-size: 22.8px;
+                }
+            }
+    
+            .right {
+                .img {
+                    height: 324px;
+                }
+            }
+        }
+    
+        &.isTop {
+            padding-top: 120px;
+        }
+    }
+}
