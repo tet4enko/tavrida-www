@@ -121,6 +121,7 @@ const component = () => {
                 })}
             />
             <Section
+
                 direction="right"
                 text={(
                     <>

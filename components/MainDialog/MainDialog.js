@@ -5,7 +5,7 @@ import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
 import styles from './MainDialog.module.scss';
 
 export default ({
-    isOpened, onClose, children, title, className,
+    isOpened, onClose, children, title, className, paperClassName,
 }) => (
     <Dialog
         aria-labelledby="main-dialog-title"
@@ -20,6 +20,7 @@ export default ({
         classes={{
             paper: cn({
                 [styles['main-dialog-paper']]: true,
+                [paperClassName]: true,
             }),
         }}
     >

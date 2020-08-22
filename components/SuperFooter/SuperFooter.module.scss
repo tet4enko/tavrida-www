@@ -83,18 +83,24 @@
                 display: inline-block;
             }
 
-            .control {
+            .control:not(.agree) {
                 margin-bottom: 20px;
             }
 
             .polytics {
                 display: block;
 
-                color: #fbca0e;
+                color: #fff;
+
+                font-size: 12px;
 
                 text-align: center;
 
                 text-decoration: none;
+
+                &:hover {
+                    color: #fbca0e;
+                }
             }
 
             .upload {
@@ -115,7 +121,8 @@
             }
 
             .checkbox-label {
-                font-size: 13px;
+                font-size: 12px;
+                font-family: GlebastaFont;
             }
 
             .submit {
@@ -278,22 +285,46 @@
 	}
 }
 
+.paper {
+    width: 800px !important;
+}
+
 .dialog {
-    .input {
-        margin: 0 auto 20px auto;
+
+    .wrapper {
+        display: flex;
+
+        .form {
+            text-align: left;
+
+            .input {
+                margin: 20px auto;
+        
+                width: 100%;
+            }
+            
+            .button {
+                font-size: 35px;
+        
+                display: inline-block;
+        
+                padding: 9px 25px;
+                margin: 10px auto 0 auto;
+        
+                border-radius: 14px;
+            }
+        
+            .subtypeText {
+                color: #fff;
     
-        width: 95%;
-    }
-    
-    .button {
-        font-size: 35px;
+        
+                font-size: 29px;
+            }
+        }
 
-        display: inline-block;
-
-        padding: 9px 25px;
-        margin: 10px auto 0 auto;
-
-        border-radius: 10px;
+        .samolet {
+            width: 40%;
+        }
     }
 
     .polytics {

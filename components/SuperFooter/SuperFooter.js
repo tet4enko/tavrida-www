@@ -13,7 +13,10 @@ import styles from './SuperFooter.module.scss';
 import MainDialog from '../MainDialog/MainDialog';
 
 import { callbackSetOpened as callbackSetOpenedAction } from '../../redux/actions/callback';
-import { serviceTypeSet as serviceTypeSetAction } from '../../redux/actions/serviceType';
+import {
+    serviceTypeSet as serviceTypeSetAction,
+    serviceSubtypeSet as serviceSubtypeSetAction,
+} from '../../redux/actions/serviceType';
 import { pageSetIsOrderInViewport as pageSetIsOrderInViewportAction } from '../../redux/actions/page';
 
 import tel from './pics/Телефон.png';
@@ -28,6 +31,8 @@ import mail from './pics/Почта.png';
 import time from './pics/Часы.png';
 
 import tarelka from './pics/Тарелка.png';
+
+import samolet from './pics/Саломет.png';
 
 const socialIconSize = '30px';
 const iconSize = '45px';
@@ -212,6 +217,9 @@ class SuperFooter extends Component {
 
             serviceTypeSet,
             serviceType,
+            serviceSubtypeSet,
+            serviceSubtype,
+            serviceSubtypes,
         } = this.props;
 
         return (
@@ -328,6 +336,38 @@ class SuperFooter extends Component {
                                     <option value="design">Дизайн</option>
                                 </Select>
                             </FormControl>
+                            {serviceSubtypes
+                            && (
+                                <FormControl fullWidth className={cn({ [styles.control]: true })}>
+                                    <InputLabel
+                                        classes={{
+                                            root: cn({
+                                                white: true,
+                                            }),
+                                        }}
+                                    >
+                                        Что именно вас интересует?
+                                    </InputLabel>
+                                    <Select
+                                        native
+                                        value={serviceSubtype}
+                                        onChange={(e) => serviceSubtypeSet(e.target.value)}
+                                        inputProps={{
+                                            name: 'type',
+                                        }}
+                                        classes={{
+                                            root: cn({
+                                                white: true,
+                                            }),
+                                        }}
+                                        name="type"
+                                    >
+                                        {serviceSubtypes.map((item) => (
+                                            <option value={item.slug}>{item.name}</option>
+                                        ))}
+                                    </Select>
+                                </FormControl>
+                            )}
                             <FormControl fullWidth className={cn({ [styles.control]: true })}>
                                 <TextField
                                     label="Комментарий"
@@ -366,7 +406,7 @@ class SuperFooter extends Component {
                                 </label>
                                 <div className={cn({ [styles.filename]: true })}>{file}</div>
                             </FormControl>
-                            <FormControl fullWidth className={cn({ [styles.control]: true })}>
+                            <FormControl fullWidth className={cn({ [styles.control]: true, [styles.agree]: true })}>
                                 <FormControlLabel
                                     classes={{
                                         label: cn({ [styles['checkbox-label']]: true }),
@@ -546,37 +586,49 @@ class SuperFooter extends Component {
                 <MainDialog
                     isOpened={subscribeIsOpen}
                     onClose={this.bindedCloseSubscribe}
-                    title="Хотите подписаться на рассылку?"
                     className={cn({ [styles.dialog]: true })}
+                    paperClassName={cn({ [styles.paper]: true })}
                 >
-                    <form autoComplete="on" onSubmit={this.bindedSubmitSubscribe}>
-                        <TextField
-                            required
-                            inputProps={{ type: 'email' }}
-                            size="medium"
-                            name="mail"
-                            classes={{
-                                root: cn({
-                                    white: true,
-                                    [styles.input]: true,
-                                }),
-                            }}
-                            className={cn({ 'main-dialog-input': true })}
-                            placeholder="Ваш email"
-                            value={subscribeMail}
-                            onChange={(e) => this.setState({ subscribeMail: e.target.value })}
-                        />
-                        <button
-                            className={cn({
-                                yellow: true,
-                                [styles.button]: true,
-                                progress: subscribeIsProgress,
-                            })}
-                            type="submit"
-                        >
-                            Подписаться
-                        </button>
-                    </form>
+                    <div className={cn({ [styles.wrapper]: true })}>
+                        <form autoComplete="on" onSubmit={this.bindedSubmitSubscribe} className={cn({ [styles.form]: true })}>
+                            <div className={cn({ [styles.subtypeText]: true })}>
+                                Разрешите нам присылать Вам
+                                <br />
+                                всю информацию о новых
+                                <br />
+                                акциях, актуальных ценах и
+                                <br />
+                                свежих статьях?
+                            </div>
+                            <TextField
+                                required
+                                inputProps={{ type: 'email' }}
+                                size="medium"
+                                name="mail"
+                                classes={{
+                                    root: cn({
+                                        white: true,
+                                        [styles.input]: true,
+                                    }),
+                                }}
+                                className={cn({ 'main-dialog-input': true })}
+                                placeholder="Ваш email"
+                                value={subscribeMail}
+                                onChange={(e) => this.setState({ subscribeMail: e.target.value })}
+                            />
+                            <button
+                                className={cn({
+                                    yellow: true,
+                                    [styles.button]: true,
+                                    progress: subscribeIsProgress,
+                                })}
+                                type="submit"
+                            >
+                                Подписаться
+                            </button>
+                        </form>
+                        <img src={samolet} className={cn({ [styles.samolet]: true })} />
+                    </div>
                     <span className={cn({ [styles.polytics]: true })}>
                         Нажимая на кнопку, я даю согласие на обработку персональных данных и соглашаюсь с
                         &nbsp;
@@ -590,10 +642,13 @@ class SuperFooter extends Component {
 }
 
 export default connect((state) => ({
-    serviceType: state.serviceType,
+    serviceType: state.serviceType.type,
+    serviceSubtype: state.serviceType.subtype,
+    serviceSubtypes: state.serviceType.subtypes,
     isOrderInViewport: state.page.isOrderInViewport,
 }), {
     callbackSetOpened: callbackSetOpenedAction,
     serviceTypeSet: serviceTypeSetAction,
+    serviceSubtypeSet: serviceSubtypeSetAction,
     pageSetIsOrderInViewport: pageSetIsOrderInViewportAction,
 })(SuperFooter);

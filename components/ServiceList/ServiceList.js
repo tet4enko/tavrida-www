@@ -6,8 +6,14 @@ import cn from 'classnames';
 import styles from './ServiceList.module.scss';
 
 import { pageSetIsOrderInViewport as pageSetIsOrderInViewportAction } from '../../redux/actions/page';
+import {
+    serviceTypeSet as serviceTypeSetAction,
+    serviceSubtypeSet as serviceSubtypeSetAction,
+} from '../../redux/actions/serviceType';
 
-const component = ({ services, pageSetIsOrderInViewport }) => (
+const component = ({
+    services, type, pageSetIsOrderInViewport, serviceTypeSet, serviceSubtypeSet,
+}) => (
     <div className={`${cn({ [styles.ServiceList]: true })} section`}>
         <h2 className={cn({ [styles.caption]: true })}>
             НЕМНОГО О ГЛАВНОМ
@@ -57,7 +63,11 @@ const component = ({ services, pageSetIsOrderInViewport }) => (
                                     [styles.order]: true,
                                     [styles.btn]: true,
                                 })}
-                                onClick={() => { pageSetIsOrderInViewport(true); }}
+                                onClick={() => {
+                                    serviceTypeSet(type);
+                                    serviceSubtypeSet(service.slug);
+                                    pageSetIsOrderInViewport(true);
+                                }}
                             >
                                 ЗАКАЗАТЬ
                             </button>
@@ -71,4 +81,6 @@ const component = ({ services, pageSetIsOrderInViewport }) => (
 
 export default connect(null, {
     pageSetIsOrderInViewport: pageSetIsOrderInViewportAction,
+    serviceTypeSet: serviceTypeSetAction,
+    serviceSubtypeSet: serviceSubtypeSetAction,
 })(component);

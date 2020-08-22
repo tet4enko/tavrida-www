@@ -60,6 +60,7 @@ export default () => {
                     <span className={cn({ [styles.caption2]: true })}>
                         <sup>*</sup>
                         Закажи
+                        &nbsp;
                         <b>бесплатный</b>
                         {' '}
                         вызов замерщика

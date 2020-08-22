@@ -23,6 +23,12 @@
         .left,
         .right {
             flex: 1;
+
+            position: relative;
+
+            left: 0;
+
+            transition: left .7s ease-out;
         }
 
         .left {
@@ -61,6 +67,26 @@
 
         .content {
             height: 70%;
+        }
+    }
+
+    &.isNotInViewport {
+        .left {
+            left: -50%;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        &.right {
+            .left {
+                left: 50%;
+            }
+    
+            .right {
+                left: -50%;
+            }
         }
     }
 

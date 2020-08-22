@@ -141,9 +141,9 @@ const component = () => (
                 </>
             )}
         />
-        <ServicesSlider services={services} />
+        <ServicesSlider services={services} type="outdoor" />
         <Zamer />
-        <ServiceList services={services} />
+        <ServiceList services={services} type="outdoor" />
         <div
             className={cn({
                 [styles.baloon]: true,

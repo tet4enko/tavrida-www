@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import useIsInViewport from 'use-is-in-viewport';
 import cn from 'classnames';
 import styles from './index.module.scss';
 
@@ -6,13 +7,19 @@ const component = ({
     title, pic, text, className, direction,
 }) => {
     const isTop = Boolean(title);
+
+    const [isInViewport, targetRef] = useIsInViewport({ threshold: 50 });
+
     return (
-        <div className={cn({
-            [styles.Section]: true,
-            [styles.isTop]: isTop,
-            [className]: true,
-            [styles.right]: direction === 'right',
-        })}
+        <div
+            className={cn({
+                [styles.Section]: true,
+                [styles.isTop]: isTop,
+                [className]: true,
+                [styles.right]: direction === 'right',
+                [styles.isNotInViewport]: !isInViewport,
+            })}
+            ref={targetRef}
         >
             <h1 className={cn({ [styles.title]: true })}>{title}</h1>
             <div className={cn({ [styles.content]: true })}>

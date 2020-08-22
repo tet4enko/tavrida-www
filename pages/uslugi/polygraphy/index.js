@@ -86,8 +86,8 @@ const component = () => (
         })}
     >
         <ServiceCaption caption="полиграфия" description="" />
-        <ServicesSlider services={services} />
-        <ServiceList services={services} />
+        <ServicesSlider services={services} type="polygraphy" />
+        <ServiceList services={services} type="polygraphy" />
         <div
             className={cn({
                 [styles.baloon]: true,
