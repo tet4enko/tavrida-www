@@ -3,19 +3,6 @@
 
 	background: rgb(0, 28, 112);
 
-	&.general,
-	&.general .header-content .right .contacts a {
-		color: var(--main-header-color);
-
-		background: none;
-	}
-
-    &.general .header-content .menu .item,
-    &.general .header-content .menu .item:visited,
-    &.general .header-content .menu .item:opened {
-		color: var(--main-header-color);
-	}
-
 	.header-content {
 		display: inline-flex;
 		justify-content: space-between;
@@ -165,5 +152,21 @@
                 }
             }
 		}
+    }
+    
+    &.general,
+	&.general .header-content .right .contacts a {
+		color: var(--main-header-color);
+
+		background: none;
 	}
+
+    &.general .header-content .menu .item,
+    &.general .header-content .menu .item:visited {
+		color: var(--main-header-color);
+    }
+    
+    &.general .header-content .menu .item.opened {
+        color: #fff;
+    }
 }
