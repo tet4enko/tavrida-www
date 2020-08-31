@@ -181,7 +181,7 @@ class Header extends Component {
                                     [styles.item]: true,
                                 })}
                             >
-                                Проекты
+                                Цены
                             </a>
                         </Link>
                         <Link href="/projects">
