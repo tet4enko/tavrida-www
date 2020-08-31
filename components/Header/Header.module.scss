@@ -10,7 +10,9 @@
 		background: none;
 	}
 
-	&.general .header-content .menu .item:visited {
+    &.general .header-content .menu .item,
+    &.general .header-content .menu .item:visited,
+    &.general .header-content .menu .item:opened {
 		color: var(--main-header-color);
 	}
 
@@ -68,7 +70,9 @@
 
 				text-decoration: none;
 
-				cursor: pointer;
+                cursor: pointer;
+                
+                color: #fff;
 
 				&:visited {
 					color: #fff;
