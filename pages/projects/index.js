@@ -27,7 +27,7 @@ import ligaPicFull from './pics/Лига/Лига..png';
 // eslint-disable-next-line import/no-duplicates
 import kkmPicFull from './pics/ККМ/ККМ..png';
 // eslint-disable-next-line import/no-duplicates
-import fundukPicFull from './pics/ККМ/ККМ..png';
+import fundukPicFull from './pics/Фундук/Фундук.jpg';
 
 import clientsPic from './pics/Клиенты.png';
 
