@@ -190,9 +190,15 @@ const component = () => {
                     >
                         ПОДЕЛИСЬ СВОЕЙ ИДЕЕЙ
                     </button>
-                    <button type="button" className={cn({ [styles.price]: true, yellow: true })}>
-                        УЗНАЙ ЦЕНУ
-                    </button>
+                    <a
+                        href="/price#design"
+                        target="blank"
+                        rel="noreferrer"
+                    >
+                        <button type="button" className={cn({ [styles.price]: true, yellow: true })}>
+                            УЗНАЙ ЦЕНУ
+                        </button>
+                    </a>
                 </div>
             </div>
             <Dialog
@@ -238,15 +244,21 @@ const component = () => {
                     >
                         ВЕРНУТЬСЯ
                     </button>
-                    <button
-                        type="button"
-                        className={cn({
-                            yellow: true,
-                            [styles['design-item-dialog-button']]: true,
-                        })}
+                    <a
+                        href="/price#design"
+                        target="blank"
+                        rel="noreferrer"
                     >
-                        УЗНАТЬ ЦЕНУ
-                    </button>
+                        <button
+                            type="button"
+                            className={cn({
+                                yellow: true,
+                                [styles['design-item-dialog-button']]: true,
+                            })}
+                        >
+                            УЗНАТЬ ЦЕНУ
+                        </button>
+                    </a>
                 </div>
                 <img
                     src={uslugi[state.index].pic}

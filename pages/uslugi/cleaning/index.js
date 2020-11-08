@@ -206,16 +206,22 @@ const component = () => (
                 >
                     ОСТАВИТЬ ЗАЯВКУ
                 </button>
-                <button
-                    type="button"
-                    className={cn({
-                        [styles.btn]: true,
-                        [styles.price]: true,
-                        yellow: true,
-                    })}
+                <a
+                    href="/price#cleaning"
+                    target="blank"
+                    rel="noreferrer"
                 >
-                    УЗНАТЬ ЦЕНУ
-                </button>
+                    <button
+                        type="button"
+                        className={cn({
+                            [styles.btn]: true,
+                            [styles.price]: true,
+                            yellow: true,
+                        })}
+                    >
+                        УЗНАТЬ ЦЕНУ
+                    </button>
+                </a>
             </div>
         </div>
         <div className={cn({ [styles['slider-wrapper']]: true })}>

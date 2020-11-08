@@ -61,6 +61,10 @@
 
         margin: 6% 0;
 
+        .title-link {
+            text-decoration-color: var(--main-header-color);
+        }
+
         .title {
             text-align: left;
 
@@ -70,6 +74,16 @@
             font-size: 3em;
 
             margin-bottom: .7em;
+
+            color: var(--main-header-color);
+        }
+
+        .individual {
+            font-size: 2em;
+        }
+
+        .subindividual {
+            font-size: 1.5em;
         }
 
         .subtitle {

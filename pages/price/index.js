@@ -1,5 +1,10 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/anchor-has-content */
+
 import React from 'react';
 import cn from 'classnames';
+import Link from 'next/link';
+
 import styles from './index.module.scss';
 
 import calc from './pics/Калькулятор доработка.png';
@@ -92,11 +97,32 @@ const component = () => (
         ))}
         {prices.map(((section) => (
             <div className={cn({ [styles['price-section']]: true })}>
-                <h2 className={cn({ [styles.title]: true })}>{section.title}</h2>
+                {section.anchor && (
+                    <a name={section.anchor} />
+                )}
+                <Link href={section.pathname}>
+                    <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href={section.pathname}
+                        className={cn({ [styles['title-link']]: true })}
+                    >
+                        <h2 className={cn({ [styles.title]: true })}>{section.title.toUpperCase()}</h2>
+                    </a>
+                </Link>
+                {section.individual && (
+                    <p className={cn({ [styles.individual]: true })}>Требуется индивидуальный просчет.</p>
+                )}
                 {section.items && section.items.map((item) => (
                     <>
-                        <h3 className={cn({ [styles.subtitle]: true })}>{item.title}</h3>
-                        {item.tables.map(getTable)}
+                        {item.anchor && (
+                            <a name={item.anchor} />
+                        )}
+                        <h3 className={cn({ [styles.subtitle]: true })}>{item.title && item.title.toUpperCase()}</h3>
+                        {item.individual && (
+                            <p className={cn({ [styles.subindividual]: true })}>Требуется индивидуальный просчет.</p>
+                        )}
+                        {item.tables && item.tables.map(getTable)}
                     </>
                 ))}
                 {section.tables && section.tables.map(getTable)}

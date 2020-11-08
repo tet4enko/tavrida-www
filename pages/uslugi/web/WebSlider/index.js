@@ -112,15 +112,21 @@ class WebSlider extends Component {
                             ))}
                         </ol>
                         <div className={cn({ [styles.btns]: true })}>
-                            <button
-                                type="button"
-                                className={cn({
-                                    [styles.btn]: true,
-                                    [styles.price]: true,
-                                })}
+                            <a
+                                href="/price#web"
+                                target="blank"
+                                rel="noreferrer"
                             >
-                                УЗНАТЬ ЦЕНУ
-                            </button>
+                                <button
+                                    type="button"
+                                    className={cn({
+                                        [styles.btn]: true,
+                                        [styles.price]: true,
+                                    })}
+                                >
+                                    УЗНАТЬ ЦЕНУ
+                                </button>
+                            </a>
                             <button
                                 type="button"
                                 className={cn({
@@ -213,15 +219,21 @@ class WebSlider extends Component {
                             >
                                 ВЕРНУТЬСЯ
                             </button>
-                            <button
-                                type="button"
-                                className={cn({
-                                    [styles.btn]: true,
-                                    [styles.price]: true,
-                                })}
+                            <a
+                                href="/price#web"
+                                target="blank"
+                                rel="noreferrer"
                             >
-                                УЗНАТЬ ЦЕНУ
-                            </button>
+                                <button
+                                    type="button"
+                                    className={cn({
+                                        [styles.btn]: true,
+                                        [styles.price]: true,
+                                    })}
+                                >
+                                    УЗНАТЬ ЦЕНУ
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -12,7 +12,7 @@ import {
 } from '../../redux/actions/serviceType';
 
 const component = ({
-    services, type, pageSetIsOrderInViewport, serviceTypeSet, serviceSubtypeSet,
+    services, type, anchor, pageSetIsOrderInViewport, serviceTypeSet, serviceSubtypeSet,
 }) => (
     <div className={`${cn({ [styles.ServiceList]: true })} section`}>
         <h2 className={cn({ [styles.caption]: true })}>
@@ -48,15 +48,21 @@ const component = ({
                             />
                         </div>
                         <div className={cn({ [styles.buttons]: true })}>
-                            <button
-                                type="button"
-                                className={cn({
-                                    [styles.get_price]: true,
-                                    [styles.btn]: true,
-                                })}
+                            <a
+                                target="_blank"
+                                rel="noreferrer"
+                                href={`/price#${anchor || `${type}_${service.slug}`}`}
                             >
-                                УЗНАТЬ ЦЕНУ
-                            </button>
+                                <button
+                                    type="button"
+                                    className={cn({
+                                        [styles.get_price]: true,
+                                        [styles.btn]: true,
+                                    })}
+                                >
+                                    УЗНАТЬ ЦЕНУ
+                                </button>
+                            </a>
                             <button
                                 type="button"
                                 className={cn({

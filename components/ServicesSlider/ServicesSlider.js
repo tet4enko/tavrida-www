@@ -14,7 +14,7 @@ import {
 let interval;
 
 const component = ({
-    services, type,
+    services, type, anchor,
     serviceTypeSet, serviceSubtypeSet, pageSetIsOrderInViewport,
 }) => {
     const [index, setIndex] = React.useState(2);
@@ -69,15 +69,21 @@ const component = ({
                         {services[index].shortText}
                     </div>
                     <div className={cn({ [styles.buttons]: true })}>
-                        <button
-                            type="button"
-                            className={cn({
-                                [styles.get_price]: true,
-                                [styles.btn]: true,
-                            })}
+                        <a
+                            target="_blank"
+                            rel="noreferrer"
+                            href={`/price#${anchor || `${type}_${services[index].slug}`}`}
                         >
-                            УЗНАТЬ ЦЕНУ
-                        </button>
+                            <button
+                                type="button"
+                                className={cn({
+                                    [styles.get_price]: true,
+                                    [styles.btn]: true,
+                                })}
+                            >
+                                УЗНАТЬ ЦЕНУ
+                            </button>
+                        </a>
                         <button
                             type="button"
                             className={cn({
