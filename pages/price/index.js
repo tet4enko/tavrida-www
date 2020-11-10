@@ -60,10 +60,10 @@ const getTable = (data) => {
             {data.title && <h3 className={cn({ [styles.tabletitle]: true })}>{data.title}</h3>}
             <table className={cn({ [styles.table]: true })}>
                 <thead>
-                    {data.header[0] instanceof Array
+                    {data.header && (data.header[0] instanceof Array
                         ? data.header.map((headerRow) => (
                             <tr>{headerRow.map(getHeaderCell)}</tr>
-                        )) : <tr>{data.header.map(getHeaderCell)}</tr>}
+                        )) : <tr>{data.header.map(getHeaderCell)}</tr>)}
                 </thead>
                 <tbody>
                     {data.rows.map((row) => (
