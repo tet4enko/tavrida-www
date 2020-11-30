@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import jQuery from 'jquery';
 import cn from 'classnames';
+import { connect } from 'react-redux';
 
 import { TextField } from '@material-ui/core';
 import MainDialog from '../MainDialog/MainDialog';
@@ -9,7 +10,7 @@ import styles from './Zamer.module.scss';
 
 import zamerPic from './Замер.png';
 
-export default () => {
+const Zamer = ({ recaptchaToken }) => {
     const [phone, setPhone] = useState('');
     const [name, setName] = useState('');
     const [comment, setComment] = useState('');
@@ -137,6 +138,7 @@ export default () => {
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
                     />
+                    <input type="hidden" name="recaptcha" value={recaptchaToken} />
                     <button
                         className={cn({
                             yellow: true,
@@ -158,3 +160,7 @@ export default () => {
         </div>
     );
 };
+
+export default connect((state) => ({
+    recaptchaToken: state.page.recaptchaToken,
+}), {})(Zamer);

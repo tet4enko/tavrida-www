@@ -220,6 +220,7 @@ class SuperFooter extends Component {
             serviceSubtypeSet,
             serviceSubtype,
             serviceSubtypes,
+            recaptchaToken,
         } = this.props;
 
         return (
@@ -444,6 +445,7 @@ class SuperFooter extends Component {
                                     ОТПРАВИТЬ
                                 </button>
                             </FormControl>
+                            <input type="hidden" name="recaptcha" value={recaptchaToken} />
                         </form>
                     </div>
                 </div>
@@ -626,6 +628,7 @@ class SuperFooter extends Component {
                             >
                                 Подписаться
                             </button>
+                            <input type="hidden" name="recaptcha" value={recaptchaToken} />
                         </form>
                         <img src={samolet} className={cn({ [styles.samolet]: true })} />
                     </div>
@@ -646,6 +649,7 @@ export default connect((state) => ({
     serviceSubtype: state.serviceType.subtype,
     serviceSubtypes: state.serviceType.subtypes,
     isOrderInViewport: state.page.isOrderInViewport,
+    recaptchaToken: state.page.recaptchaToken,
 }), {
     callbackSetOpened: callbackSetOpenedAction,
     serviceTypeSet: serviceTypeSetAction,

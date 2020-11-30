@@ -21,6 +21,8 @@
 		"next": "9.4.1",
 		"next-images": "^1.4.0",
 		"next-redux-wrapper": "^6.0.2",
+		"node-fetch": "^2.6.1",
+		"pino": "^6.7.0",
 		"react": "16.13.1",
 		"react-dom": "16.13.1",
 		"react-image-gallery": "^1.0.7",

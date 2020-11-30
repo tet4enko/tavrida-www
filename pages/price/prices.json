@@ -2,6 +2,7 @@
     {
         "title": "НАРУЖНАЯ РЕКЛАМА",
         "pathname": "/uslugi/outdoor",
+        "anchor": "outdoor",
         "items": [
             {
                 "title": "ПЕЧАТЬ НА ПЛЕНКЕ",
@@ -180,6 +181,7 @@
     {
         "title": "ПОЛИГРАФИЯ",
         "pathname": "/uslugi/polygraphy",
+        "anchor": "polygraphy",
         "items": [
             {
                 "title": "ВИЗИТКИ",

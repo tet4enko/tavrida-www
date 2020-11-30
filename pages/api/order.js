@@ -1,6 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-const multiparty = require('multiparty');
-const gmail = require('gmail-send');
+import multiparty from 'multiparty';
+import gmail from 'gmail-send';
+
+import logger from './logger';
+import checkRecaptcha from './check-recaptcha';
 
 export default (req, res) => {
     const form = new multiparty.Form({
@@ -9,10 +12,16 @@ export default (req, res) => {
     });
 
     // eslint-disable-next-line consistent-return
-    form.parse(req, (err, fields, files) => {
+    form.parse(req, async (err, fields, files) => {
         if (err) {
             res.statusCode = 400;
             return res.json(err);
+        }
+
+        const isRecaptchaChecked = await checkRecaptcha(fields.recaptcha[0]);
+        if (!isRecaptchaChecked) {
+            res.statusCode = 400;
+            return res.end();
         }
 
         const processedFiles = files.file.reduce((filesRes, current) => {
@@ -31,6 +40,8 @@ export default (req, res) => {
 
         const send = gmail({ ...email, subject: 'Заказ с tavridamedia.com' });
 
+        logger.info(`\n\nЗаказ от '${fields.name}':\n${JSON.stringify(fields)}\n${JSON.stringify(req.headers)}\n`);
+
         send({
             html: `
                 Имя: ${fields.name}<br/>
@@ -42,6 +53,7 @@ export default (req, res) => {
             files: processedFiles,
         }, (error) => {
             if (error) {
+                logger.error(`Ошибка при заказе от '${fields.name}':\n${error.message}`);
                 res.statusCode = 500;
                 res.end();
             } else {

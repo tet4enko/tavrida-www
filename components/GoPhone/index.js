@@ -20,7 +20,10 @@ import {
 } from '../../redux/actions/callback';
 
 const GoPhone = ({
-    isOpened, isProgress, phone, name,
+    recaptchaToken,
+    callback: {
+        isOpened, isProgress, phone, name,
+    },
     callbackSetOpened,
     callbackSetProgress,
     callbackSetName,
@@ -110,6 +113,7 @@ const GoPhone = ({
                     >
                         Перезвоните мне
                     </button>
+                    <input type="hidden" name="recaptcha" value={recaptchaToken} />
                 </form>
                 <span className={cn({ [styles.polytics]: true })}>
                     Нажимая на кнопку, я даю согласие на обработку персональных данных и соглашаюсь с
@@ -122,7 +126,10 @@ const GoPhone = ({
     );
 };
 
-export default connect((state) => state.callback, {
+export default connect((state) => ({
+    callback: state.callback,
+    recaptchaToken: state.page.recaptchaToken,
+}), {
     callbackSetOpened: callbackSetOpenedAction,
     callbackSetProgress: callbackSetProgressAction,
     callbackSetName: callbackSetNameAction,

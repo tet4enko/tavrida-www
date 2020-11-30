@@ -84,11 +84,16 @@ const component = () => (
         {uslugi.map((line, i) => (
             <ul className={cn({ [styles.uslugi]: true, [styles[`line${i}`]]: true })}>
                 {line.map((a) => (
-                    <li className={cn({
-                        [styles.usluga]: true,
-                        [styles[a.color]]: true,
-                        [styles[a.href]]: true,
-                    })}
+                    <li
+                        className={cn({
+                            [styles.usluga]: true,
+                            [styles[a.color]]: true,
+                            [styles[a.href]]: true,
+                        })}
+                        onClick={() => {
+                            document.location.hash = '';
+                            document.location.hash = a.href;
+                        }}
                     >
                         {a.text.toUpperCase()}
                     </li>
