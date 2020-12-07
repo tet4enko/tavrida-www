@@ -8,6 +8,10 @@ const component = ({
 }) => {
     const isTop = Boolean(title);
 
+    const isTouch = (() => {
+        return 'ontouchstart' in window;
+    });
+
     const [isInViewport, targetRef] = useIsInViewport({ threshold: 50 });
 
     return (
@@ -17,7 +21,7 @@ const component = ({
                 [styles.isTop]: isTop,
                 [className]: true,
                 [styles.right]: direction === 'right',
-                [styles.isNotInViewport]: !isInViewport,
+                [styles.isNotInViewport]: false,
             })}
             ref={targetRef}
         >

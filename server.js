@@ -25,7 +25,6 @@ if (dev) {
     const options = {
         key: fs.readFileSync('/etc/certs/ssl.key'),
         cert: fs.readFileSync('/etc/certs/ssl.crt'),
-        ca: [fs.readFileSync('/etc/certs/root.crt')],
     };
     preparedApp.then(() => {
         createServerHTTPS(options, (req, res) => {

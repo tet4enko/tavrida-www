@@ -4,6 +4,7 @@
 	background: rgb(0, 28, 112);
 
 	.header-content {
+        position: relative;
 		display: inline-flex;
 		justify-content: space-between;
 		align-items: center;
@@ -137,7 +138,7 @@
 			display: flex;
 			align-items: center;
 
-			a {
+            .contact {
                 text-decoration: none;
                 color: #fff;
 
@@ -151,9 +152,15 @@
                     height: 100%;
                 }
             }
-		}
+        }
+
+        .touchServices {
+            display: none;
+
+            transition: height .5s ease-out;
+        }
     }
-    
+
     &.general,
 	&.general .header-content .right .contacts a {
 		color: var(--main-header-color);
@@ -165,8 +172,105 @@
     &.general .header-content .menu .item:visited {
 		color: var(--main-header-color);
     }
-    
+
     &.general .header-content .menu .item.opened {
         color: #fff;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .Header .header-content {
+        flex-direction: column;
+
+        height: initial;
+
+        .left {
+            z-index: 1;
+
+            img {
+                width: 100px !important;
+                height: 100px !important;
+            }
+
+            .label {
+                padding: 25px;
+
+                .top {
+                    font-size: 50px;
+                }
+
+                .bottom {
+                    font-size: 18px;
+                }
+            }
+        }
+
+        .menu {
+            width: 100%;
+
+            font-size: 50px;
+
+            .item {
+                flex: 1;
+
+                padding: 34px 0;
+
+                &.opened {
+                    background: none;
+
+                    .popup {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .right {
+            position: absolute;
+            top: 37px;
+
+            display: flex;
+            justify-content: space-between;
+
+            width: calc(100% - 180px);
+
+            .contact {
+                height: 100px;
+            }
+        }
+
+        .touchServices {
+            display: block;
+            align-self: flex-start;
+
+            height: 0;
+            margin: 0 0 0 100px;
+
+            text-align: left;
+
+            overflow: hidden;
+
+            &.opened {
+                height: 504px;
+            }
+
+            .item {
+                display: inline-block;
+
+                padding: 10px;
+
+                font-size: 43px;
+                text-decoration: none;
+
+                color: #fff;
+            }
+        }
+    }
+
+    .Header.general {
+        .header-content .touchServices .item,
+        .header-content .menu .item.opened {
+            color: var(--main-header-color);
+        }
     }
 }

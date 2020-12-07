@@ -82,6 +82,12 @@ class Header extends Component {
         }));
     }
 
+    onServicesTouchStart() {
+        this.setState((prevState) => ({
+            servicesOpened: !prevState.servicesOpened,
+        }));
+    }
+
     render() {
         const { general } = this.props;
         const { servicesOpened } = this.state;
@@ -136,6 +142,7 @@ class Header extends Component {
                                 onMouseOut={() => this.onServivesMouseOut()}
                                 onFocus={() => this.onServivesMouseOver()}
                                 onBlur={() => this.onServivesMouseOut()}
+                                onTouchStart={() => this.onServicesTouchStart()}
                             >
                                 Услуги
                             </span>
@@ -212,7 +219,7 @@ class Header extends Component {
                     >
                         <a
                             className={cn({
-                                [styles.phone]: true,
+                                [styles.contact]: true,
                             })}
                             itemProp="telephone"
                             href="tel:+79780790979 "
@@ -223,7 +230,7 @@ class Header extends Component {
                         </a>
                         <a
                             className={cn({
-                                [styles.email]: true,
+                                [styles.contact]: true,
                             })}
                             itemProp="email"
                             target="_blank"
@@ -235,6 +242,35 @@ class Header extends Component {
                             />
                         </a>
                     </div>
+                    <ul
+                        className={cn({
+                            [styles.touchServices]: true,
+                            [styles.opened]: servicesOpened,
+                        })}
+                    >
+                        {uslugi.map((item, i) => {
+                            const href = `/uslugi/${item.href}`;
+
+                            return (
+                                <li>
+                                    <Link
+                                        href={href}
+                                        key={i}
+                                    >
+                                        <a
+                                            className={cn({
+                                                [styles.item]: true,
+                                            })}
+                                            href={href}
+                                            onClick={() => this.setState({ servicesOpened: false })}
+                                        >
+                                            {item.text}
+                                        </a>
+                                    </Link>
+                                </li>
+                            );
+                        })}
+                    </ul>
                 </div>
             </div>
         );

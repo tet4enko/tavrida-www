@@ -61,3 +61,13 @@
         }
     }
 }
+
+@media screen and (max-width: 600px) {
+    .Team {
+        margin-top: 0;
+    }
+
+    .Team .examples .exampleImg {
+        transition: none;
+    }
+}

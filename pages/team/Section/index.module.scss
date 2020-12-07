@@ -145,3 +145,10 @@
         }
     }
 }
+
+@media screen and (max-width: 600px) {
+    .Section .content .left,
+    .Section .content .right {
+        transition: none;
+    }
+}
