@@ -13,11 +13,9 @@ const component = ({
         const script = document.createElement('script');
         script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_TOKEN}`;
         script.onload = () => {
-            pageSetRecaptchaToken('ggwp');
             grecaptcha.ready(() => {
                 grecaptcha.execute(RECAPTCHA_TOKEN, { action: 'demo' })
                     .then((token) => {
-                        console.log(token);
                         pageSetRecaptchaToken(token);
                     });
             });
@@ -25,7 +23,7 @@ const component = ({
         document.body.appendChild(script);
     }, []);
 
-    return <span>ggwp</span>;
+    return null;
 };
 
 export default connect(null, {

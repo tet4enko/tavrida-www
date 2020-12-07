@@ -271,6 +271,7 @@ class SuperFooter extends Component {
                                         root: cn({
                                             white: true,
                                         }),
+                                        touch: true,
                                     }}
                                     fullWidth
                                     name="name"
@@ -383,7 +384,7 @@ class SuperFooter extends Component {
                                     name="comment"
                                 />
                             </FormControl>
-                            <FormControl fullWidth className={cn({ [styles.control]: true })}>
+                            <FormControl fullWidth className={cn({ [styles.control]: true, [styles.upload1]: true })}>
                                 <input
                                     style={{ display: 'none' }}
                                     id="raised-button-file"
@@ -454,87 +455,83 @@ class SuperFooter extends Component {
                     width="1200px"
                     height="560px"
                 >
-                    <div className={cn({ [styles.copyright]: true })}>
-                        © 2015-2020 Рекламное агенство «ТАВРИДА МЕДИА» – реклама
-                        в Симферополе и другие городах Крыма
-                    </div>
+                    <div className={cn({ [styles.grid]: true })}>
+                        {rabotniki.map((item, i) => (
+                            <div
+                                key={i}
+                                className={cn({
+                                    [styles.col]: true,
+                                    [styles.coltop]: true,
+                                    [styles[item.side]]: true,
+                                })}
+                            >
+                                {rabotnik(
+                                    item.icon,
+                                    item.position,
+                                    item.tel1,
+                                    item.tel2,
+                                )}
+                            </div>
+                        ))}
 
-                    {rabotniki.map((item, i) => (
                         <div
-                            key={i}
                             className={cn({
                                 [styles.col]: true,
-                                [styles.coltop]: true,
-                                [styles[item.side]]: true,
+                                [styles.left]: true,
+                                [styles.colbottom]: true,
+                                [styles.mail]: true,
                             })}
                         >
-                            {rabotnik(
-                                item.icon,
-                                item.position,
-                                item.tel1,
-                                item.tel2,
-                            )}
-                        </div>
-                    ))}
-
-                    <div
-                        className={cn({
-                            [styles.col]: true,
-                            [styles.left]: true,
-                            [styles.colbottom]: true,
-                            [styles.mail]: true,
-                        })}
-                    >
-                        <img src={mail} height={iconSize} />
-                        <div>
-                            <a
-                                target="_blank"
-                                rel="noreferrer"
-                                href="mailto:tavrida.media@mail.ru"
-                            >
-                                <span>tavrida.media@mail.ru</span>
-                            </a>
-                            <div
-                                className={cn({ [styles.subscription]: true })}
-                                onClick={() => this.setState({ subscribeIsOpen: true })}
-                                role="button"
-                            >
-                                Подписаться на рассылку
+                            <img src={mail} height={iconSize} />
+                            <div>
+                                <a
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    href="mailto:tavrida.media@mail.ru"
+                                >
+                                    <span>tavrida.media@mail.ru</span>
+                                </a>
+                                <div
+                                    className={cn({ [styles.subscription]: true })}
+                                    onClick={() => this.setState({ subscribeIsOpen: true })}
+                                    role="button"
+                                >
+                                    Подписаться на рассылку
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div
-                        className={cn({
-                            [styles.col]: true,
-                            [styles.center]: true,
-                            [styles.colbottom]: true,
-                            [styles.time]: true,
-                        })}
-                    >
-                        <img src={time} height={iconSize} />
-                        <span className={cn({ [styles.text]: true })}>
-                            10:00 - 19:00 / Пн-Пт
-                        </span>
-                    </div>
-
-                    <div
-                        className={cn({
-                            [styles.col]: true,
-                            [styles.right]: true,
-                            [styles.colbottom]: true,
-                            [styles.callback]: true,
-                        })}
-                    >
-                        <button
-                            className={cn({ [styles.btn]: true })}
-                            type="button"
-                            onClick={() => callbackSetOpened(true)}
+                        <div
+                            className={cn({
+                                [styles.col]: true,
+                                [styles.center]: true,
+                                [styles.colbottom]: true,
+                                [styles.time]: true,
+                            })}
                         >
-                            ПЕРЕЗВОНИТЕ МНЕ
-                        </button>
-                    </div>
+                            <img src={time} height={iconSize} />
+                            <span className={cn({ [styles.text]: true })}>
+                                10:00 - 19:00 / Пн-Пт
+                            </span>
+                        </div>
 
+                        <div
+                            className={cn({
+                                [styles.col]: true,
+                                [styles.right]: true,
+                                [styles.colbottom]: true,
+                                [styles.callback]: true,
+                            })}
+                        >
+                            <button
+                                className={cn({ [styles.btn]: true })}
+                                type="button"
+                                onClick={() => callbackSetOpened(true)}
+                            >
+                                ПЕРЕЗВОНИТЕ МНЕ
+                            </button>
+                        </div>
+                    </div>
                     <div
                         className={cn({ [styles.social]: true })}
                         id="social-links"
@@ -583,6 +580,10 @@ class SuperFooter extends Component {
                                 />
                             </a>
                         </div>
+                    </div>
+                    <div className={cn({ [styles.copyright]: true })}>
+                        © 2015-2020 Рекламное агенство «ТАВРИДА МЕДИА» – реклама
+                        в Симферополе и другие городах Крыма
                     </div>
                 </div>
                 <MainDialog

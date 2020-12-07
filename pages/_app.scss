@@ -280,3 +280,30 @@ button {
 	font-family: "GlebastaDays";
 	src: url(./../public/fonts/Days.otf) format("opentype");
 }
+
+@media screen and (max-width: 600px) {
+    label + .MuiInput-formControl {
+        margin-top: 45px !important;
+    }
+
+    .MuiFormControl-root .MuiInput-formControl,
+    .MuiFormControl-root .MuiFormLabel-root {
+        font-size: 45px !important;
+    }
+
+    .MuiFormControl-root .MuiFormControlLabel-label {
+        font-size: 28px !important;
+    }
+
+    .MuiFormControl-root .MuiSelect-icon {
+        top: calc(50% - 72px) !important;
+    }
+
+    .MuiFormControl-root .MuiSvgIcon-root {
+        font-size: 3em !important;
+    }
+
+    .MuiFormControl-root {
+        margin-bottom: 25px !important;
+    }
+}
