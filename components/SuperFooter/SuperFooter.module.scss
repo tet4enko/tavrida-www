@@ -354,4 +354,59 @@
         height: 120px !important;
         font-size: 65px !important;
     }
+
+    .SuperFooter .main .grid {
+        grid-template: repeat(3, auto)/repeat(2, 40%);
+        justify-content: center;
+
+        .col {
+            margin-top: 0 !important;
+            margin-bottom: 30px !important;
+        }
+
+        .tel {
+            font-size: 35px !important;
+        }
+
+        .position,
+        .text {
+            font-size: 27px !important;
+        }
+
+        .btn {
+            font-size: 40px !important;
+            padding: 18px 34px !important;
+        }
+
+        .mail {
+            a {
+                font-size: 27px !important;
+            }
+
+            .subscription {
+                font-size: 20px !important;
+            }
+        }
+    }
+
+    .SuperFooter .social {
+        .text {
+            font-size: 50px !important;
+            margin-bottom: 20px !important;
+            display: block;
+        }
+
+        a {
+            margin: 0 30px !important;
+        }
+
+        img {
+            width: 70px !important;
+            height: 70px !important;
+        }
+    }
+
+    .SuperFooter .copyright {
+        margin: 35px auto !important;
+    }
 }
