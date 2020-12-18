@@ -82,6 +82,7 @@ const GeneralPage = () => (
             <meta property="og:description" content="Рекламное агентство полного цикла Таврида Медиа поможет Вам привлечь новых клиентов. Наружная реклама, сувенирная продукция, полиграфия и т.д." />
             <meta property="og:url" content="https://tavrida-media.ru/" />
             <meta property="og:site_name" content="Рекламное агентство Таврида Медиа" />
+            <meta name="yandex-verification" content="609fdfe049a3e380" />
         </Head>
     </div>
 );
