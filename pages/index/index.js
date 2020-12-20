@@ -83,6 +83,7 @@ const GeneralPage = () => (
             <meta property="og:url" content="https://tavrida-media.ru/" />
             <meta property="og:site_name" content="Рекламное агентство Таврида Медиа" />
             <meta name="yandex-verification" content="609fdfe049a3e380" />
+            <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         </Head>
     </div>
 );
